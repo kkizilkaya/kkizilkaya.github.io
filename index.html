@@ -5,6 +5,160 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modern Responsive Layout</title>
+  <style>
+    /* 1. RESET & BASE STYLES */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: system-ui, sans-serif;
+      line-height: 1.6;
+      background-color: #f4f4f9;
+      color: #333;
+    }
+
+    /* 2. GRID CONTAINER */
+    .layout-container {
+      display: grid;
+      grid-template-columns: 250px 1fr; /* Sidebar is 250px, Content takes the rest */
+      grid-template-rows: auto 1fr auto;  /* Header/Footer auto-size, Middle takes rest */
+      grid-template-areas: 
+        "header header"
+        "sidebar main"
+        "footer footer";
+      min-height: 100vh; /* Forces layout to fill the full screen height */
+    }
+
+    /* 3. ASSIGNING GRID AREAS & STYLES */
+    .header {
+      grid-area: header;
+      background-color: #1e293b;
+      color: white;
+      padding: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+    }
+    
+    .nav-links a {
+      color: #cbd5e1;
+      text-decoration: none;
+    }
+
+    .sidebar {
+      grid-area: sidebar;
+      background-color: #ffffff;
+      border-right: 1px solid #e2e8f0;
+      padding: 2rem;
+    }
+
+    .sidebar ul {
+      list-style: none;
+    }
+
+    .sidebar li {
+      margin-bottom: 1rem;
+    }
+
+    .sidebar a {
+      color: #475569;
+      text-decoration: none;
+    }
+
+    .main-content {
+      grid-area: main;
+      padding: 2.5rem;
+      background-color: #f8fafc;
+    }
+
+    .footer {
+      grid-area: footer;
+      background-color: #0f172a;
+      color: #94a3b8;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+
+    /* 4. RESPONSIVE DESIGN (MOBILE FIX) */
+    @media (max-width: 768px) {
+      .layout-container {
+        grid-template-columns: 1fr; /* Stack into a single column */
+        grid-template-areas: 
+          "header"
+          "sidebar"
+          "main"
+          "footer";
+      }
+      
+      .sidebar {
+        border-right: none;
+        border-bottom: 1px solid #e2e8f0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="layout-container">
+    
+    <header class="header">
+      <h1>My Logo</h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <aside class="sidebar">
+      <h3>Dashboard</h3>
+      <br>
+      <ul>
+        <li><a href="#">📊 Analytics</a></li>
+        <li><a href="#">👤 Profile</a></li>
+        <li><a href="#">⚙️ Settings</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <h2>Welcome to the Main Content Area</h2>
+      <p>This layout is built using modern CSS Grid. The sidebar stays fixed at 250px on wider screens while the main content stretches to take up all remaining horizontal space.</p>
+      <br>
+      <p>If you resize your browser window below 768px, the media query will kick in and stack the sidebar on top of the main content for mobile optimization.</p>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; 2026 Your Company. All rights reserved.</p>
+    </footer>
+
+  </div>
+
+</body>
+</html>
+
+
+
+
+
+
+  
 <head>
     <title>My GitHub Website</title>
 </head>
