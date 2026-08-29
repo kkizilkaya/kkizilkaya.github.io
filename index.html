@@ -1,169 +1,176 @@
 <!DOCTYPE html>
-<html>
 <!-- HTML File -->
 <head>
   <link rel="stylesheet" href="styles.css">
 </head>
 
-<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Modern Responsive Layout</title>
-  <style>
-    /* 1. RESET & BASE STYLES */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    body {
-      font-family: system-ui, sans-serif;
-      line-height: 1.6;
-      background-color: #f4f4f9;
-      color: #333;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Professional Website</title>
+    <style>
+        /* Modern Minimalist CSS Styling */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-    /* 2. GRID CONTAINER */
-    .layout-container {
-      display: grid;
-      grid-template-columns: 250px 1fr; /* Sidebar is 250px, Content takes the rest */
-      grid-template-rows: auto 1fr auto;  /* Header/Footer auto-size, Middle takes rest */
-      grid-template-areas: 
-        "header header"
-        "sidebar main"
-        "footer footer";
-      min-height: 100vh; /* Forces layout to fill the full screen height */
-    }
+        body {
+            background-color: #f8f9fa;
+            color: #333333;
+            line-height: 1.6;
+        }
 
-    /* 3. ASSIGNING GRID AREAS & STYLES */
-    .header {
-      grid-area: header;
-      background-color: #1e293b;
-      color: white;
-      padding: 1.5rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    
-    .nav-links {
-      display: flex;
-      list-style: none;
-      gap: 1.5rem;
-    }
-    
-    .nav-links a {
-      color: #cbd5e1;
-      text-decoration: none;
-    }
+        header {
+            background-color: #ffffff;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
 
-    .sidebar {
-      grid-area: sidebar;
-      background-color: #ffffff;
-      border-right: 1px solid #e2e8f0;
-      padding: 2rem;
-    }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-    .sidebar ul {
-      list-style: none;
-    }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #0070f3;
+        }
 
-    .sidebar li {
-      margin-bottom: 1rem;
-    }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
 
-    .sidebar a {
-      color: #475569;
-      text-decoration: none;
-    }
+        .nav-links a {
+            text-decoration: none;
+            color: #555555;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
 
-    .main-content {
-      grid-area: main;
-      padding: 2.5rem;
-      background-color: #f8fafc;
-    }
+        .nav-links a:hover {
+            color: #0070f3;
+        }
 
-    .footer {
-      grid-area: footer;
-      background-color: #0f172a;
-      color: #94a3b8;
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-    }
+        .hero {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
 
-    /* 4. RESPONSIVE DESIGN (MOBILE FIX) */
-    @media (max-width: 768px) {
-      .layout-container {
-        grid-template-columns: 1fr; /* Stack into a single column */
-        grid-template-areas: 
-          "header"
-          "sidebar"
-          "main"
-          "footer";
-      }
-      
-      .sidebar {
-        border-right: none;
-        border-bottom: 1px solid #e2e8f0;
-      }
-    }
-  </style>
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #111111;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #666666;
+            max-width: 600px;
+            margin: 0 auto 2rem auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #0070f3;
+            color: #ffffff;
+            padding: 0.8rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+
+        .cta-button:hover {
+            background-color: #0051b3;
+        }
+
+        .features {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .card h3 {
+            margin-bottom: 0.5rem;
+            color: #111111;
+        }
+
+        footer {
+            background-color: #ffffff;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+            border-top: 1px solid #eaeaea;
+            color: #888888;
+            font-size: 0.9rem;
+        }
+    </style>
 </head>
 <body>
 
-  <div class="layout-container">
-    
-    <header class="header">
-      <h1>My Logo</h1>
-      <nav>
-        <ul class="nav-links">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-      </nav>
+    <header>
+        <nav>
+            <div class="logo">MyBrand</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <aside class="sidebar">
-      <h3>Dashboard</h3>
-      <br>
-      <ul>
-        <li><a href="#">📊 Analytics</a></li>
-        <li><a href="#">👤 Profile</a></li>
-        <li><a href="#">⚙️ Settings</a></li>
-      </ul>
-    </aside>
+    <main>
+        <section class="hero" id="home">
+            <h1>Build Something Amazing</h1>
+            <p>Welcome to your brand new website template. It is fully responsive, lightweight, and completely customizable.</p>
+            <a href="#contact" class="cta-button">Get Started</a>
+        </section>
 
-    <main class="main-content">
-      <h2>Welcome to the Main Content Area</h2>
-      <p>This layout is built using modern CSS Grid. The sidebar stays fixed at 250px on wider screens while the main content stretches to take up all remaining horizontal space.</p>
-      <br>
-      <p>If you resize your browser window below 768px, the media query will kick in and stack the sidebar on top of the main content for mobile optimization.</p>
+        <section class="features" id="features">
+            <div class="card">
+                <h3>Clean Code</h3>
+                <p>Built using standard, semantic HTML5 tags for optimized performance and SEO structure.</p>
+            </div>
+            <div class="card">
+                <h3>Responsive Design</h3>
+                <p>Looks gorgeous on desktop viewports, mobile screens, tablets, and everything in between.</p>
+            </div>
+            <div class="card">
+                <h3>Easy Customization</h3>
+                <p>Modify the embedded internal CSS grid layout quickly to match your brand styling perfectly.</p>
+            </div>
+        </section>
     </main>
 
-    <footer class="footer">
-      <p>&copy; 2026 Your Company. All rights reserved.</p>
+    <footer>
+        <p>&copy; 2026 MyBrand. All rights reserved.</p>
     </footer>
 
-  </div>
-
-</body>
-</html>
-
-
-
-
-
-
-  
-<head>
-    <title>My GitHub Website</title>
-</head>
-<body>
-    <h1>Hello World!</h1>
-    <p>Welcome to my brand new website hosted on GitHub Pages.</p>
 </body>
 </html>
