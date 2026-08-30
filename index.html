@@ -1,176 +1,53 @@
 <!DOCTYPE html>
-<!-- HTML File -->
-<head>
-  <link rel="stylesheet" href="styles.css">
-</head>
-
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Professional Website</title>
-    <style>
-        /* Modern Minimalist CSS Styling */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background-color: #f8f9fa;
-            color: #333333;
-            line-height: 1.6;
-        }
-
-        header {
-            background-color: #ffffff;
-            padding: 1rem 2rem;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #0070f3;
-        }
-
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 1.5rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #555555;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-
-        .nav-links a:hover {
-            color: #0070f3;
-        }
-
-        .hero {
-            max-width: 1200px;
-            margin: 4rem auto;
-            padding: 0 2rem;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: #111111;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            color: #666666;
-            max-width: 600px;
-            margin: 0 auto 2rem auto;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background-color: #0070f3;
-            color: #ffffff;
-            padding: 0.8rem 2rem;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background 0.2s;
-        }
-
-        .cta-button:hover {
-            background-color: #0051b3;
-        }
-
-        .features {
-            max-width: 1200px;
-            margin: 4rem auto;
-            padding: 0 2rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .card {
-            background: #ffffff;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        }
-
-        .card h3 {
-            margin-bottom: 0.5rem;
-            color: #111111;
-        }
-
-        footer {
-            background-color: #ffffff;
-            text-align: center;
-            padding: 2rem;
-            margin-top: 4rem;
-            border-top: 1px solid #eaeaea;
-            color: #888888;
-            font-size: 0.9rem;
-        }
-    </style>
-</head>
+<html>
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
 <body>
 
-    <header>
-        <nav>
-            <div class="logo">MyBrand</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+<div class="w3-container">
+  <h2>Closable Tabs</h2>
+  <p>To close a tab, add onclick="this.parentElement.style.display='none'" to an element inside the tab container.</p>
+  <p><strong>Tip:</strong> The w3-button class can be used to style the close button (x):</p>
+</div>
 
-    <main>
-        <section class="hero" id="home">
-            <h1>Build Something Amazing</h1>
-            <p>Welcome to your brand new website template. It is fully responsive, lightweight, and completely customizable.</p>
-            <a href="#contact" class="cta-button">Get Started</a>
-        </section>
+<div class="w3-bar w3-black">
+  <button class="w3-bar-item w3-button" onclick="openCity('London')">London</button>
+  <button class="w3-bar-item w3-button" onclick="openCity('Paris')">Paris</button>
+  <button class="w3-bar-item w3-button" onclick="openCity('Tokyo')">Tokyo</button>
+</div>
 
-        <section class="features" id="features">
-            <div class="card">
-                <h3>Clean Code</h3>
-                <p>Built using standard, semantic HTML5 tags for optimized performance and SEO structure.</p>
-            </div>
-            <div class="card">
-                <h3>Responsive Design</h3>
-                <p>Looks gorgeous on desktop viewports, mobile screens, tablets, and everything in between.</p>
-            </div>
-            <div class="card">
-                <h3>Easy Customization</h3>
-                <p>Modify the embedded internal CSS grid layout quickly to match your brand styling perfectly.</p>
-            </div>
-        </section>
-    </main>
+<div id="London" class="w3-container w3-display-container city">
+  <span onclick="this.parentElement.style.display='none'"
+  class="w3-button w3-large w3-display-topright">&times;</span>
+  <h2>London</h2>
+  <p>London is the capital city of England.</p>
+</div>
 
-    <footer>
-        <p>&copy; 2026 MyBrand. All rights reserved.</p>
-    </footer>
+<div id="Paris" class="w3-container w3-display-container city" style="display:none">
+  <span onclick="this.parentElement.style.display='none'"
+  class="w3-button w3-large w3-display-topright">&times;</span>
+  <h2>Paris</h2>
+  <p>Paris is the capital of France.</p> 
+</div>
+
+<div id="Tokyo" class="w3-container w3-display-container city" style="display:none">
+  <span onclick="this.parentElement.style.display='none'"
+  class="w3-button w3-large w3-display-topright">&times;</span>
+  <h2>Tokyo</h2>
+  <p>Tokyo is the capital of Japan.</p>
+</div>
+
+<script>
+function openCity(cityName) {
+  var i;
+  var x = document.getElementsByClassName("city");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  document.getElementById(cityName).style.display = "block";  
+}
+</script>
 
 </body>
 </html>
