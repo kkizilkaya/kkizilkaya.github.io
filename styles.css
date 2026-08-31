@@ -3,3 +3,8 @@ p {
   color: blue;
   font-size: 16px;
 }
+a:link {
+  color: blue;
+  background-color: transparent;
+  text-decoration: none;
+}
