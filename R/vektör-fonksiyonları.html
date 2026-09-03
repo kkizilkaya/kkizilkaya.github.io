@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Bölüm 5 Vektör Fonksiyonları | R Programı</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.47 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Bölüm 5 Vektör Fonksiyonları | R Programı" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Bölüm 5 Vektör Fonksiyonları | R Programı" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Prof. Dr. Kadir KIZILKAYA" />
+
+
+<meta name="date" content="2026-09-03" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="matrisler-1.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">R Program</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="r-programının-kurulumu-ve-genel-özellikleri.html"><a href="r-programının-kurulumu-ve-genel-özellikleri.html"><i class="fa fa-check"></i><b>1</b> R Programının Kurulumu ve Genel Özellikleri</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="r-programının-kurulumu-ve-genel-özellikleri.html"><a href="r-programının-kurulumu-ve-genel-özellikleri.html#r-program%C4%B1n%C4%B1n-indirilmesi-ve-kurulmas%C4%B1"><i class="fa fa-check"></i><b>1.1</b> R Programının İndirilmesi ve Kurulması</a></li>
+<li class="chapter" data-level="1.2" data-path="r-programının-kurulumu-ve-genel-özellikleri.html"><a href="r-programının-kurulumu-ve-genel-özellikleri.html#r-program%C4%B1n%C4%B1-ba%C5%9Flatmak-ve-kapatmak"><i class="fa fa-check"></i><b>1.2</b> R Programını Başlatmak ve Kapatmak</a></li>
+<li class="chapter" data-level="1.3" data-path="r-programının-kurulumu-ve-genel-özellikleri.html"><a href="r-programının-kurulumu-ve-genel-özellikleri.html#paket-kurulumu"><i class="fa fa-check"></i><b>1.3</b> Paket Kurulumu</a></li>
+<li class="chapter" data-level="1.4" data-path="r-programının-kurulumu-ve-genel-özellikleri.html"><a href="r-programının-kurulumu-ve-genel-özellikleri.html#paket-y%C3%BCkleme"><i class="fa fa-check"></i><b>1.4</b> Paket Yükleme</a></li>
+<li class="chapter" data-level="1.5" data-path="r-programının-kurulumu-ve-genel-özellikleri.html"><a href="r-programının-kurulumu-ve-genel-özellikleri.html#paketler"><i class="fa fa-check"></i><b>1.5</b> Paketler</a></li>
+<li class="chapter" data-level="1.6" data-path="r-programının-kurulumu-ve-genel-özellikleri.html"><a href="r-programının-kurulumu-ve-genel-özellikleri.html#betik-script-olu%C5%9Fturma"><i class="fa fa-check"></i><b>1.6</b> Betik (Script) Oluşturma</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html"><i class="fa fa-check"></i><b>2</b> Genel Kurallar ve Komutlar</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#r-program%C4%B1nda-ge%C3%A7erli-de%C4%9Fi%C5%9Fken-isimleri"><i class="fa fa-check"></i><b>2.1</b> R Programında Geçerli Değişken İsimleri</a></li>
+<li class="chapter" data-level="2.2" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#bo%C5%9Fluk"><i class="fa fa-check"></i><b>2.2</b> Boşluk</a></li>
+<li class="chapter" data-level="2.3" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#%C3%A7al%C4%B1%C5%9Fma-dizininin-belirlenmesi-getwd"><i class="fa fa-check"></i><b>2.3</b> Çalışma Dizininin Belirlenmesi <code>getwd()</code></a></li>
+<li class="chapter" data-level="2.4" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#%C3%A7al%C4%B1%C5%9Fma-dizininin-de%C4%9Fi%C5%9Ftirilmesi-setwd"><i class="fa fa-check"></i><b>2.4</b> Çalışma Dizininin Değiştirilmesi <code>setwd()</code></a></li>
+<li class="chapter" data-level="2.5" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#%C3%A7al%C4%B1%C5%9Fma-dizininde-dizin-ve-dosyalar%C4%B1n-listelenmesi-dir-veya-list.files"><i class="fa fa-check"></i><b>2.5</b> Çalışma Dizininde Dizin ve Dosyaların Listelenmesi <code>dir()</code> veya <code>list.files()</code></a></li>
+<li class="chapter" data-level="2.6" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#%C3%A7al%C4%B1%C5%9Fma-dizininde-dizin-olu%C5%9Fturma-dir.create"><i class="fa fa-check"></i><b>2.6</b> Çalışma Dizininde Dizin Oluşturma <code>dir.create()</code></a></li>
+<li class="chapter" data-level="2.7" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#%C3%A7al%C4%B1%C5%9Fma-alan%C4%B1nda-olu%C5%9Fturulan-nesnelerin-veya-de%C4%9Fi%C5%9Fkenlerin-listelenmesi-ls-veya-objects"><i class="fa fa-check"></i><b>2.7</b> Çalışma Alanında Oluşturulan Nesnelerin veya Değişkenlerin Listelenmesi <code>ls()</code> veya <code>objects()</code></a></li>
+<li class="chapter" data-level="2.8" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#%C3%A7al%C4%B1%C5%9Fma-alan%C4%B1n%C4%B1n-workspace-kaydedilmesi"><i class="fa fa-check"></i><b>2.8</b> Çalışma Alanının (Workspace) Kaydedilmesi</a></li>
+<li class="chapter" data-level="2.9" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#de%C4%9Fi%C5%9Fkenlerin-silinmesi"><i class="fa fa-check"></i><b>2.9</b> Değişkenlerin Silinmesi</a></li>
+<li class="chapter" data-level="2.10" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#operat%C3%B6rler"><i class="fa fa-check"></i><b>2.10</b> Operatörler</a>
+<ul>
+<li class="chapter" data-level="2.10.1" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#atama-operat%C3%B6rleri"><i class="fa fa-check"></i><b>2.10.1</b> Atama Operatörleri</a></li>
+<li class="chapter" data-level="2.10.2" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#aritmetik-operat%C3%B6rler"><i class="fa fa-check"></i><b>2.10.2</b> Aritmetik Operatörler</a></li>
+<li class="chapter" data-level="2.10.3" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#kar%C5%9F%C4%B1la%C5%9Ft%C4%B1rma-operat%C3%B6rleri"><i class="fa fa-check"></i><b>2.10.3</b> Karşılaştırma Operatörleri</a></li>
+<li class="chapter" data-level="2.10.4" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#mant%C4%B1k-operat%C3%B6rleri"><i class="fa fa-check"></i><b>2.10.4</b> Mantık Operatörleri</a></li>
+</ul></li>
+<li class="chapter" data-level="2.11" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#eksik-g%C3%B6zlem-na"><i class="fa fa-check"></i><b>2.11</b> Eksik Gözlem (<code>NA</code>)</a></li>
+<li class="chapter" data-level="2.12" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#%C3%B6zel-de%C4%9Ferler-inf-nan-null"><i class="fa fa-check"></i><b>2.12</b> Özel Değerler (<code>Inf</code>, <code>NaN</code>, <code>Null</code>)</a></li>
+<li class="chapter" data-level="2.13" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#seq-sequence-komutu"><i class="fa fa-check"></i><b>2.13</b> <code>seq()</code> (<code>Sequence</code>) Komutu</a></li>
+<li class="chapter" data-level="2.14" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#rep-replicate-komutu"><i class="fa fa-check"></i><b>2.14</b> <code>rep()</code> (<code>Replicate</code>) Komutu</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="veri-yapıları-ve-veri-tipleri.html"><a href="veri-yapıları-ve-veri-tipleri.html"><i class="fa fa-check"></i><b>3</b> Veri Yapıları ve Veri Tipleri</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="veri-yapıları-ve-veri-tipleri.html"><a href="veri-yapıları-ve-veri-tipleri.html#veri-tipi"><i class="fa fa-check"></i><b>3.1</b> Veri Tipi</a></li>
+<li class="chapter" data-level="3.2" data-path="veri-yapıları-ve-veri-tipleri.html"><a href="veri-yapıları-ve-veri-tipleri.html#veri-yap%C4%B1lar%C4%B1"><i class="fa fa-check"></i><b>3.2</b> Veri Yapıları</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="veri-yapıları-ve-veri-tipleri.html"><a href="veri-yapıları-ve-veri-tipleri.html#vekt%C3%B6rler"><i class="fa fa-check"></i><b>3.2.1</b> Vektörler</a></li>
+<li class="chapter" data-level="3.2.2" data-path="veri-yapıları-ve-veri-tipleri.html"><a href="veri-yapıları-ve-veri-tipleri.html#matrisler"><i class="fa fa-check"></i><b>3.2.2</b> Matrisler</a></li>
+<li class="chapter" data-level="3.2.3" data-path="veri-yapıları-ve-veri-tipleri.html"><a href="veri-yapıları-ve-veri-tipleri.html#diziler"><i class="fa fa-check"></i><b>3.2.3</b> Diziler</a></li>
+<li class="chapter" data-level="3.2.4" data-path="veri-yapıları-ve-veri-tipleri.html"><a href="veri-yapıları-ve-veri-tipleri.html#listeler"><i class="fa fa-check"></i><b>3.2.4</b> Listeler</a></li>
+<li class="chapter" data-level="3.2.5" data-path="veri-yapıları-ve-veri-tipleri.html"><a href="veri-yapıları-ve-veri-tipleri.html#fakt%C3%B6rler"><i class="fa fa-check"></i><b>3.2.5</b> Faktörler</a></li>
+<li class="chapter" data-level="3.2.6" data-path="veri-yapıları-ve-veri-tipleri.html"><a href="veri-yapıları-ve-veri-tipleri.html#veri-%C3%A7er%C3%A7eveleri"><i class="fa fa-check"></i><b>3.2.6</b> Veri Çerçeveleri</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="veri-yapıları-ve-veri-tipleri.html"><a href="veri-yapıları-ve-veri-tipleri.html#%C3%A7%C4%B1kt%C4%B1lar%C4%B1n-yazd%C4%B1r%C4%B1lmas%C4%B1-print-ve-cat-fonksiyonlar%C4%B1"><i class="fa fa-check"></i><b>3.3</b> Çıktıların Yazdırılması <code>print()</code> ve <code>cat()</code> Fonksiyonları</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="veri-yapıları-ve-veri-tipleri.html"><a href="veri-yapıları-ve-veri-tipleri.html#print-fonksiyonu"><i class="fa fa-check"></i><b>3.3.1</b> print() Fonksiyonu</a></li>
+<li class="chapter" data-level="3.3.2" data-path="veri-yapıları-ve-veri-tipleri.html"><a href="veri-yapıları-ve-veri-tipleri.html#cat-fonksiyonu"><i class="fa fa-check"></i><b>3.3.2</b> cat() Fonksiyonu</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="matrisler-1.html"><a href="matrisler-1.html"><i class="fa fa-check"></i><b>4</b> Matrisler</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="matrisler-1.html"><a href="matrisler-1.html#sat%C4%B1r-ve-s%C3%BCtun-vekt%C3%B6rleri"><i class="fa fa-check"></i><b>4.1</b> Satır ve Sütun Vektörleri</a></li>
+<li class="chapter" data-level="4.2" data-path="matrisler-1.html"><a href="matrisler-1.html#kare-matris"><i class="fa fa-check"></i><b>4.2</b> Kare Matris</a></li>
+<li class="chapter" data-level="4.3" data-path="matrisler-1.html"><a href="matrisler-1.html#k%C3%B6%C5%9Fegen-diyagonal-matris"><i class="fa fa-check"></i><b>4.3</b> Köşegen (Diyagonal) Matris</a></li>
+<li class="chapter" data-level="4.4" data-path="matrisler-1.html"><a href="matrisler-1.html#birim-matris"><i class="fa fa-check"></i><b>4.4</b> Birim Matris</a></li>
+<li class="chapter" data-level="4.5" data-path="matrisler-1.html"><a href="matrisler-1.html#matrislerin-birle%C5%9Ftirilmesi"><i class="fa fa-check"></i><b>4.5</b> Matrislerin Birleştirilmesi</a></li>
+<li class="chapter" data-level="4.6" data-path="matrisler-1.html"><a href="matrisler-1.html#matrisin-transpozesi"><i class="fa fa-check"></i><b>4.6</b> Matrisin Transpozesi</a></li>
+<li class="chapter" data-level="4.7" data-path="matrisler-1.html"><a href="matrisler-1.html#matrislerle-matematiksel-i%C5%9Flemler"><i class="fa fa-check"></i><b>4.7</b> Matrislerle Matematiksel İşlemler</a></li>
+<li class="chapter" data-level="4.8" data-path="matrisler-1.html"><a href="matrisler-1.html#matris-elemanlar%C4%B1n%C4%B1n-sat%C4%B1rlar%C4%B1n%C4%B1n-veya-s%C3%BCtunlar%C4%B1n%C4%B1n-toplam%C4%B1-ve-ortalamas%C4%B1"><i class="fa fa-check"></i><b>4.8</b> Matris Elemanlarının, Satırlarının veya Sütunlarının Toplamı ve Ortalaması</a></li>
+<li class="chapter" data-level="4.9" data-path="matrisler-1.html"><a href="matrisler-1.html#toplama-ve-%C3%A7%C4%B1kartma-i%C5%9Flemi"><i class="fa fa-check"></i><b>4.9</b> Toplama ve Çıkartma İşlemi</a></li>
+<li class="chapter" data-level="4.10" data-path="matrisler-1.html"><a href="matrisler-1.html#%C3%A7arpma-i%C5%9Flemi"><i class="fa fa-check"></i><b>4.10</b> Çarpma İşlemi</a>
+<ul>
+<li class="chapter" data-level="4.10.1" data-path="matrisler-1.html"><a href="matrisler-1.html#matrislerin-veya-vekt%C3%B6rlerin-bir-say%C4%B1-ile-%C3%A7arp%C4%B1lmas%C4%B1"><i class="fa fa-check"></i><b>4.10.1</b> Matrislerin veya Vektörlerin Bir Sayı ile Çarpılması</a></li>
+<li class="chapter" data-level="4.10.2" data-path="matrisler-1.html"><a href="matrisler-1.html#matris-veya-vekt%C3%B6rlerin-kar%C5%9F%C4%B1l%C4%B1kl%C4%B1-elemanlar%C4%B1n%C4%B1n-%C3%A7arp%C4%B1lmas%C4%B1"><i class="fa fa-check"></i><b>4.10.2</b> Matris veya Vektörlerin Karşılıklı Elemanlarının Çarpılması</a></li>
+<li class="chapter" data-level="4.10.3" data-path="matrisler-1.html"><a href="matrisler-1.html#matris-veya-vekt%C3%B6rlerin-%C3%A7arp%C4%B1lmas%C4%B1"><i class="fa fa-check"></i><b>4.10.3</b> Matris veya Vektörlerin Çarpılması</a></li>
+</ul></li>
+<li class="chapter" data-level="4.11" data-path="matrisler-1.html"><a href="matrisler-1.html#determinant"><i class="fa fa-check"></i><b>4.11</b> Determinant</a></li>
+<li class="chapter" data-level="4.12" data-path="matrisler-1.html"><a href="matrisler-1.html#matrisin-tersi"><i class="fa fa-check"></i><b>4.12</b> Matrisin Tersi</a></li>
+<li class="chapter" data-level="4.13" data-path="matrisler-1.html"><a href="matrisler-1.html#matrisin-%C3%B6zde%C4%9Ferleri-eigenvalues-ve-%C3%B6zvekt%C3%B6rleri-eigenvectors"><i class="fa fa-check"></i><b>4.13</b> Matrisin Özdeğerleri (Eigenvalues) ve Özvektörleri (Eigenvectors)</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="vektör-fonksiyonları.html"><a href="vektör-fonksiyonları.html"><i class="fa fa-check"></i><b>5</b> Vektör Fonksiyonları</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="vektör-fonksiyonları.html"><a href="vektör-fonksiyonları.html#matematiksel-fonksiyonlar"><i class="fa fa-check"></i><b>5.1</b> Matematiksel Fonksiyonlar</a></li>
+<li class="chapter" data-level="5.2" data-path="vektör-fonksiyonları.html"><a href="vektör-fonksiyonları.html#trigonometrik-fonksiyonlar"><i class="fa fa-check"></i><b>5.2</b> Trigonometrik Fonksiyonlar</a></li>
+<li class="chapter" data-level="5.3" data-path="vektör-fonksiyonları.html"><a href="vektör-fonksiyonları.html#istatistiksel-fonksiyonlar"><i class="fa fa-check"></i><b>5.3</b> İstatistiksel Fonksiyonlar</a></li>
+<li class="chapter" data-level="5.4" data-path="vektör-fonksiyonları.html"><a href="vektör-fonksiyonları.html#sort-rank-ve-order-fonksiyonlar%C4%B1"><i class="fa fa-check"></i><b>5.4</b> <code>sort()</code>, <code>rank()</code> ve <code>order()</code> Fonksiyonları</a></li>
+<li class="chapter" data-level="5.5" data-path="vektör-fonksiyonları.html"><a href="vektör-fonksiyonları.html#say%C4%B1lar%C4%B1n-yuvarlanmas%C4%B1-ceiling-floor-round-ve-signif-fonksiyonlar%C4%B1"><i class="fa fa-check"></i><b>5.5</b> Sayıların Yuvarlanması <code>ceiling()</code>, <code>floor()</code>, <code>round()</code> ve <code>signif()</code> Fonksiyonları</a></li>
+<li class="chapter" data-level="5.6" data-path="vektör-fonksiyonları.html"><a href="vektör-fonksiyonları.html#apply-fonksiyonlar%C4%B1"><i class="fa fa-check"></i><b>5.6</b> <code>apply</code> Fonksiyonları</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="vektör-fonksiyonları.html"><a href="vektör-fonksiyonları.html#apply-fonksiyonu"><i class="fa fa-check"></i><b>5.6.1</b> <code>apply()</code> Fonksiyonu</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="vektör-fonksiyonları.html"><a href="vektör-fonksiyonları.html#tapply-fonksiyonu"><i class="fa fa-check"></i><b>5.7</b> <code>tapply()</code> Fonksiyonu</a>
+<ul>
+<li class="chapter" data-level="5.7.1" data-path="vektör-fonksiyonları.html"><a href="vektör-fonksiyonları.html#lapply-ve-sapply-fonksiyonlar%C4%B1"><i class="fa fa-check"></i><b>5.7.1</b> <code>lapply()</code> ve <code>sapply()</code> Fonksiyonları</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="vektör-fonksiyonları.html"><a href="vektör-fonksiyonları.html#aggregate-ve-by-fonksiyonlar%C4%B1"><i class="fa fa-check"></i><b>5.8</b> <code>aggregate()</code> ve <code>by()</code> Fonksiyonları</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Programı</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="vektör-fonksiyonları" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Bölüm 5</span> Vektör Fonksiyonları<a href="vektör-fonksiyonları.html#vekt%C3%B6r-fonksiyonlar%C4%B1" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>R programının en güçlü yönlerinden bir tanesi vektör yapısında <code>X</code> veya <code>Y</code> gibi tanımlanan nesnelerin veya değişkenlerin matematiksel, trigonometrik veya istatistiksel değerleri, döngü veya vektör indisleri kullanılmadan aşağıda tanımlanan vektör fonksiyonları kullanılarak kolayca elde edilebilir. Bu durum R programında sonuçların daha hızlı ve etkili bir şeklide elde edilmesini sağlamaktadır. <code>na.rm=FALSE</code> veya <code>na.rm=TRUE</code> şeklinde eksik gözlemlerin (<code>NA</code>) silinip silinmeyeceğini belirten mantık değişkeni</p>
+<div id="matematiksel-fonksiyonlar" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Matematiksel Fonksiyonlar<a href="vektör-fonksiyonları.html#matematiksel-fonksiyonlar" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<table>
+<colgroup>
+<col width="22%" />
+<col width="77%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Fonksiyon</th>
+<th align="left">Fonksiyon Görevi</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>min(x, na.rm=FALSE)</code></td>
+<td align="left">x vektöründeki değerlerin en küçüğünü verir</td>
+</tr>
+<tr class="even">
+<td align="left"><code>max(x, na.rm=FALSE)</code></td>
+<td align="left">x vektöründeki değerlerin en büyüğünü verir</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>pmin(x, y, na.rm=FALSE)</code></td>
+<td align="left">Aynı uzunluktaki x ve y vektörlerinin karşılıklı değerlerinin en küçüklerini verir</td>
+</tr>
+<tr class="even">
+<td align="left"><code>pmax(x, y, na.rm=FALSE)</code></td>
+<td align="left">Aynı uzunluktaki x ve y vektörlerinin karşılıklı değerlerinin en büyüklerini verir</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>sum(x, na.rm=FALSE)</code></td>
+<td align="left">x vektöründeki değerlerin toplamını verir</td>
+</tr>
+<tr class="even">
+<td align="left"><code>abs(x)</code></td>
+<td align="left">x vektöründeki değerlerin mutlak değerini verir</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>sqrt(x)</code></td>
+<td align="left">x vektöründeki değerlerin karekökünü verir</td>
+</tr>
+<tr class="even">
+<td align="left"><code>exp(x)</code></td>
+<td align="left">x vektöründeki değerlerin <span class="math inline">\(e^x\)</span> olarak değerlerini verir ve <span class="math inline">\(x=1\)</span> için <span class="math inline">\(e^x=\)</span> 2.718282’dir</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>pi</code></td>
+<td align="left">3.141593 olarak sayısını verir</td>
+</tr>
+<tr class="even">
+<td align="left"><code>x^y</code></td>
+<td align="left">x vektöründeki değerlerin <span class="math inline">\(x^y\)</span> olarak <span class="math inline">\(y.\)</span> üssünü verir</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>log(x)</code></td>
+<td align="left">x vektöründeki değerlerin doğal logaritmasını verir, <span class="math inline">\(ln(x)\)</span></td>
+</tr>
+<tr class="even">
+<td align="left"><code>log10(x)</code></td>
+<td align="left">x vektöründeki değerlerin 10 tabanına göre logaritmasını verir</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>log2(x)</code></td>
+<td align="left">x vektöründeki değerlerin 2 tabanına göre logaritmasını verir</td>
+</tr>
+<tr class="even">
+<td align="left"><code>log(x, base=30)</code></td>
+<td align="left">x vektöründeki değerlerin 30 tabanına göre logaritmasını verir</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb449"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb449-1"><a href="vektör-fonksiyonları.html#cb449-1" tabindex="-1"></a><span class="co"># Matematiksel fonksiyonların uygulamasında x ve y vektörleri kullanıldı</span></span>
+<span id="cb449-2"><a href="vektör-fonksiyonları.html#cb449-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">24</span>, <span class="dv">120</span>, <span class="sc">-</span><span class="dv">4</span>, <span class="cn">NA</span>)</span>
+<span id="cb449-3"><a href="vektör-fonksiyonları.html#cb449-3" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>## [1]   2  24 120  -4  NA</code></pre>
+<div class="sourceCode" id="cb451"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb451-1"><a href="vektör-fonksiyonları.html#cb451-1" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">41</span>, <span class="dv">3</span>, <span class="cn">NA</span>, <span class="dv">52</span>, <span class="dv">7</span>)</span>
+<span id="cb451-2"><a href="vektör-fonksiyonları.html#cb451-2" tabindex="-1"></a>y</span></code></pre></div>
+<pre><code>## [1] 41  3 NA 52  7</code></pre>
+<div class="sourceCode" id="cb453"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb453-1"><a href="vektör-fonksiyonları.html#cb453-1" tabindex="-1"></a><span class="co"># En küçük değeri verir</span></span>
+<span id="cb453-2"><a href="vektör-fonksiyonları.html#cb453-2" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>## [1]   2  24 120  -4  NA</code></pre>
+<div class="sourceCode" id="cb455"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb455-1"><a href="vektör-fonksiyonları.html#cb455-1" tabindex="-1"></a><span class="fu">min</span>(x, <span class="at">na.rm=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<div class="sourceCode" id="cb457"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb457-1"><a href="vektör-fonksiyonları.html#cb457-1" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>## [1]   2  24 120  -4  NA</code></pre>
+<div class="sourceCode" id="cb459"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb459-1"><a href="vektör-fonksiyonları.html#cb459-1" tabindex="-1"></a><span class="fu">min</span>(x, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## [1] -4</code></pre>
+<div class="sourceCode" id="cb461"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb461-1"><a href="vektör-fonksiyonları.html#cb461-1" tabindex="-1"></a><span class="co"># En büyü değeri verir</span></span>
+<span id="cb461-2"><a href="vektör-fonksiyonları.html#cb461-2" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>## [1]   2  24 120  -4  NA</code></pre>
+<div class="sourceCode" id="cb463"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb463-1"><a href="vektör-fonksiyonları.html#cb463-1" tabindex="-1"></a><span class="fu">max</span>(x, <span class="at">na.rm=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<div class="sourceCode" id="cb465"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb465-1"><a href="vektör-fonksiyonları.html#cb465-1" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>## [1]   2  24 120  -4  NA</code></pre>
+<div class="sourceCode" id="cb467"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb467-1"><a href="vektör-fonksiyonları.html#cb467-1" tabindex="-1"></a><span class="fu">max</span>(x, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## [1] 120</code></pre>
+<div class="sourceCode" id="cb469"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb469-1"><a href="vektör-fonksiyonları.html#cb469-1" tabindex="-1"></a><span class="fu">pmin</span>(x, y, <span class="at">na.rm=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<pre><code>## [1]  2  3 NA -4 NA</code></pre>
+<div class="sourceCode" id="cb471"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb471-1"><a href="vektör-fonksiyonları.html#cb471-1" tabindex="-1"></a><span class="fu">pmin</span>(x, y, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## [1]   2   3 120  -4   7</code></pre>
+<div class="sourceCode" id="cb473"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb473-1"><a href="vektör-fonksiyonları.html#cb473-1" tabindex="-1"></a><span class="fu">pmax</span>(x, y, <span class="at">na.rm=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<pre><code>## [1] 41 24 NA 52 NA</code></pre>
+<div class="sourceCode" id="cb475"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb475-1"><a href="vektör-fonksiyonları.html#cb475-1" tabindex="-1"></a><span class="fu">pmax</span>(x, y, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## [1]  41  24 120  52   7</code></pre>
+<div class="sourceCode" id="cb477"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb477-1"><a href="vektör-fonksiyonları.html#cb477-1" tabindex="-1"></a><span class="co"># Değerlerin toplamını verir</span></span>
+<span id="cb477-2"><a href="vektör-fonksiyonları.html#cb477-2" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>## [1]   2  24 120  -4  NA</code></pre>
+<div class="sourceCode" id="cb479"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb479-1"><a href="vektör-fonksiyonları.html#cb479-1" tabindex="-1"></a><span class="fu">sum</span>(x, <span class="at">na.rm=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<div class="sourceCode" id="cb481"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb481-1"><a href="vektör-fonksiyonları.html#cb481-1" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>## [1]   2  24 120  -4  NA</code></pre>
+<div class="sourceCode" id="cb483"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb483-1"><a href="vektör-fonksiyonları.html#cb483-1" tabindex="-1"></a><span class="fu">sum</span>(x, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## [1] 142</code></pre>
+<div class="sourceCode" id="cb485"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb485-1"><a href="vektör-fonksiyonları.html#cb485-1" tabindex="-1"></a><span class="co"># Mutlak değeri verir</span></span>
+<span id="cb485-2"><a href="vektör-fonksiyonları.html#cb485-2" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>## [1]   2  24 120  -4  NA</code></pre>
+<div class="sourceCode" id="cb487"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb487-1"><a href="vektör-fonksiyonları.html#cb487-1" tabindex="-1"></a><span class="fu">abs</span>(x)</span></code></pre></div>
+<pre><code>## [1]   2  24 120   4  NA</code></pre>
+<div class="sourceCode" id="cb489"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb489-1"><a href="vektör-fonksiyonları.html#cb489-1" tabindex="-1"></a><span class="co"># Değerlerin kare kökünü verir</span></span>
+<span id="cb489-2"><a href="vektör-fonksiyonları.html#cb489-2" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>## [1]   2  24 120  -4  NA</code></pre>
+<div class="sourceCode" id="cb491"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb491-1"><a href="vektör-fonksiyonları.html#cb491-1" tabindex="-1"></a><span class="fu">sqrt</span>(x)</span></code></pre></div>
+<pre><code>## Warning in sqrt(x): NaNs produced</code></pre>
+<pre><code>## [1]  1.414214  4.898979 10.954451       NaN        NA</code></pre>
+<div class="sourceCode" id="cb494"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb494-1"><a href="vektör-fonksiyonları.html#cb494-1" tabindex="-1"></a><span class="co"># Üssel değeri verir</span></span>
+<span id="cb494-2"><a href="vektör-fonksiyonları.html#cb494-2" tabindex="-1"></a>x<span class="sc">^</span>y</span></code></pre></div>
+<pre><code>## [1] 2.199023e+12 1.382400e+04           NA 2.028241e+31           NA</code></pre>
+<div class="sourceCode" id="cb496"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb496-1"><a href="vektör-fonksiyonları.html#cb496-1" tabindex="-1"></a><span class="co"># Değerlerin logaritmasını verir</span></span>
+<span id="cb496-2"><a href="vektör-fonksiyonları.html#cb496-2" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>## [1]   2  24 120  -4  NA</code></pre>
+<div class="sourceCode" id="cb498"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb498-1"><a href="vektör-fonksiyonları.html#cb498-1" tabindex="-1"></a><span class="fu">log</span>(x)   <span class="co"># e tabanına göre hesaplar (ln)</span></span></code></pre></div>
+<pre><code>## Warning in log(x): NaNs produced</code></pre>
+<pre><code>## [1] 0.6931472 3.1780538 4.7874917       NaN        NA</code></pre>
+<div class="sourceCode" id="cb501"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb501-1"><a href="vektör-fonksiyonları.html#cb501-1" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>## [1]   2  24 120  -4  NA</code></pre>
+<div class="sourceCode" id="cb503"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb503-1"><a href="vektör-fonksiyonları.html#cb503-1" tabindex="-1"></a><span class="fu">log10</span>(x) <span class="co"># 10 tabanına göre hesaplar</span></span></code></pre></div>
+<pre><code>## Warning: NaNs produced</code></pre>
+<pre><code>## [1] 0.301030 1.380211 2.079181      NaN       NA</code></pre>
+<div class="sourceCode" id="cb506"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb506-1"><a href="vektör-fonksiyonları.html#cb506-1" tabindex="-1"></a><span class="co"># 10 tabanına göre hesaplar. base&#39;i değiştirerek istenilen tabana göre hesaplar</span></span>
+<span id="cb506-2"><a href="vektör-fonksiyonları.html#cb506-2" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>## [1]   2  24 120  -4  NA</code></pre>
+<div class="sourceCode" id="cb508"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb508-1"><a href="vektör-fonksiyonları.html#cb508-1" tabindex="-1"></a><span class="fu">log</span>(x, <span class="at">base=</span><span class="dv">10</span>) </span></code></pre></div>
+<pre><code>## Warning: NaNs produced</code></pre>
+<pre><code>## [1] 0.301030 1.380211 2.079181      NaN       NA</code></pre>
+</div>
+<div id="trigonometrik-fonksiyonlar" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Trigonometrik Fonksiyonlar<a href="vektör-fonksiyonları.html#trigonometrik-fonksiyonlar" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>R programında trigonometrik fonksiyonlar (<code>sin(x)</code>, <code>cos(x)</code>, <code>tan(x)</code>, <code>acos(x)</code>, <code>asin(x)</code>, <code>atan(x)</code>) açıları radyan olarak ölçer. Bir daire 2<span class="math inline">\(\pi\)</span> radyandır ve bu 360<span class="math inline">\(^\circ\)</span>’dir. Bundan dolayı, doğru açı <span class="math inline">\(\pi\)</span>/2 veya 90<span class="math inline">\(^\circ\)</span>’dir ve R programında yukarıda da belirtildiği gibi <span class="math inline">\(\pi\)</span> değeri <span class="math inline">\(\pi\)</span>=3.141593 olarak tanımlanmıştır.</p>
+<div class="sourceCode" id="cb511"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb511-1"><a href="vektör-fonksiyonları.html#cb511-1" tabindex="-1"></a><span class="fu">sin</span>(pi)</span></code></pre></div>
+<pre><code>## [1] 1.224647e-16</code></pre>
+<div class="sourceCode" id="cb513"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb513-1"><a href="vektör-fonksiyonları.html#cb513-1" tabindex="-1"></a><span class="fu">cos</span>(<span class="dv">0</span>)</span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<div class="sourceCode" id="cb515"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb515-1"><a href="vektör-fonksiyonları.html#cb515-1" tabindex="-1"></a><span class="fu">tan</span>(pi<span class="sc">/</span><span class="dv">4</span>)</span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<div class="sourceCode" id="cb517"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb517-1"><a href="vektör-fonksiyonları.html#cb517-1" tabindex="-1"></a><span class="fu">acos</span>(<span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## [1] 0</code></pre>
+<div class="sourceCode" id="cb519"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb519-1"><a href="vektör-fonksiyonları.html#cb519-1" tabindex="-1"></a><span class="fu">asin</span>(<span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## [1] 1.570796</code></pre>
+<div class="sourceCode" id="cb521"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb521-1"><a href="vektör-fonksiyonları.html#cb521-1" tabindex="-1"></a><span class="fu">atan</span>(<span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## [1] 1.107149</code></pre>
+</div>
+<div id="istatistiksel-fonksiyonlar" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> İstatistiksel Fonksiyonlar<a href="vektör-fonksiyonları.html#istatistiksel-fonksiyonlar" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>İstatistiksel analizlerde çalışılan özelliklerin merkezi eğilim ve değişim ölçüleri gibi tanımlayıcı değerleri veren ayrıca özellikler arası doğrusal ilişkiyi belirlemek için kullanılan R programında tanımlı fonksiyonlar aşağıda tanımlanmıştır.</p>
+<table>
+<colgroup>
+<col width="30%" />
+<col width="69%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Fonksiyon</th>
+<th align="left">Fonksiyon Görevi</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>range(x, na.rm=FALSE)</code></td>
+<td align="left">x vektörünün en küçük ve en büyük değerleri verir</td>
+</tr>
+<tr class="even">
+<td align="left"><code>median(x, na.rm=FALSE)</code></td>
+<td align="left">x vektörünün ortanca değerini verir</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>mean(x, na.rm=FALSE)</code></td>
+<td align="left">x vektörünün ortalamasını verir</td>
+</tr>
+<tr class="even">
+<td align="left"><code>summary(x)</code></td>
+<td align="left">x vektörünün sırasıyla en küçük, 1. çeyrek, ortanca değer</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">ortalama, 3. çeyrek ve en büyük değeri verir</td>
+</tr>
+<tr class="even">
+<td align="left"><code>var(x, na.rm=FALSE)</code></td>
+<td align="left">x vektörünün varyansını verir</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>sd(x, na.rm=FALSE)</code></td>
+<td align="left">x vektörünün standart sapmasını verir</td>
+</tr>
+<tr class="even">
+<td align="left"><code>cov(x, y, na.rm=FALSE)</code></td>
+<td align="left">x ve y vektörlerinin kovaryansını verir</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>cor(x, y)</code></td>
+<td align="left">x ve y vektörlerinin korelasyonunu verir</td>
+</tr>
+</tbody>
+</table>
+<p>Aşağıda verilen x ve y vektörleri, <code>range()</code>, <code>median()</code>, <code>mean()</code>, <code>summary()</code>, <code>var()</code> ve <code>sd()</code> istatistiksel fonksiyonların uygulamasında kullanılmıştır.</p>
+<div class="sourceCode" id="cb523"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb523-1"><a href="vektör-fonksiyonları.html#cb523-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">24</span>, <span class="dv">120</span>, <span class="sc">-</span><span class="dv">4</span>, <span class="cn">NA</span>)</span>
+<span id="cb523-2"><a href="vektör-fonksiyonları.html#cb523-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">41</span>, <span class="dv">3</span>, <span class="cn">NA</span>, <span class="dv">52</span>, <span class="dv">7</span>)</span>
+<span id="cb523-3"><a href="vektör-fonksiyonları.html#cb523-3" tabindex="-1"></a><span class="fu">range</span>(x, <span class="at">na.rm=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<pre><code>## [1] NA NA</code></pre>
+<div class="sourceCode" id="cb525"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb525-1"><a href="vektör-fonksiyonları.html#cb525-1" tabindex="-1"></a><span class="fu">range</span>(x, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## [1]  -4 120</code></pre>
+<div class="sourceCode" id="cb527"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb527-1"><a href="vektör-fonksiyonları.html#cb527-1" tabindex="-1"></a><span class="fu">median</span>(x, <span class="at">na.rm=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<div class="sourceCode" id="cb529"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb529-1"><a href="vektör-fonksiyonları.html#cb529-1" tabindex="-1"></a><span class="fu">median</span>(x, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## [1] 13</code></pre>
+<div class="sourceCode" id="cb531"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb531-1"><a href="vektör-fonksiyonları.html#cb531-1" tabindex="-1"></a><span class="fu">mean</span>(x, <span class="at">na.rm=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<div class="sourceCode" id="cb533"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb533-1"><a href="vektör-fonksiyonları.html#cb533-1" tabindex="-1"></a><span class="fu">mean</span>(x, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## [1] 35.5</code></pre>
+<div class="sourceCode" id="cb535"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb535-1"><a href="vektör-fonksiyonları.html#cb535-1" tabindex="-1"></a><span class="fu">summary</span>(x)</span></code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
+##    -4.0     0.5    13.0    35.5    48.0   120.0       1</code></pre>
+<div class="sourceCode" id="cb537"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb537-1"><a href="vektör-fonksiyonları.html#cb537-1" tabindex="-1"></a><span class="fu">var</span>(x, <span class="at">na.rm=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<div class="sourceCode" id="cb539"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb539-1"><a href="vektör-fonksiyonları.html#cb539-1" tabindex="-1"></a><span class="fu">var</span>(x, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## [1] 3318.333</code></pre>
+<div class="sourceCode" id="cb541"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb541-1"><a href="vektör-fonksiyonları.html#cb541-1" tabindex="-1"></a><span class="fu">sd</span>(x, <span class="at">na.rm=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<div class="sourceCode" id="cb543"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb543-1"><a href="vektör-fonksiyonları.html#cb543-1" tabindex="-1"></a><span class="fu">sd</span>(x, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## [1] 57.60498</code></pre>
+<p>Aşağıda verilen x ve y vektörleri, <code>cov()</code> ve <code>cor()</code> istatistiksel fonksiyonların uygulamasında kullanılmıştır.</p>
+<div class="sourceCode" id="cb545"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb545-1"><a href="vektör-fonksiyonları.html#cb545-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>)</span>
+<span id="cb545-2"><a href="vektör-fonksiyonları.html#cb545-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>,   <span class="dv">5</span>,  <span class="dv">7</span>, <span class="dv">11</span>, <span class="dv">15</span>)</span>
+<span id="cb545-3"><a href="vektör-fonksiyonları.html#cb545-3" tabindex="-1"></a><span class="fu">cov</span>(x, y, <span class="at">method=</span><span class="st">&quot;pearson&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] 80</code></pre>
+<div class="sourceCode" id="cb547"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb547-1"><a href="vektör-fonksiyonları.html#cb547-1" tabindex="-1"></a><span class="fu">cov</span>(x, y, <span class="at">method=</span><span class="st">&quot;spearman&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] 2.5</code></pre>
+<div class="sourceCode" id="cb549"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb549-1"><a href="vektör-fonksiyonları.html#cb549-1" tabindex="-1"></a><span class="fu">cor</span>(x, y, <span class="at">method=</span><span class="st">&quot;pearson&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] 0.9922779</code></pre>
+<div class="sourceCode" id="cb551"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb551-1"><a href="vektör-fonksiyonları.html#cb551-1" tabindex="-1"></a><span class="fu">cor</span>(x, y, <span class="at">method=</span><span class="st">&quot;spearman&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+</div>
+<div id="sort-rank-ve-order-fonksiyonları" class="section level2 hasAnchor" number="5.4">
+<h2><span class="header-section-number">5.4</span> <code>sort()</code>, <code>rank()</code> ve <code>order()</code> Fonksiyonları<a href="vektör-fonksiyonları.html#sort-rank-ve-order-fonksiyonlar%C4%B1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Veriler organize edilirken, verilerin sıralanması, derecelendirilmesi gerekebilir. R programında, <code>sort()</code>, <code>rank()</code> ve <code>order()</code> komutları bunun için kullanılabilir. Bu komutların uygulanışı aşağıda oluşturulan x vektörü kullanılarak açıklanmıştır.</p>
+<div class="sourceCode" id="cb553"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb553-1"><a href="vektör-fonksiyonları.html#cb553-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">138</span>, <span class="dv">52</span>, <span class="dv">101</span>, <span class="dv">22</span>, <span class="dv">74</span>, <span class="dv">155</span>, <span class="dv">90</span>, <span class="dv">69</span>, <span class="dv">139</span>, <span class="dv">101</span>, <span class="dv">61</span>, <span class="dv">125</span>) </span>
+<span id="cb553-2"><a href="vektör-fonksiyonları.html#cb553-2" tabindex="-1"></a>x </span></code></pre></div>
+<pre><code>##  [1] 138  52 101  22  74 155  90  69 139 101  61 125</code></pre>
+<p><code>sort(x)</code> fonksiyonu, <code>x</code> vektöründeki değerleri küçükten büyük değere doğru sıralar. Eğer <code>x</code> vektöründeki değerlerin büyükten küçük değere doğru sıralanması gerektiğinde sort fonksiyonu <code>sort(x, decreasing=TRUE)</code> şeklinde uygulanmalıdır.</p>
+<div class="sourceCode" id="cb555"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb555-1"><a href="vektör-fonksiyonları.html#cb555-1" tabindex="-1"></a><span class="fu">sort</span>(x)</span></code></pre></div>
+<pre><code>##  [1]  22  52  61  69  74  90 101 101 125 138 139 155</code></pre>
+<div class="sourceCode" id="cb557"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb557-1"><a href="vektör-fonksiyonları.html#cb557-1" tabindex="-1"></a><span class="fu">sort</span>(x, <span class="at">decreasing=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>##  [1] 155 139 138 125 101 101  90  74  69  61  52  22</code></pre>
+<p>Buna karşılık, sıralanacak vektör <code>NA</code> ile gösterilen eksik gözlem değerleri içeriyorsa, vektörün sıralanmasında <code>NA</code> değerleri de aşağıda açıklandığı şekilde dikkate alınabilir.</p>
+<div class="sourceCode" id="cb559"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb559-1"><a href="vektör-fonksiyonları.html#cb559-1" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="dv">138</span>,  <span class="dv">52</span>, <span class="dv">101</span>, <span class="dv">22</span>,  <span class="dv">74</span>, <span class="dv">155</span>,  <span class="dv">90</span>,  <span class="dv">69</span>, <span class="dv">139</span>, <span class="dv">101</span>, <span class="cn">NA</span>,  <span class="dv">61</span>, <span class="dv">125</span>)</span>
+<span id="cb559-2"><a href="vektör-fonksiyonları.html#cb559-2" tabindex="-1"></a><span class="fu">sort</span>(y)</span></code></pre></div>
+<pre><code>##  [1]  22  52  61  69  74  90 101 101 125 138 139 155</code></pre>
+<div class="sourceCode" id="cb561"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb561-1"><a href="vektör-fonksiyonları.html#cb561-1" tabindex="-1"></a><span class="fu">sort</span>(y, <span class="at">na.last=</span><span class="cn">NA</span>)         <span class="co"># NA değerleri silinerek sıralandı </span></span></code></pre></div>
+<pre><code>##  [1]  22  52  61  69  74  90 101 101 125 138 139 155</code></pre>
+<div class="sourceCode" id="cb563"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb563-1"><a href="vektör-fonksiyonları.html#cb563-1" tabindex="-1"></a><span class="fu">sort</span>(y, <span class="at">na.last=</span><span class="cn">FALSE</span>)      <span class="co"># sıralamada NA değerleri önce yazıldı </span></span></code></pre></div>
+<pre><code>##  [1]  NA  NA  22  52  61  69  74  90 101 101 125 138 139 155</code></pre>
+<div class="sourceCode" id="cb565"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb565-1"><a href="vektör-fonksiyonları.html#cb565-1" tabindex="-1"></a><span class="fu">sort</span>(y, <span class="at">na.last=</span><span class="cn">TRUE</span>)       <span class="co"># sıralamada NA değerleri en sona yazıldı </span></span></code></pre></div>
+<pre><code>##  [1]  22  52  61  69  74  90 101 101 125 138 139 155  NA  NA</code></pre>
+<p><code>rank(x)</code> fonksiyonu, <code>x</code> vektöründeki değerleri sıralamadaki durumuna göre değerlendirerek derecelendirmektedir. Buna göre, <code>x</code> vektöründeki eleman sayısı 12 olduğundan, derecelendirme en küçük değere 1 ve en büyük değere 12 değeri atanarak gerçekleştirilir. Eğer buradaki <code>x</code> vektöründe olduğu gibi (101 değeri iki tane) aynı değerlere sahip birden fazla gözlem var ise bunların derecelendirmesi, derecelerinin ortalaması ((7+8)/2 =7.5) alınarak gerçekleştirilir.</p>
+<div class="sourceCode" id="cb567"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb567-1"><a href="vektör-fonksiyonları.html#cb567-1" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>##  [1] 138  52 101  22  74 155  90  69 139 101  61 125</code></pre>
+<div class="sourceCode" id="cb569"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb569-1"><a href="vektör-fonksiyonları.html#cb569-1" tabindex="-1"></a><span class="fu">rank</span>(x)</span></code></pre></div>
+<pre><code>##  [1] 10.0  2.0  7.5  1.0  5.0 12.0  6.0  4.0 11.0  7.5  3.0  9.0</code></pre>
+<p><code>order(x)</code> fonksiyonu, <code>x</code> vektöründeki değerler <code>sort(x)</code> fonksiyonu ile sıralandıktan sonra x vektöründeki yerlerini belirtmektedir. Aşağıda verilen çıktı incelendiğinde 138 değeri x vektöründe 1. sıradadır. Sıralandıktan sonra 138 değeri 10. sıradadır ve order komutu uygulandığında buna karşılık gelen 1 değerini almaktadır.</p>
+<div class="sourceCode" id="cb571"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb571-1"><a href="vektör-fonksiyonları.html#cb571-1" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>##  [1] 138  52 101  22  74 155  90  69 139 101  61 125</code></pre>
+<div class="sourceCode" id="cb573"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb573-1"><a href="vektör-fonksiyonları.html#cb573-1" tabindex="-1"></a><span class="fu">sort</span>(x)</span></code></pre></div>
+<pre><code>##  [1]  22  52  61  69  74  90 101 101 125 138 139 155</code></pre>
+<div class="sourceCode" id="cb575"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb575-1"><a href="vektör-fonksiyonları.html#cb575-1" tabindex="-1"></a><span class="fu">order</span>(x)</span></code></pre></div>
+<pre><code>##  [1]  4  2 11  8  5  7  3 10 12  1  9  6</code></pre>
+<p><code>sort()</code>, <code>rank()</code> ve <code>order()</code> komutların uygulanmasının ve elde edilen sonuçların daha kolay anlaşılması amacıyla bunlardan elde edilen sonuçlar aşağıda bir araya getirilmiştir.</p>
+<div class="sourceCode" id="cb577"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb577-1"><a href="vektör-fonksiyonları.html#cb577-1" tabindex="-1"></a>rank.x <span class="ot">&lt;-</span> <span class="fu">rank</span>(x)</span>
+<span id="cb577-2"><a href="vektör-fonksiyonları.html#cb577-2" tabindex="-1"></a>sort.x <span class="ot">&lt;-</span> <span class="fu">sort</span>(x)</span>
+<span id="cb577-3"><a href="vektör-fonksiyonları.html#cb577-3" tabindex="-1"></a>order.x <span class="ot">&lt;-</span> <span class="fu">order</span>(x)</span>
+<span id="cb577-4"><a href="vektör-fonksiyonları.html#cb577-4" tabindex="-1"></a><span class="fu">cbind</span>(x, rank.x, sort.x, order.x)</span></code></pre></div>
+<pre><code>##         x rank.x sort.x order.x
+##  [1,] 138   10.0     22       4
+##  [2,]  52    2.0     52       2
+##  [3,] 101    7.5     61      11
+##  [4,]  22    1.0     69       8
+##  [5,]  74    5.0     74       5
+##  [6,] 155   12.0     90       7
+##  [7,]  90    6.0    101       3
+##  [8,]  69    4.0    101      10
+##  [9,] 139   11.0    125      12
+## [10,] 101    7.5    138       1
+## [11,]  61    3.0    139       9
+## [12,] 125    9.0    155       6</code></pre>
+</div>
+<div id="sayıların-yuvarlanması-ceiling-floor-round-ve-signif-fonksiyonları" class="section level2 hasAnchor" number="5.5">
+<h2><span class="header-section-number">5.5</span> Sayıların Yuvarlanması <code>ceiling()</code>, <code>floor()</code>, <code>round()</code> ve <code>signif()</code> Fonksiyonları<a href="vektör-fonksiyonları.html#say%C4%B1lar%C4%B1n-yuvarlanmas%C4%B1-ceiling-floor-round-ve-signif-fonksiyonlar%C4%B1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Sayılar, kendisinden daha büyük, daha küçük veya kendisine en yakın tam sayıya yuvarlanabilir. R programında bu amaç için <code>ceiling()</code>, <code>floor()</code>, <code>round()</code> ve <code>signif()</code> fonksiyonları oluşturulmuştur.</p>
+<p><code>ceiling(x)</code> fonksiyonu x sayısını en yakın büyük tam sayıya ve <code>floor(x)</code> fonksiyonu da x sayısına en yakın küçük tam sayıya yuvarlar. Sayıların ondalık kısımlarını dikkate almak için <code>round(x, digits=a)</code> ve <code>signif(x, digits=a)</code> fonksiyonları <code>digits=a</code> komutu ile birlikte kullanılmalıdır. Böylece, <code>digits=a</code>’da tanımlanan a değeri ile x sayısının yuvarlanmasından sonra elde edilecek ondalık hane sayısı belirtilmektedir. <code>ceiling()</code>, <code>floor()</code>, <code>round()</code> ve <code>signif()</code> komutların kullanımı aşağıdaki şekilde x vektöründeki sayılara uygulanarak gösterilmiştir.</p>
+<div class="sourceCode" id="cb579"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb579-1"><a href="vektör-fonksiyonları.html#cb579-1" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">2.239866</span>, <span class="fl">1.161533</span>, <span class="fl">1.923470</span>, <span class="fl">2.421973</span>, <span class="fl">1.925682</span>)</span>
+<span id="cb579-2"><a href="vektör-fonksiyonları.html#cb579-2" tabindex="-1"></a><span class="fu">ceiling</span>(x)</span></code></pre></div>
+<pre><code>## [1] 3 2 2 3 2</code></pre>
+<div class="sourceCode" id="cb581"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb581-1"><a href="vektör-fonksiyonları.html#cb581-1" tabindex="-1"></a><span class="fu">floor</span>(x)</span></code></pre></div>
+<pre><code>## [1] 2 1 1 2 1</code></pre>
+<div class="sourceCode" id="cb583"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb583-1"><a href="vektör-fonksiyonları.html#cb583-1" tabindex="-1"></a><span class="fu">round</span>(x, <span class="at">digits=</span><span class="dv">3</span>)</span></code></pre></div>
+<pre><code>## [1] 2.240 1.162 1.923 2.422 1.926</code></pre>
+<div class="sourceCode" id="cb585"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb585-1"><a href="vektör-fonksiyonları.html#cb585-1" tabindex="-1"></a><span class="fu">signif</span>(x, <span class="at">digits=</span><span class="dv">4</span>)</span></code></pre></div>
+<pre><code>## [1] 2.240 1.162 1.923 2.422 1.926</code></pre>
+</div>
+<div id="apply-fonksiyonları" class="section level2 hasAnchor" number="5.6">
+<h2><span class="header-section-number">5.6</span> <code>apply</code> Fonksiyonları<a href="vektör-fonksiyonları.html#apply-fonksiyonlar%C4%B1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>R programında herhangi bir fonksiyonun; bir matrisin, dizinin (array) veya listenin belirli bölümlerine uygulanması amacıyla apply adı altında <code>apply()</code>, <code>lapply()</code>, <code>tapply()</code>, <code>sapply()</code> ve <code>mapply()</code> fonksiyonları geliştirilmiştir.</p>
+<div id="apply-fonksiyonu" class="section level3 hasAnchor" number="5.6.1">
+<h3><span class="header-section-number">5.6.1</span> <code>apply()</code> Fonksiyonu<a href="vektör-fonksiyonları.html#apply-fonksiyonu" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Bir matris veya dizinin (array) satır veya sütun gibi bölümlerine mean veya max gibi bir fonksiyon uygulanmak istendiğinde <code>apply()</code> fonksiyonu <code>apply(X, MARGIN, FUN, ...)</code> şeklinde kullanılabilir ve <code>X</code>: fonksiyonun uygulanacağı matris veya dizini (array) belirtir, <code>MARGIN</code>: fonksiyonun uygulanacağı matris veya dizinin boyutlarını (1: satırı, 2: sütunu ve c(1,2): satır ve sütunları) belirtir ve <code>FUN</code>: matris veya dizine uygulanacak fonksiyonu belirtir.</p>
+<div class="sourceCode" id="cb587"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb587-1"><a href="vektör-fonksiyonları.html#cb587-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">nrow=</span><span class="dv">3</span>, <span class="at">ncol=</span><span class="dv">4</span>)</span>
+<span id="cb587-2"><a href="vektör-fonksiyonları.html#cb587-2" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3] [,4]
+## [1,]    1    4    7   10
+## [2,]    2    5    8   11
+## [3,]    3    6    9   12</code></pre>
+<p>Oluşturulan <span class="math inline">\(x_{3×4}\)</span> matrisinin satırlarının ortalaması aşağıda verilen <code>apply()</code> fonksiyonuyla hesaplanabilir.</p>
+<div class="sourceCode" id="cb589"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb589-1"><a href="vektör-fonksiyonları.html#cb589-1" tabindex="-1"></a><span class="fu">apply</span>(<span class="at">X=</span>x, <span class="at">MARGIN=</span><span class="dv">1</span>, <span class="at">FUN=</span>mean)</span></code></pre></div>
+<pre><code>## [1] 5.5 6.5 7.5</code></pre>
+<p><span class="math inline">\(x_{3×4}\)</span> matrisine ait sütunların en büyük değerlerini bulmak için <code>apply()</code> fonksiyonu aşağıdaki şekilde yazılabilir.</p>
+<div class="sourceCode" id="cb591"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb591-1"><a href="vektör-fonksiyonları.html#cb591-1" tabindex="-1"></a><span class="fu">apply</span>(<span class="at">X=</span>x, <span class="at">MARGIN=</span><span class="dv">2</span>, <span class="at">FUN=</span>max)</span></code></pre></div>
+<pre><code>## [1]  3  6  9 12</code></pre>
+<p><span class="math inline">\(N_{2×3}\)</span> ve <span class="math inline">\(M_{2×3}\)</span> matrislerini içeren bir w dizini aşağıdaki şekilde oluşturulabilir.</p>
+<div class="sourceCode" id="cb593"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb593-1"><a href="vektör-fonksiyonları.html#cb593-1" tabindex="-1"></a>w <span class="ot">&lt;-</span> <span class="fu">array</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">dim=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">2</span>), <span class="at">dimnames=</span><span class="fu">list</span>(<span class="fu">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>), <span class="fu">c</span>(<span class="st">&quot;X&quot;</span>,<span class="st">&quot;Y&quot;</span>,<span class="st">&quot;Z&quot;</span>),    </span>
+<span id="cb593-2"><a href="vektör-fonksiyonları.html#cb593-2" tabindex="-1"></a>           <span class="fu">c</span>(<span class="st">&quot;N&quot;</span>,<span class="st">&quot;M&quot;</span>)))</span>
+<span id="cb593-3"><a href="vektör-fonksiyonları.html#cb593-3" tabindex="-1"></a>w</span></code></pre></div>
+<pre><code>## , , N
+## 
+##   X Y Z
+## A 1 3 5
+## B 2 4 6
+## 
+## , , M
+## 
+##   X  Y  Z
+## A 7  9 11
+## B 8 10 12</code></pre>
+<p><span class="math inline">\(N_{2×3}\)</span> ve <span class="math inline">\(M_{2×3}\)</span> matrislerinin X, Y ve Z sütun toplamları <code>apply()</code> fonksiyonu kullanılarak aşağıdaki şekilde elde edilebilir.</p>
+<div class="sourceCode" id="cb595"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb595-1"><a href="vektör-fonksiyonları.html#cb595-1" tabindex="-1"></a><span class="co"># w dizininde yer alan N ve M matrisinin X Y Z sütun toplamları </span></span>
+<span id="cb595-2"><a href="vektör-fonksiyonları.html#cb595-2" tabindex="-1"></a><span class="fu">apply</span>(w, <span class="dv">2</span>, sum)</span></code></pre></div>
+<pre><code>##  X  Y  Z 
+## 18 26 34</code></pre>
+<p><span class="math inline">\(N_{2×3}\)</span> ve <span class="math inline">\(M_{2×3}\)</span> matrislerinin A ve B satır ortalamaları <code>apply()</code> fonksiyonu kullanılarak aşağıdaki şekilde elde edilebilir.</p>
+<div class="sourceCode" id="cb597"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb597-1"><a href="vektör-fonksiyonları.html#cb597-1" tabindex="-1"></a><span class="co"># w dizininde yer alan N ve M matrisinin A B satır ortalamaları </span></span>
+<span id="cb597-2"><a href="vektör-fonksiyonları.html#cb597-2" tabindex="-1"></a><span class="fu">apply</span>(w, <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>), mean) </span></code></pre></div>
+<pre><code>##   N  M
+## A 3  9
+## B 4 10</code></pre>
+</div>
+</div>
+<div id="tapply-fonksiyonu" class="section level2 hasAnchor" number="5.7">
+<h2><span class="header-section-number">5.7</span> <code>tapply()</code> Fonksiyonu<a href="vektör-fonksiyonları.html#tapply-fonksiyonu" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>R programında X gibi bir değişkenin tanımlayıcı değerlerini, cinsiyet veya yaş gibi bir faktörün seviyelerine göre hesaplamak için <code>tapply()</code> fonksiyonu çok kullanışlıdır. <code>tapply()</code> fonksiyonu <code>tapply(X, FACTOR, FUN, ...)</code> şeklinde uygulanabilir ve <code>X</code>: fonksiyonun uygulanacağı vektörü belirtir, <code>FACTOR</code>: fonksiyonun uygulanacağı faktör seviyelerini içeren faktörü belirtir ve <code>FUN</code>: uygulanacak fonksiyonu belirtir.</p>
+<p>Aşağıda verilen data2 veri çerçevesinde 13 birey yer almaktadır. Bireylerin, birey numarası B.No, cinsiyet ve yaşları da D.1 ve D.2 ile belirtilmiştir. D.3, D.4 ve D.5 değişkenleri de diğer üç özellik için bireylerin almış oldukları değerleri belirtmektedir.</p>
+<div class="sourceCode" id="cb599"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb599-1"><a href="vektör-fonksiyonları.html#cb599-1" tabindex="-1"></a>B.No<span class="ot">=</span><span class="fu">c</span>(<span class="dv">1</span>,   <span class="dv">2</span>,  <span class="dv">3</span>,  <span class="dv">4</span>,  <span class="dv">5</span>,  <span class="dv">6</span>,  <span class="dv">7</span>,  <span class="dv">8</span>,  <span class="dv">9</span>,  <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>, <span class="dv">13</span>)</span>
+<span id="cb599-2"><a href="vektör-fonksiyonları.html#cb599-2" tabindex="-1"></a>D<span class="fl">.1</span><span class="ot">=</span><span class="fu">c</span>(<span class="st">&quot;D&quot;</span>,  <span class="st">&quot;D&quot;</span>,    <span class="st">&quot;D&quot;</span>,    <span class="st">&quot;D&quot;</span>,    <span class="st">&quot;D&quot;</span>,    <span class="st">&quot;D&quot;</span>,    <span class="st">&quot;D&quot;</span>,    <span class="st">&quot;E&quot;</span>,    <span class="st">&quot;E&quot;</span>,    <span class="st">&quot;E&quot;</span>,    <span class="st">&quot;E&quot;</span>,    <span class="st">&quot;E&quot;</span>,    <span class="st">&quot;E&quot;</span>)</span>
+<span id="cb599-3"><a href="vektör-fonksiyonları.html#cb599-3" tabindex="-1"></a>D<span class="fl">.2</span><span class="ot">=</span><span class="fu">c</span>(<span class="dv">4</span>,    <span class="dv">2</span>,  <span class="dv">3</span>,  <span class="dv">4</span>,  <span class="dv">2</span>,  <span class="dv">7</span>,  <span class="dv">2</span>,  <span class="dv">7</span>,  <span class="dv">5</span>,  <span class="dv">2</span>,  <span class="dv">2</span>,  <span class="dv">4</span>,  <span class="dv">3</span>)</span>
+<span id="cb599-4"><a href="vektör-fonksiyonları.html#cb599-4" tabindex="-1"></a>D<span class="fl">.3</span><span class="ot">=</span><span class="fu">c</span>(<span class="dv">32</span>,   <span class="dv">29</span>, <span class="dv">32</span>, <span class="dv">39</span>, <span class="dv">27</span>, <span class="dv">39</span>, <span class="dv">35</span>, <span class="fl">54.5</span>,   <span class="dv">45</span>, <span class="dv">43</span>, <span class="dv">40</span>, <span class="dv">36</span>, <span class="dv">42</span>)</span>
+<span id="cb599-5"><a href="vektör-fonksiyonları.html#cb599-5" tabindex="-1"></a>D<span class="fl">.4</span><span class="ot">=</span><span class="fu">c</span>(<span class="dv">70</span>,   <span class="dv">62</span>, <span class="dv">65</span>, <span class="dv">66</span>, <span class="dv">61</span>, <span class="dv">64</span>, <span class="dv">64</span>, <span class="dv">71</span>, <span class="dv">69</span>, <span class="dv">74</span>, <span class="dv">72</span>, <span class="dv">66</span>, <span class="dv">74</span>)</span>
+<span id="cb599-6"><a href="vektör-fonksiyonları.html#cb599-6" tabindex="-1"></a>D<span class="fl">.5</span><span class="ot">=</span><span class="fu">c</span>(<span class="dv">78</span>,   <span class="dv">74</span>, <span class="dv">77</span>, <span class="dv">80</span>, <span class="dv">74</span>, <span class="dv">84</span>, <span class="dv">83</span>, <span class="dv">94</span>, <span class="fl">87.5</span>,   <span class="dv">88</span>, <span class="dv">64</span>, <span class="dv">86</span>, <span class="dv">95</span>)</span>
+<span id="cb599-7"><a href="vektör-fonksiyonları.html#cb599-7" tabindex="-1"></a></span>
+<span id="cb599-8"><a href="vektör-fonksiyonları.html#cb599-8" tabindex="-1"></a>data2<span class="ot">=</span><span class="fu">data.frame</span>(B.No,D<span class="fl">.1</span>,D<span class="fl">.2</span>,D<span class="fl">.3</span>,D<span class="fl">.4</span>,D<span class="fl">.5</span>)</span></code></pre></div>
+<p>Bu veri çerçevesinde D.3 değişkeni cinsiyetlere, yaşlara veya her ikisine göre ortalaması hesaplanmak istendiğinde <code>tapply()</code> fonksiyonu aşağıdaki şekilde kullanılabilir.</p>
+<div class="sourceCode" id="cb600"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb600-1"><a href="vektör-fonksiyonları.html#cb600-1" tabindex="-1"></a><span class="co"># D.3 değişkeni için cinsiyete göre ortalamalar</span></span>
+<span id="cb600-2"><a href="vektör-fonksiyonları.html#cb600-2" tabindex="-1"></a><span class="fu">tapply</span>(data2<span class="sc">$</span>D<span class="fl">.3</span>, data2<span class="sc">$</span>D<span class="fl">.1</span>, mean)</span></code></pre></div>
+<pre><code>##        D        E 
+## 33.28571 43.41667</code></pre>
+<div class="sourceCode" id="cb602"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb602-1"><a href="vektör-fonksiyonları.html#cb602-1" tabindex="-1"></a><span class="co"># D.3 değişkeni için yaşa göre ortalamalar</span></span>
+<span id="cb602-2"><a href="vektör-fonksiyonları.html#cb602-2" tabindex="-1"></a><span class="fu">tapply</span>(data2<span class="sc">$</span>D<span class="fl">.3</span>, data2<span class="sc">$</span>D<span class="fl">.2</span>, mean)</span></code></pre></div>
+<pre><code>##        2        3        4        5        7 
+## 34.80000 37.00000 35.66667 45.00000 46.75000</code></pre>
+<div class="sourceCode" id="cb604"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb604-1"><a href="vektör-fonksiyonları.html#cb604-1" tabindex="-1"></a><span class="co"># D.3 değişkeni için cinsiyete ve yaşa göre ortalamalar</span></span>
+<span id="cb604-2"><a href="vektör-fonksiyonları.html#cb604-2" tabindex="-1"></a><span class="fu">tapply</span>(data2<span class="sc">$</span>D<span class="fl">.3</span>, <span class="fu">list</span>(data2<span class="sc">$</span>D<span class="fl">.1</span>, data2<span class="sc">$</span>D<span class="fl">.2</span>), mean)</span></code></pre></div>
+<pre><code>##          2  3    4  5    7
+## D 30.33333 32 35.5 NA 39.0
+## E 41.50000 42 36.0 45 54.5</code></pre>
+<p>D.3 değişkeni için cinsiyete ve yaşa göre ortalamalar <code>tapply()</code> fonksiyonu ile oluşturulurken 5 yaşında olan dişi birey olmadığı için sonuçları veren tabloda bu kombinasyon için <code>NA</code> değerli yazılmıştır.</p>
+<div id="lapply-ve-sapply-fonksiyonları" class="section level3 hasAnchor" number="5.7.1">
+<h3><span class="header-section-number">5.7.1</span> <code>lapply()</code> ve <code>sapply()</code> Fonksiyonları<a href="vektör-fonksiyonları.html#lapply-ve-sapply-fonksiyonlar%C4%B1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>R programında X gibi bir liste yapısında olan değişkenin elemanlarına mean veya max gibi bir fonksiyon <code>lapply(X, FUN)</code> şeklinde uygulanabilir ve X: fonksiyonun uygulanacağı liste yapısında olan değişkeni, <code>FACTOR</code>: fonksiyonun uygulanacağı faktör seviyelerini içeren faktörü ve <code>FUN</code>: uygulanacak fonksiyonu belirtir.
+Aşağıdaki örnekte data2 veri çerçevesinde yer alan D.3, D.4 ve D.5 değişkenleri liste yapısında data3 olarak yeniden düzenlenmiş, <code>lapply()</code> fonksiyonu ile ortalamaları hesaplanmış ve sonuçlar da liste formatında her değişken için yazdırılmıştır.</p>
+<div class="sourceCode" id="cb606"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb606-1"><a href="vektör-fonksiyonları.html#cb606-1" tabindex="-1"></a>data3 <span class="ot">=</span> <span class="fu">list</span>(data2<span class="sc">$</span>D<span class="fl">.3</span>, data2<span class="sc">$</span>D<span class="fl">.4</span>, data2<span class="sc">$</span>D<span class="fl">.5</span>)</span>
+<span id="cb606-2"><a href="vektör-fonksiyonları.html#cb606-2" tabindex="-1"></a>data3</span></code></pre></div>
+<pre><code>## [[1]]
+##  [1] 32.0 29.0 32.0 39.0 27.0 39.0 35.0 54.5 45.0 43.0 40.0 36.0 42.0
+## 
+## [[2]]
+##  [1] 70 62 65 66 61 64 64 71 69 74 72 66 74
+## 
+## [[3]]
+##  [1] 78.0 74.0 77.0 80.0 74.0 84.0 83.0 94.0 87.5 88.0 64.0 86.0 95.0</code></pre>
+<div class="sourceCode" id="cb608"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb608-1"><a href="vektör-fonksiyonları.html#cb608-1" tabindex="-1"></a><span class="fu">lapply</span>(data3, mean)</span></code></pre></div>
+<pre><code>## [[1]]
+## [1] 37.96154
+## 
+## [[2]]
+## [1] 67.53846
+## 
+## [[3]]
+## [1] 81.88462</code></pre>
+<p>Liste yapısında olan data3 değişkeni için sonuçlar liste yapısı yerine tablo yapısında bir formatta elde edilmek istendiğinde <code>sapply()</code> fonksiyonu uygulanmalıdır. Buna göre,</p>
+<div class="sourceCode" id="cb610"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb610-1"><a href="vektör-fonksiyonları.html#cb610-1" tabindex="-1"></a><span class="fu">sapply</span>(data3, mean)</span></code></pre></div>
+<pre><code>## [1] 37.96154 67.53846 81.88462</code></pre>
+<p>şeklinde aynı sonuçlar tablo formatında elde edilebilir.</p>
+</div>
+</div>
+<div id="aggregate-ve-by-fonksiyonları" class="section level2 hasAnchor" number="5.8">
+<h2><span class="header-section-number">5.8</span> <code>aggregate()</code> ve <code>by()</code> Fonksiyonları<a href="vektör-fonksiyonları.html#aggregate-ve-by-fonksiyonlar%C4%B1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><code>aggregate()</code> ve <code>by()</code> fonksiyonları aynı <code>tapply()</code> fonksiyonunda olduğu gibi veri çerçevesinde yer alan değişkenlerin faktör değişkeninin seviyelerine göre tanımlayıcı değerlerinin elde edilmesini ve farklı bir formatta sunulmasını sağlar.</p>
+<p><code>aggregate()</code> fonksiyonu, <code>aggregate(X, list(factor), FUN)</code> şeklinde uygulanır, <code>X</code>: tanımlayıcı değerleri bulunacak değişkeni, <code>list(factor)</code>: faktör değişkeninin liste yapısında uygulanmasını ve <code>FUN</code>: uygulanacak fonksiyonu belirtir. Aşağıda D.3 değişkeni için cinsiyete ve yaşa göre ortalamalar <code>aggregate()</code> fonksiyonu ile veri çerçeve formatında oluşturulmuştur.</p>
+<div class="sourceCode" id="cb612"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb612-1"><a href="vektör-fonksiyonları.html#cb612-1" tabindex="-1"></a><span class="co"># D.3 değişkeni için cinsiyete göre ortalamalar</span></span>
+<span id="cb612-2"><a href="vektör-fonksiyonları.html#cb612-2" tabindex="-1"></a><span class="fu">aggregate</span>(data2<span class="sc">$</span>D<span class="fl">.3</span>,<span class="fu">list</span>(data2<span class="sc">$</span>D<span class="fl">.1</span>),mean)</span></code></pre></div>
+<pre><code>##   Group.1        x
+## 1       D 33.28571
+## 2       E 43.41667</code></pre>
+<div class="sourceCode" id="cb614"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb614-1"><a href="vektör-fonksiyonları.html#cb614-1" tabindex="-1"></a><span class="co"># D.3 değişkeni için yaşa göre ortalamalar</span></span>
+<span id="cb614-2"><a href="vektör-fonksiyonları.html#cb614-2" tabindex="-1"></a><span class="fu">aggregate</span>(data2<span class="sc">$</span>D<span class="fl">.3</span>,<span class="fu">list</span>(data2<span class="sc">$</span>D<span class="fl">.2</span>),mean)</span></code></pre></div>
+<pre><code>##   Group.1        x
+## 1       2 34.80000
+## 2       3 37.00000
+## 3       4 35.66667
+## 4       5 45.00000
+## 5       7 46.75000</code></pre>
+<div class="sourceCode" id="cb616"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb616-1"><a href="vektör-fonksiyonları.html#cb616-1" tabindex="-1"></a><span class="co"># D.3 değişkeni için cinsiyete ve yaşa göre ortalamalar</span></span>
+<span id="cb616-2"><a href="vektör-fonksiyonları.html#cb616-2" tabindex="-1"></a><span class="fu">aggregate</span>(data2<span class="sc">$</span>D<span class="fl">.3</span>,<span class="fu">list</span>(data2<span class="sc">$</span>D<span class="fl">.1</span>,data2<span class="sc">$</span>D<span class="fl">.2</span>),mean)</span></code></pre></div>
+<pre><code>##   Group.1 Group.2        x
+## 1       D       2 30.33333
+## 2       E       2 41.50000
+## 3       D       3 32.00000
+## 4       E       3 42.00000
+## 5       D       4 35.50000
+## 6       E       4 36.00000
+## 7       E       5 45.00000
+## 8       D       7 39.00000
+## 9       E       7 54.50000</code></pre>
+<p><code>by()</code> fonksiyonu <code>by(X, list(factor), FUN)</code> şeklinde uygulanır, <code>X</code>: tanımlayıcı değerleri bulunacak değişkeni, <code>list(factor)</code>: faktör değişkeninin liste yapısında uygulanmasını ve <code>FUN</code>: uygulanacak fonksiyonu belirtir. Aşağıda D.3 değişkeni için cinsiyete ve yaşa göre ortalamalar <code>by()</code> fonksiyonu ile liste formatında oluşturulmuştur.</p>
+<div class="sourceCode" id="cb618"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb618-1"><a href="vektör-fonksiyonları.html#cb618-1" tabindex="-1"></a><span class="fu">by</span>(data2<span class="sc">$</span>D<span class="fl">.3</span>, <span class="fu">list</span>(data2<span class="sc">$</span>D<span class="fl">.1</span>), mean)</span></code></pre></div>
+<pre><code>## : D
+## [1] 33.28571
+## ------------------------------------------------------------ 
+## : E
+## [1] 43.41667</code></pre>
+<div class="sourceCode" id="cb620"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb620-1"><a href="vektör-fonksiyonları.html#cb620-1" tabindex="-1"></a><span class="fu">by</span>(data2<span class="sc">$</span>D<span class="fl">.3</span>, <span class="fu">list</span>(data2<span class="sc">$</span>D<span class="fl">.2</span>), mean)</span></code></pre></div>
+<pre><code>## : 2
+## [1] 34.8
+## ------------------------------------------------------------ 
+## : 3
+## [1] 37
+## ------------------------------------------------------------ 
+## : 4
+## [1] 35.66667
+## ------------------------------------------------------------ 
+## : 5
+## [1] 45
+## ------------------------------------------------------------ 
+## : 7
+## [1] 46.75</code></pre>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="matrisler-1.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/rstudio/bookdown-demo/edit/master/06-VektorFonk.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["R Program.pdf", "R Program.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

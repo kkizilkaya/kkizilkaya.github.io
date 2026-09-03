@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Bölüm 7 sort(), rank() ve order() Fonksiyonları | R Programı</title>
+<meta name="author" content="Prof. Dr. Kadir KIZILKAYA">
+<meta name="description" content="Veriler organize edilirken, verilerin sıralanması, derecelendirilmesi gerekebilir. R programında, sort(), rank() ve order() komutları bunun için kullanılabilir. Bu komutların uygulanışı aşağıda...">
+<meta name="generator" content="bookdown 0.32 with bs4_book()">
+<meta property="og:title" content="Bölüm 7 sort(), rank() ve order() Fonksiyonları | R Programı">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Veriler organize edilirken, verilerin sıralanması, derecelendirilmesi gerekebilir. R programında, sort(), rank() ve order() komutları bunun için kullanılabilir. Bu komutların uygulanışı aşağıda...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Bölüm 7 sort(), rank() ve order() Fonksiyonları | R Programı">
+<meta name="twitter:description" content="Veriler organize edilirken, verilerin sıralanması, derecelendirilmesi gerekebilir. R programında, sort(), rank() ve order() komutları bunun için kullanılabilir. Bu komutların uygulanışı aşağıda...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.2/transition.js"></script><script src="libs/bs3compat-0.4.2/tabs.js"></script><script src="libs/bs3compat-0.4.2/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<style type="text/css">
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">R Programı</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> Prerequisites</a></li>
+<li><a class="" href="r-program%C4%B1n%C4%B1n-kurulumu-ve-genel-%C3%B6zellikleri.html"><span class="header-section-number">2</span> R Programının Kurulumu ve Genel Özellikleri</a></li>
+<li><a class="" href="genel-kurallar-ve-komutlar.html"><span class="header-section-number">3</span> Genel Kurallar ve Komutlar</a></li>
+<li><a class="" href="veri-yap%C4%B1lar%C4%B1-ve-veri-tipleri.html"><span class="header-section-number">4</span> Veri Yapıları ve Veri Tipleri</a></li>
+<li><a class="" href="matrisler-1.html"><span class="header-section-number">5</span> Matrisler</a></li>
+<li><a class="" href="vekt%C3%B6r-fonksiyonlar%C4%B1.html"><span class="header-section-number">6</span> Vektör Fonksiyonları</a></li>
+<li><a class="active" href="sort-rank-ve-order-fonksiyonlar%C4%B1.html"><span class="header-section-number">7</span> sort(), rank() ve order() Fonksiyonları</a></li>
+<li><a class="" href="footnotes-and-citations.html"><span class="header-section-number">8</span> Footnotes and citations</a></li>
+<li><a class="" href="blocks.html"><span class="header-section-number">9</span> Blocks</a></li>
+<li><a class="" href="sharing-your-book.html"><span class="header-section-number">10</span> Sharing your book</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="sort-rank-ve-order-fonksiyonları" class="section level1" number="7">
+<h1>
+<span class="header-section-number">Bölüm 7</span> <code>sort()</code>, <code>rank()</code> ve <code>order()</code> Fonksiyonları<a class="anchor" aria-label="anchor" href="#sort-rank-ve-order-fonksiyonlar%C4%B1"><i class="fas fa-link"></i></a>
+</h1>
+<p>Veriler organize edilirken, verilerin sıralanması, derecelendirilmesi gerekebilir. R programında, <code><a href="https://rdrr.io/r/base/sort.html">sort()</a></code>, <code><a href="https://rdrr.io/r/base/rank.html">rank()</a></code> ve <code><a href="https://rdrr.io/r/base/order.html">order()</a></code> komutları bunun için kullanılabilir. Bu komutların uygulanışı aşağıda oluşturulan x vektörü kullanılarak açıklanmıştır.</p>
+<div class="sourceCode" id="cb532"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">138</span>, <span class="fl">52</span>, <span class="fl">101</span>, <span class="fl">22</span>, <span class="fl">74</span>, <span class="fl">155</span>, <span class="fl">90</span>, <span class="fl">69</span>, <span class="fl">139</span>, <span class="fl">101</span>, <span class="fl">61</span>, <span class="fl">125</span><span class="op">)</span> </span>
+<span><span class="va">x</span> </span></code></pre></div>
+<pre><code>##  [1] 138  52 101  22  74 155  90  69 139 101  61 125</code></pre>
+<p><code>sort(x)</code> fonksiyonu, <code>x</code> vektöründeki değerleri küçükten büyük değere doğru sıralar. Eğer <code>x</code> vektöründeki değerlerin büyükten küçük değere doğru sıralanması gerektiğinde sort fonksiyonu <code>sort(x, decreasing=TRUE)</code> şeklinde uygulanmalıdır.</p>
+<div class="sourceCode" id="cb534"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sort.html">sort</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code></pre></div>
+<pre><code>##  [1]  22  52  61  69  74  90 101 101 125 138 139 155</code></pre>
+<div class="sourceCode" id="cb536"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sort.html">sort</a></span><span class="op">(</span><span class="va">x</span>, decreasing<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+<pre><code>##  [1] 155 139 138 125 101 101  90  74  69  61  52  22</code></pre>
+<p>Buna karşılık, sıralanacak vektör <code>NA</code> ile gösterilen eksik gözlem değerleri içeriyorsa, vektörün sıralanmasında <code>NA</code> değerleri de aşağıda açıklandığı şekilde dikkate alınabilir.</p>
+<div class="sourceCode" id="cb538"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">NA</span>, <span class="fl">138</span>,  <span class="fl">52</span>, <span class="fl">101</span>, <span class="fl">22</span>,  <span class="fl">74</span>, <span class="fl">155</span>,  <span class="fl">90</span>,  <span class="fl">69</span>, <span class="fl">139</span>, <span class="fl">101</span>, <span class="cn">NA</span>,  <span class="fl">61</span>, <span class="fl">125</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/sort.html">sort</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span></span></code></pre></div>
+<pre><code>##  [1]  22  52  61  69  74  90 101 101 125 138 139 155</code></pre>
+<div class="sourceCode" id="cb540"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sort.html">sort</a></span><span class="op">(</span><span class="va">y</span>, na.last<span class="op">=</span><span class="cn">NA</span><span class="op">)</span>         <span class="co"># NA değerleri silinerek sıralandı </span></span></code></pre></div>
+<pre><code>##  [1]  22  52  61  69  74  90 101 101 125 138 139 155</code></pre>
+<div class="sourceCode" id="cb542"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sort.html">sort</a></span><span class="op">(</span><span class="va">y</span>, na.last<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span>      <span class="co"># sıralamada NA değerleri önce yazıldı </span></span></code></pre></div>
+<pre><code>##  [1]  NA  NA  22  52  61  69  74  90 101 101 125 138 139 155</code></pre>
+<div class="sourceCode" id="cb544"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sort.html">sort</a></span><span class="op">(</span><span class="va">y</span>, na.last<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span>       <span class="co"># sıralamada NA değerleri en sona yazıldı </span></span></code></pre></div>
+<pre><code>##  [1]  22  52  61  69  74  90 101 101 125 138 139 155  NA  NA</code></pre>
+<p><code>rank(x)</code> fonksiyonu, <code>x</code> vektöründeki değerleri sıralamadaki durumuna göre değerlendirerek derecelendirmektedir. Buna göre, <code>x</code> vektöründeki eleman sayısı 12 olduğundan, derecelendirme en küçük değere 1 ve en büyük değere 12 değeri atanarak gerçekleştirilir. Eğer buradaki <code>x</code> vektöründe olduğu gibi (101 değeri iki tane) aynı değerlere sahip birden fazla gözlem var ise bunların derecelendirmesi, derecelerinin ortalaması ((7+8)/2 =7.5) alınarak gerçekleştirilir.</p>
+<div class="sourceCode" id="cb546"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">x</span></span></code></pre></div>
+<pre><code>##  [1] 138  52 101  22  74 155  90  69 139 101  61 125</code></pre>
+<div class="sourceCode" id="cb548"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/rank.html">rank</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code></pre></div>
+<pre><code>##  [1] 10.0  2.0  7.5  1.0  5.0 12.0  6.0  4.0 11.0  7.5  3.0  9.0</code></pre>
+<p><code>order(x)</code> fonksiyonu, <code>x</code> vektöründeki değerler <code>sort(x)</code> fonksiyonu ile sıralandıktan sonra x vektöründeki yerlerini belirtmektedir. Aşağıda verilen çıktı incelendiğinde 138 değeri x vektöründe 1. sıradadır. Sıralandıktan sonra 138 değeri 10. sıradadır ve order komutu uygulandığında buna karşılık gelen 1 değerini almaktadır.</p>
+<div class="sourceCode" id="cb550"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">x</span></span></code></pre></div>
+<pre><code>##  [1] 138  52 101  22  74 155  90  69 139 101  61 125</code></pre>
+<div class="sourceCode" id="cb552"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sort.html">sort</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code></pre></div>
+<pre><code>##  [1]  22  52  61  69  74  90 101 101 125 138 139 155</code></pre>
+<div class="sourceCode" id="cb554"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code></pre></div>
+<pre><code>##  [1]  4  2 11  8  5  7  3 10 12  1  9  6</code></pre>
+<p><code><a href="https://rdrr.io/r/base/sort.html">sort()</a></code>, <code><a href="https://rdrr.io/r/base/rank.html">rank()</a></code> ve <code><a href="https://rdrr.io/r/base/order.html">order()</a></code> komutların uygulanmasının ve elde edilen sonuçların daha kolay anlaşılması amacıyla bunlardan elde edilen sonuçlar aşağıda bir araya getirilmiştir.</p>
+<div class="sourceCode" id="cb556"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">rank.x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/rank.html">rank</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span><span class="va">sort.x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sort.html">sort</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span><span class="va">order.x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">rank.x</span>, <span class="va">sort.x</span>, <span class="va">order.x</span><span class="op">)</span></span></code></pre></div>
+<pre><code>##         x rank.x sort.x order.x
+##  [1,] 138   10.0     22       4
+##  [2,]  52    2.0     52       2
+##  [3,] 101    7.5     61      11
+##  [4,]  22    1.0     69       8
+##  [5,]  74    5.0     74       5
+##  [6,] 155   12.0     90       7
+##  [7,]  90    6.0    101       3
+##  [8,]  69    4.0    101      10
+##  [9,] 139   11.0    125      12
+## [10,] 101    7.5    138       1
+## [11,]  61    3.0    139       9
+## [12,] 125    9.0    155       6</code></pre>
+<div id="sayıların-yuvarlanması-ceiling-floor-round-ve-signif-fonksiyonları" class="section level2" number="7.1">
+<h2>
+<span class="header-section-number">7.1</span> Sayıların Yuvarlanması <code>ceiling()</code>, <code>floor()</code>, <code>round()</code> ve <code>signif()</code> Fonksiyonları<a class="anchor" aria-label="anchor" href="#say%C4%B1lar%C4%B1n-yuvarlanmas%C4%B1-ceiling-floor-round-ve-signif-fonksiyonlar%C4%B1"><i class="fas fa-link"></i></a>
+</h2>
+<p>Sayılar, kendisinden daha büyük, daha küçük veya kendisine en yakın tam sayıya yuvarlanabilir. R programında bu amaç için <code><a href="https://rdrr.io/r/base/Round.html">ceiling()</a></code>, <code><a href="https://rdrr.io/r/base/Round.html">floor()</a></code>, <code><a href="https://rdrr.io/r/base/Round.html">round()</a></code> ve <code><a href="https://rdrr.io/r/base/Round.html">signif()</a></code> fonksiyonları oluşturulmuştur.</p>
+<p><code>ceiling(x)</code> fonksiyonu x sayısını en yakın büyük tam sayıya ve <code>floor(x)</code> fonksiyonu da x sayısına en yakın küçük tam sayıya yuvarlar. Sayıların ondalık kısımlarını dikkate almak için <code>round(x, digits=a)</code> ve <code>signif(x, digits=a)</code> fonksiyonları <code>digits=a</code> komutu ile birlikte kullanılmalıdır. Böylece, <code>digits=a</code>’da tanımlanan a değeri ile x sayısının yuvarlanmasından sonra elde edilecek ondalık hane sayısı belirtilmektedir. <code><a href="https://rdrr.io/r/base/Round.html">ceiling()</a></code>, <code><a href="https://rdrr.io/r/base/Round.html">floor()</a></code>, <code><a href="https://rdrr.io/r/base/Round.html">round()</a></code> ve <code><a href="https://rdrr.io/r/base/Round.html">signif()</a></code> komutların kullanımı aşağıdaki şekilde x vektöründeki sayılara uygulanarak gösterilmiştir.</p>
+<div class="sourceCode" id="cb558"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">x</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2.239866</span>, <span class="fl">1.161533</span>, <span class="fl">1.923470</span>, <span class="fl">2.421973</span>, <span class="fl">1.925682</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Round.html">ceiling</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## [1] 3 2 2 3 2</code></pre>
+<div class="sourceCode" id="cb560"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Round.html">floor</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## [1] 2 1 1 2 1</code></pre>
+<div class="sourceCode" id="cb562"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">x</span>, digits<span class="op">=</span><span class="fl">3</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## [1] 2.240 1.162 1.923 2.422 1.926</code></pre>
+<div class="sourceCode" id="cb564"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Round.html">signif</a></span><span class="op">(</span><span class="va">x</span>, digits<span class="op">=</span><span class="fl">4</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## [1] 2.240 1.162 1.923 2.422 1.926</code></pre>
+</div>
+<div id="apply-fonksiyonları" class="section level2" number="7.2">
+<h2>
+<span class="header-section-number">7.2</span> <code>apply</code> Fonksiyonları<a class="anchor" aria-label="anchor" href="#apply-fonksiyonlar%C4%B1"><i class="fas fa-link"></i></a>
+</h2>
+<p>R programında herhangi bir fonksiyonun; bir matrisin, dizinin (array) veya listenin belirli bölümlerine uygulanması amacıyla apply adı altında <code><a href="https://rdrr.io/r/base/apply.html">apply()</a></code>, <code><a href="https://rdrr.io/r/base/lapply.html">lapply()</a></code>, <code><a href="https://rdrr.io/r/base/tapply.html">tapply()</a></code>, <code><a href="https://rdrr.io/r/base/lapply.html">sapply()</a></code> ve <code><a href="https://rdrr.io/r/base/mapply.html">mapply()</a></code> fonksiyonları geliştirilmiştir.</p>
+<div id="apply-fonksiyonu" class="section level3" number="7.2.1">
+<h3>
+<span class="header-section-number">7.2.1</span> <code>apply()</code> Fonksiyonu<a class="anchor" aria-label="anchor" href="#apply-fonksiyonu"><i class="fas fa-link"></i></a>
+</h3>
+<p>Bir matris veya dizinin (array) satır veya sütun gibi bölümlerine mean veya max gibi bir fonksiyon uygulanmak istendiğinde <code><a href="https://rdrr.io/r/base/apply.html">apply()</a></code> fonksiyonu <code>apply(X, MARGIN, FUN, ...)</code> şeklinde kullanılabilir ve <code>X</code>: fonksiyonun uygulanacağı matris veya dizini (array) belirtir, <code>MARGIN</code>: fonksiyonun uygulanacağı matris veya dizinin boyutlarını (1: satırı, 2: sütunu ve c(1,2): satır ve sütunları) belirtir ve <code>FUN</code>: matris veya dizine uygulanacak fonksiyonu belirtir.</p>
+<div class="sourceCode" id="cb566"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">12</span>, nrow<span class="op">=</span><span class="fl">3</span>, ncol<span class="op">=</span><span class="fl">4</span><span class="op">)</span></span>
+<span><span class="va">x</span></span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3] [,4]
+## [1,]    1    4    7   10
+## [2,]    2    5    8   11
+## [3,]    3    6    9   12</code></pre>
+<p>Oluşturulan <span class="math inline">\(x_{3×4}\)</span> matrisinin satırlarının ortalaması aşağıda verilen <code><a href="https://rdrr.io/r/base/apply.html">apply()</a></code> fonksiyonuyla hesaplanabilir.</p>
+<div class="sourceCode" id="cb568"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/apply.html">apply</a></span><span class="op">(</span>X<span class="op">=</span><span class="va">x</span>, MARGIN<span class="op">=</span><span class="fl">1</span>, FUN<span class="op">=</span><span class="va">mean</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## [1] 5.5 6.5 7.5</code></pre>
+<p><span class="math inline">\(x_{3×4}\)</span> matrisine ait sütunların en büyük değerlerini bulmak için <code><a href="https://rdrr.io/r/base/apply.html">apply()</a></code> fonksiyonu aşağıdaki şekilde yazılabilir.</p>
+<div class="sourceCode" id="cb570"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/apply.html">apply</a></span><span class="op">(</span>X<span class="op">=</span><span class="va">x</span>, MARGIN<span class="op">=</span><span class="fl">2</span>, FUN<span class="op">=</span><span class="va">max</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## [1]  3  6  9 12</code></pre>
+<p><span class="math inline">\(N_{2×3}\)</span> ve <span class="math inline">\(M_{2×3}\)</span> matrislerini içeren bir w dizini aşağıdaki şekilde oluşturulabilir.</p>
+<div class="sourceCode" id="cb572"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">w</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/array.html">array</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">12</span>, dim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">2</span><span class="op">)</span>, dimnames<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"A"</span>,<span class="st">"B"</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"X"</span>,<span class="st">"Y"</span>,<span class="st">"Z"</span><span class="op">)</span>,    </span>
+<span>           <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"N"</span>,<span class="st">"M"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">w</span></span></code></pre></div>
+<pre><code>## , , N
+## 
+##   X Y Z
+## A 1 3 5
+## B 2 4 6
+## 
+## , , M
+## 
+##   X  Y  Z
+## A 7  9 11
+## B 8 10 12</code></pre>
+<p><span class="math inline">\(N_{2×3}\)</span> ve <span class="math inline">\(M_{2×3}\)</span> matrislerinin X, Y ve Z sütun toplamları <code><a href="https://rdrr.io/r/base/apply.html">apply()</a></code> fonksiyonu kullanılarak aşağıdaki şekilde elde edilebilir.</p>
+<div class="sourceCode" id="cb574"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># w dizininde yer alan N ve M matrisinin X Y Z sütun toplamları </span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/apply.html">apply</a></span><span class="op">(</span><span class="va">w</span>, <span class="fl">2</span>, <span class="va">sum</span><span class="op">)</span></span></code></pre></div>
+<pre><code>##  X  Y  Z 
+## 18 26 34</code></pre>
+<p><span class="math inline">\(N_{2×3}\)</span> ve <span class="math inline">\(M_{2×3}\)</span> matrislerinin A ve B satır ortalamaları <code><a href="https://rdrr.io/r/base/apply.html">apply()</a></code> fonksiyonu kullanılarak aşağıdaki şekilde elde edilebilir.</p>
+<div class="sourceCode" id="cb576"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># w dizininde yer alan N ve M matrisinin A B satır ortalamaları </span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/apply.html">apply</a></span><span class="op">(</span><span class="va">w</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">3</span><span class="op">)</span>, <span class="va">mean</span><span class="op">)</span> </span></code></pre></div>
+<pre><code>##   N  M
+## A 3  9
+## B 4 10</code></pre>
+</div>
+</div>
+<div id="tapply-fonksiyonu" class="section level2" number="7.3">
+<h2>
+<span class="header-section-number">7.3</span> tapply() Fonksiyonu<a class="anchor" aria-label="anchor" href="#tapply-fonksiyonu"><i class="fas fa-link"></i></a>
+</h2>
+<p>R programında X gibi bir değişkenin tanımlayıcı değerlerini, cinsiyet veya yaş gibi bir faktörün seviyelerine göre hesaplamak için <code><a href="https://rdrr.io/r/base/tapply.html">tapply()</a></code> fonksiyonu çok kullanışlıdır. <code><a href="https://rdrr.io/r/base/tapply.html">tapply()</a></code> fonksiyonu <code>tapply(X, FACTOR, FUN, ...)</code> şeklinde uygulanabilir ve <code>X</code>: fonksiyonun uygulanacağı vektörü belirtir, <code>FACTOR</code>: fonksiyonun uygulanacağı faktör seviyelerini içeren faktörü belirtir ve <code>FUN</code>: uygulanacak fonksiyonu belirtir.</p>
+<p>Aşağıda verilen data2 veri çerçevesinde 13 birey yer almaktadır. Bireylerin, birey numarası B.No, cinsiyet ve yaşları da D.1 ve D.2 ile belirtilmiştir. D.3, D.4 ve D.5 değişkenleri de diğer üç özellik için bireylerin almış oldukları değerleri belirtmektedir.</p>
+<div class="sourceCode" id="cb578"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">B.No</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,   <span class="fl">2</span>,  <span class="fl">3</span>,  <span class="fl">4</span>,  <span class="fl">5</span>,  <span class="fl">6</span>,  <span class="fl">7</span>,  <span class="fl">8</span>,  <span class="fl">9</span>,  <span class="fl">10</span>, <span class="fl">11</span>, <span class="fl">12</span>, <span class="fl">13</span><span class="op">)</span></span>
+<span><span class="va">D.1</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"D"</span>,  <span class="st">"D"</span>,    <span class="st">"D"</span>,    <span class="st">"D"</span>,    <span class="st">"D"</span>,    <span class="st">"D"</span>,    <span class="st">"D"</span>,    <span class="st">"E"</span>,    <span class="st">"E"</span>,    <span class="st">"E"</span>,    <span class="st">"E"</span>,    <span class="st">"E"</span>,    <span class="st">"E"</span><span class="op">)</span></span>
+<span><span class="va">D.2</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">4</span>,    <span class="fl">2</span>,  <span class="fl">3</span>,  <span class="fl">4</span>,  <span class="fl">2</span>,  <span class="fl">7</span>,  <span class="fl">2</span>,  <span class="fl">7</span>,  <span class="fl">5</span>,  <span class="fl">2</span>,  <span class="fl">2</span>,  <span class="fl">4</span>,  <span class="fl">3</span><span class="op">)</span></span>
+<span><span class="va">D.3</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">32</span>,   <span class="fl">29</span>, <span class="fl">32</span>, <span class="fl">39</span>, <span class="fl">27</span>, <span class="fl">39</span>, <span class="fl">35</span>, <span class="fl">54.5</span>,   <span class="fl">45</span>, <span class="fl">43</span>, <span class="fl">40</span>, <span class="fl">36</span>, <span class="fl">42</span><span class="op">)</span></span>
+<span><span class="va">D.4</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">70</span>,   <span class="fl">62</span>, <span class="fl">65</span>, <span class="fl">66</span>, <span class="fl">61</span>, <span class="fl">64</span>, <span class="fl">64</span>, <span class="fl">71</span>, <span class="fl">69</span>, <span class="fl">74</span>, <span class="fl">72</span>, <span class="fl">66</span>, <span class="fl">74</span><span class="op">)</span></span>
+<span><span class="va">D.5</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">78</span>,   <span class="fl">74</span>, <span class="fl">77</span>, <span class="fl">80</span>, <span class="fl">74</span>, <span class="fl">84</span>, <span class="fl">83</span>, <span class="fl">94</span>, <span class="fl">87.5</span>,   <span class="fl">88</span>, <span class="fl">64</span>, <span class="fl">86</span>, <span class="fl">95</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">data2</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="va">B.No</span>,<span class="va">D.1</span>,<span class="va">D.2</span>,<span class="va">D.3</span>,<span class="va">D.4</span>,<span class="va">D.5</span><span class="op">)</span></span></code></pre></div>
+<p>Bu veri çerçevesinde D.3 değişkeni cinsiyetlere, yaşlara veya her ikisine göre ortalaması hesaplanmak istendiğinde <code><a href="https://rdrr.io/r/base/tapply.html">tapply()</a></code> fonksiyonu aşağıdaki şekilde kullanılabilir.</p>
+<div class="sourceCode" id="cb579"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># D.3 değişkeni için cinsiyete göre ortalamalar</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/tapply.html">tapply</a></span><span class="op">(</span><span class="va">data2</span><span class="op">$</span><span class="va">D.3</span>, <span class="va">data2</span><span class="op">$</span><span class="va">D.1</span>, <span class="va">mean</span><span class="op">)</span></span></code></pre></div>
+<pre><code>##        D        E 
+## 33.28571 43.41667</code></pre>
+<div class="sourceCode" id="cb581"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># D.3 değişkeni için yaşa göre ortalamalar</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/tapply.html">tapply</a></span><span class="op">(</span><span class="va">data2</span><span class="op">$</span><span class="va">D.3</span>, <span class="va">data2</span><span class="op">$</span><span class="va">D.2</span>, <span class="va">mean</span><span class="op">)</span></span></code></pre></div>
+<pre><code>##        2        3        4        5        7 
+## 34.80000 37.00000 35.66667 45.00000 46.75000</code></pre>
+<div class="sourceCode" id="cb583"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># D.3 değişkeni için cinsiyete ve yaşa göre ortalamalar</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/tapply.html">tapply</a></span><span class="op">(</span><span class="va">data2</span><span class="op">$</span><span class="va">D.3</span>, <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">data2</span><span class="op">$</span><span class="va">D.1</span>, <span class="va">data2</span><span class="op">$</span><span class="va">D.2</span><span class="op">)</span>, <span class="va">mean</span><span class="op">)</span></span></code></pre></div>
+<pre><code>##          2  3    4  5    7
+## D 30.33333 32 35.5 NA 39.0
+## E 41.50000 42 36.0 45 54.5</code></pre>
+<p>D.3 değişkeni için cinsiyete ve yaşa göre ortalamalar <code><a href="https://rdrr.io/r/base/tapply.html">tapply()</a></code> fonksiyonu ile oluşturulurken 5 yaşında olan dişi birey olmadığı için sonuçları veren tabloda bu kombinasyon için <code>NA</code> değerli yazılmıştır.</p>
+<div id="lapply-ve-sapply-fonksiyonları" class="section level3" number="7.3.1">
+<h3>
+<span class="header-section-number">7.3.1</span> lapply() ve sapply() Fonksiyonları<a class="anchor" aria-label="anchor" href="#lapply-ve-sapply-fonksiyonlar%C4%B1"><i class="fas fa-link"></i></a>
+</h3>
+<p>R programında X gibi bir liste yapısında olan değişkenin elemanlarına mean veya max gibi bir fonksiyon <code>lapply(X, FUN)</code> şeklinde uygulanabilir ve X: fonksiyonun uygulanacağı liste yapısında olan değişkeni, <code>FACTOR</code>: fonksiyonun uygulanacağı faktör seviyelerini içeren faktörü ve <code>FUN</code>: uygulanacak fonksiyonu belirtir.
+Aşağıdaki örnekte data2 veri çerçevesinde yer alan D.3, D.4 ve D.5 değişkenleri liste yapısında data3 olarak yeniden düzenlenmiş, <code><a href="https://rdrr.io/r/base/lapply.html">lapply()</a></code> fonksiyonu ile ortalamaları hesaplanmış ve sonuçlar da liste formatında her değişken için yazdırılmıştır.</p>
+<div class="sourceCode" id="cb585"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">data3</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">data2</span><span class="op">$</span><span class="va">D.3</span>, <span class="va">data2</span><span class="op">$</span><span class="va">D.4</span>, <span class="va">data2</span><span class="op">$</span><span class="va">D.5</span><span class="op">)</span></span>
+<span><span class="va">data3</span></span></code></pre></div>
+<pre><code>## [[1]]
+##  [1] 32.0 29.0 32.0 39.0 27.0 39.0 35.0 54.5 45.0 43.0 40.0 36.0 42.0
+## 
+## [[2]]
+##  [1] 70 62 65 66 61 64 64 71 69 74 72 66 74
+## 
+## [[3]]
+##  [1] 78.0 74.0 77.0 80.0 74.0 84.0 83.0 94.0 87.5 88.0 64.0 86.0 95.0</code></pre>
+<div class="sourceCode" id="cb587"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="va">data3</span>, <span class="va">mean</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## [[1]]
+## [1] 37.96154
+## 
+## [[2]]
+## [1] 67.53846
+## 
+## [[3]]
+## [1] 81.88462</code></pre>
+<p>Liste yapısında olan data3 değişkeni için sonuçlar liste yapısı yerine tablo yapısında bir formatta elde edilmek istendiğinde <code><a href="https://rdrr.io/r/base/lapply.html">sapply()</a></code> fonksiyonu uygulanmalıdır. Buna göre,</p>
+<div class="sourceCode" id="cb589"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html">sapply</a></span><span class="op">(</span><span class="va">data3</span>, <span class="va">mean</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## [1] 37.96154 67.53846 81.88462</code></pre>
+<p>şeklinde aynı sonuçlar tablo formatında elde edilebilir.</p>
+</div>
+</div>
+<div id="aggregate-ve-by-fonksiyonları" class="section level2" number="7.4">
+<h2>
+<span class="header-section-number">7.4</span> aggregate() ve by() Fonksiyonları<a class="anchor" aria-label="anchor" href="#aggregate-ve-by-fonksiyonlar%C4%B1"><i class="fas fa-link"></i></a>
+</h2>
+<p><code><a href="https://rdrr.io/r/stats/aggregate.html">aggregate()</a></code> ve <code><a href="https://rdrr.io/r/base/by.html">by()</a></code> fonksiyonları aynı <code><a href="https://rdrr.io/r/base/tapply.html">tapply()</a></code> fonksiyonunda olduğu gibi veri çerçevesinde yer alan değişkenlerin faktör değişkeninin seviyelerine göre tanımlayıcı değerlerinin elde edilmesini ve farklı bir formatta sunulmasını sağlar.</p>
+<p><code><a href="https://rdrr.io/r/stats/aggregate.html">aggregate()</a></code> fonksiyonu, <code>aggregate(X, list(factor), FUN)</code> şeklinde uygulanır, <code>X</code>: tanımlayıcı değerleri bulunacak değişkeni, <code>list(factor)</code>: faktör değişkeninin liste yapısında uygulanmasını ve <code>FUN</code>: uygulanacak fonksiyonu belirtir. Aşağıda D.3 değişkeni için cinsiyete ve yaşa göre ortalamalar <code><a href="https://rdrr.io/r/stats/aggregate.html">aggregate()</a></code> fonksiyonu ile veri çerçeve formatında oluşturulmuştur.</p>
+<div class="sourceCode" id="cb591"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># D.3 değişkeni için cinsiyete göre ortalamalar</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/aggregate.html">aggregate</a></span><span class="op">(</span><span class="va">data2</span><span class="op">$</span><span class="va">D.3</span>,<span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">data2</span><span class="op">$</span><span class="va">D.1</span><span class="op">)</span>,<span class="va">mean</span><span class="op">)</span></span></code></pre></div>
+<pre><code>##   Group.1        x
+## 1       D 33.28571
+## 2       E 43.41667</code></pre>
+<div class="sourceCode" id="cb593"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># D.3 değişkeni için yaşa göre ortalamalar</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/aggregate.html">aggregate</a></span><span class="op">(</span><span class="va">data2</span><span class="op">$</span><span class="va">D.3</span>,<span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">data2</span><span class="op">$</span><span class="va">D.2</span><span class="op">)</span>,<span class="va">mean</span><span class="op">)</span></span></code></pre></div>
+<pre><code>##   Group.1        x
+## 1       2 34.80000
+## 2       3 37.00000
+## 3       4 35.66667
+## 4       5 45.00000
+## 5       7 46.75000</code></pre>
+<div class="sourceCode" id="cb595"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># D.3 değişkeni için cinsiyete ve yaşa göre ortalamalar</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/aggregate.html">aggregate</a></span><span class="op">(</span><span class="va">data2</span><span class="op">$</span><span class="va">D.3</span>,<span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">data2</span><span class="op">$</span><span class="va">D.1</span>,<span class="va">data2</span><span class="op">$</span><span class="va">D.2</span><span class="op">)</span>,<span class="va">mean</span><span class="op">)</span></span></code></pre></div>
+<pre><code>##   Group.1 Group.2        x
+## 1       D       2 30.33333
+## 2       E       2 41.50000
+## 3       D       3 32.00000
+## 4       E       3 42.00000
+## 5       D       4 35.50000
+## 6       E       4 36.00000
+## 7       E       5 45.00000
+## 8       D       7 39.00000
+## 9       E       7 54.50000</code></pre>
+<p><code><a href="https://rdrr.io/r/base/by.html">by()</a></code> fonksiyonu <code>by(X, list(factor), FUN)</code> şeklinde uygulanır, <code>X</code>: tanımlayıcı değerleri bulunacak değişkeni, <code>list(factor)</code>: faktör değişkeninin liste yapısında uygulanmasını ve <code>FUN</code>: uygulanacak fonksiyonu belirtir. Aşağıda D.3 değişkeni için cinsiyete ve yaşa göre ortalamalar <code><a href="https://rdrr.io/r/base/by.html">by()</a></code> fonksiyonu ile liste formatında oluşturulmuştur.</p>
+<div class="sourceCode" id="cb597"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/by.html">by</a></span><span class="op">(</span><span class="va">data2</span><span class="op">$</span><span class="va">D.3</span>, <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">data2</span><span class="op">$</span><span class="va">D.1</span><span class="op">)</span>, <span class="va">mean</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## : D
+## [1] 33.28571
+## ------------------------------------------------------------ 
+## : E
+## [1] 43.41667</code></pre>
+<div class="sourceCode" id="cb599"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/by.html">by</a></span><span class="op">(</span><span class="va">data2</span><span class="op">$</span><span class="va">D.3</span>, <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">data2</span><span class="op">$</span><span class="va">D.2</span><span class="op">)</span>, <span class="va">mean</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## : 2
+## [1] 34.8
+## ------------------------------------------------------------ 
+## : 3
+## [1] 37
+## ------------------------------------------------------------ 
+## : 4
+## [1] 35.66667
+## ------------------------------------------------------------ 
+## : 5
+## [1] 45
+## ------------------------------------------------------------ 
+## : 7
+## [1] 46.75</code></pre>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="vekt%C3%B6r-fonksiyonlar%C4%B1.html"><span class="header-section-number">6</span> Vektör Fonksiyonları</a></div>
+<div class="next"><a href="footnotes-and-citations.html"><span class="header-section-number">8</span> Footnotes and citations</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#sort-rank-ve-order-fonksiyonlar%C4%B1"><span class="header-section-number">7</span> sort(), rank() ve order() Fonksiyonları</a></li>
+<li><a class="nav-link" href="#say%C4%B1lar%C4%B1n-yuvarlanmas%C4%B1-ceiling-floor-round-ve-signif-fonksiyonlar%C4%B1"><span class="header-section-number">7.1</span> Sayıların Yuvarlanması ceiling(), floor(), round() ve signif() Fonksiyonları</a></li>
+<li>
+<a class="nav-link" href="#apply-fonksiyonlar%C4%B1"><span class="header-section-number">7.2</span> apply Fonksiyonları</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#apply-fonksiyonu"><span class="header-section-number">7.2.1</span> apply() Fonksiyonu</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#tapply-fonksiyonu"><span class="header-section-number">7.3</span> tapply() Fonksiyonu</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#lapply-ve-sapply-fonksiyonlar%C4%B1"><span class="header-section-number">7.3.1</span> lapply() ve sapply() Fonksiyonları</a></li></ul>
+</li>
+<li><a class="nav-link" href="#aggregate-ve-by-fonksiyonlar%C4%B1"><span class="header-section-number">7.4</span> aggregate() ve by() Fonksiyonları</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>R Programı</strong>" was written by Prof. Dr. Kadir KIZILKAYA. It was last built on 2023-02-17.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

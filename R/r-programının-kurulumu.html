@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 2 R Programının Kurulumu | R Programı</title>
+<meta name="author" content="Prof. Dr. Kadir KIZILKAYA">
+<meta name="description" content="R programı, PC-Windows, Apple Mac-OS ve Linux işletim sistemli bilgisayarlara kolayca kurulabilir. PC-Windows işletim sistemi için R.exe, Apple Mac için R.dmg ve Linux için de R kurulum dosyaları...">
+<meta name="generator" content="bookdown 0.32 with bs4_book()">
+<meta property="og:title" content="Chapter 2 R Programının Kurulumu | R Programı">
+<meta property="og:type" content="book">
+<meta property="og:description" content="R programı, PC-Windows, Apple Mac-OS ve Linux işletim sistemli bilgisayarlara kolayca kurulabilir. PC-Windows işletim sistemi için R.exe, Apple Mac için R.dmg ve Linux için de R kurulum dosyaları...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 2 R Programının Kurulumu | R Programı">
+<meta name="twitter:description" content="R programı, PC-Windows, Apple Mac-OS ve Linux işletim sistemli bilgisayarlara kolayca kurulabilir. PC-Windows işletim sistemi için R.exe, Apple Mac için R.dmg ve Linux için de R kurulum dosyaları...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.2/transition.js"></script><script src="libs/bs3compat-0.4.2/tabs.js"></script><script src="libs/bs3compat-0.4.2/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<style type="text/css">
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">R Programı</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> Prerequisites</a></li>
+<li><a class="active" href="r-program%C4%B1n%C4%B1n-kurulumu.html"><span class="header-section-number">2</span> R Programının Kurulumu</a></li>
+<li><a class="" href="cross.html"><span class="header-section-number">3</span> Cross-references</a></li>
+<li><a class="" href="parts.html"><span class="header-section-number">4</span> Parts</a></li>
+<li><a class="" href="footnotes-and-citations.html"><span class="header-section-number">5</span> Footnotes and citations</a></li>
+<li><a class="" href="blocks.html"><span class="header-section-number">6</span> Blocks</a></li>
+<li><a class="" href="sharing-your-book.html"><span class="header-section-number">7</span> Sharing your book</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="r-programının-kurulumu" class="section level1" number="2">
+<h1>
+<span class="header-section-number">2</span> R Programının Kurulumu<a class="anchor" aria-label="anchor" href="#r-program%C4%B1n%C4%B1n-kurulumu"><i class="fas fa-link"></i></a>
+</h1>
+<p><code>R</code> programı, PC-Windows, Apple Mac-OS ve Linux işletim sistemli bilgisayarlara kolayca kurulabilir. PC-Windows işletim sistemi için <strong>R.exe</strong>, Apple Mac için <strong>R.dmg</strong> ve Linux için de <strong>R</strong> kurulum dosyaları kullanılmaktadır. Gerekli kurulum dosyalarının en son versiyonu R programla dilinin resmi internet sitesi <a href="http://lib.stat.cmu.edu/R/CRAN/">CRAN (Comprehensive R Archive Network)</a>’den indirilebilir. İndirilen kurulum dosyası, tıklanarak çalıştırılır ve ileri (next) tuşuna tıklayarak programın kurulumu gerçekleştirilir. Kurulum tamamlandıktan sonra bilgisayarın Masaüstü’ne R programının ikonu olan <strong>R</strong> simgesi yüklenecektir.</p>
+<div id="r-programının-genel-özellikleri" class="section level2" number="2.1">
+<h2>
+<span class="header-section-number">2.1</span> R programının Genel Özellikleri<a class="anchor" aria-label="anchor" href="#r-program%C4%B1n%C4%B1n-genel-%C3%B6zellikleri"><i class="fas fa-link"></i></a>
+</h2>
+<div id="r-programının-indirilmesi-ve-kurulması" class="section level3" number="2.1.1">
+<h3>
+<span class="header-section-number">2.1.1</span> R Programının İndirilmesi ve Kurulması<a class="anchor" aria-label="anchor" href="#r-program%C4%B1n%C4%B1n-indirilmesi-ve-kurulmas%C4%B1"><i class="fas fa-link"></i></a>
+</h3>
+<p>R programıyla ilgili resmi internet sitesi Şekil <a href="r-program%C4%B1n%C4%B1n-kurulumu.html#fig:Sekil1">2.1</a>’de görüldüğü gibi Comprehensive R Archive Network (CRAN)’dir ve <a href="www.cran.r-project.org">www.cran.r-project.org</a> veya <a href="www.r-project.org">www.r-project.org</a> adresleriyle ulaşılabilir. R programıyla ilgili gelişmeler internet sitesinden izlenebileceği gibi gerekli programlara ve bilgilere bu internet sitesi aracılığıyla da ulaşılabilir.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:Sekil1"></span>
+<img src="Sekil1.png" alt="R programının resmi internet sites" width="80%"><p class="caption">
+Şekil 2.1: R programının resmi internet sites
+</p>
+</div>
+<p>R programıyla ilgili gerekli programlara ve paketlere kolayca ulaşabilmek için dünyanın farklı yerlerinde tanımlanmış internet adresleri bulunmaktadır. İhtiyaç duyulan R programına ait paketler indirilmek istendiğinde en yakın internet adresi seçilerek dosya indirme işlemi gerçekleştirilebilir. Türkiye için Şekil <a href="r-program%C4%B1n%C4%B1n-kurulumu.html#fig:Sekil2">2.2</a>’de görüldüğü gibi Pamukkale Üniversitesi için tanımlanan <a href="http://cran.pau.edu.tr" class="uri">http://cran.pau.edu.tr</a> adresinden indirilebilir. Bu alan seçildiğinde artık R programıyla ilgili bütün program ve paket indirme işlemleri bu alandan gerçekleştirilebilmektedir.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:Sekil2"></span>
+<img src="Sekil2.png" alt="R programı için mevcut internet siteler" width="80%"><p class="caption">
+Şekil 2.2: R programı için mevcut internet siteler
+</p>
+</div>
+<p>Daha önce de belirtildiği gibi R programı PC-Windows, Apple Mac-OS ve Linux işletim sistemlerinde çalıştıralabilmektedir. Bu amaçla, Şekil <a href="r-program%C4%B1n%C4%B1n-kurulumu.html#fig:Sekil3">2.3</a>’de görüldüğü gibi kullandığınız işletim sistemiyle uyumlu olan R programı kolayca seçilebilmektedir. Burada PC-Windows işletim sistemi kullanıldığı kabul edilerek Download R for Windows’a tıklandığında Şekil <a href="r-program%C4%B1n%C4%B1n-kurulumu.html#fig:Sekil4">2.4</a>’de verilen internet sayfasına yönlendirilerek Windows işletim sistemiyle uyumlu farklı şekilde derlenmiş R programları indirilebilir.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:Sekil3"></span>
+<img src="Sekil3.png" alt="PC-Windows, Apple Mac-OS ve Linux işletim sistemleri için R programı" width="80%"><p class="caption">
+Şekil 2.3: PC-Windows, Apple Mac-OS ve Linux işletim sistemleri için R programı
+</p>
+</div>
+<p>Şekil <a href="r-program%C4%B1n%C4%B1n-kurulumu.html#fig:Sekil4">2.4</a>’de verilen base seçeneğine tıklandığında Şekil <a href="r-program%C4%B1n%C4%B1n-kurulumu.html#fig:Sekil5">2.5</a>’de görülen sayfaya yönlendirilerek önceden derlenmiş <strong>Download R for Windows</strong> dosyası indirilerek kurulum gerçekleştirilebilir (R programının Download R3.1.1 for Windows gibi en son versiyonunu belirtmektedir).</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:Sekil4"></span>
+<img src="Sekil4.png" alt="R programının farklı şekilde derlenmiş türleri" width="80%"><p class="caption">
+Şekil 2.4: R programının farklı şekilde derlenmiş türleri
+</p>
+</div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:Sekil5"></span>
+<img src="Sekil5.png" alt=" R programının PC-Windows işletim sistemi için kurulum dosya" width="80%"><p class="caption">
+Şekil 2.5:  R programının PC-Windows işletim sistemi için kurulum dosya
+</p>
+</div>
+</div>
+<div id="r-programını-başlatmak-ve-kapatmak" class="section level3" number="2.1.2">
+<h3>
+<span class="header-section-number">2.1.2</span> R Programını Başlatmak ve Kapatmak<a class="anchor" aria-label="anchor" href="#r-program%C4%B1n%C4%B1-ba%C5%9Flatmak-ve-kapatmak"><i class="fas fa-link"></i></a>
+</h3>
+<p>R programını kullanmanın en kolay yolu, komut yazma ve sonuç alma şeklinde interaktif olarak kullanmaktır. R programı <strong>PC-Windows</strong> veya <strong>Mac OS X</strong> işletim sistemli bilgisayara kurulduktan sonra, R ikonuna tıklayarak başlatılabilir ve Şekil <a href="r-program%C4%B1n%C4%B1n-kurulumu.html#fig:Sekil6">2.6</a>’da verilen programın grafiksel kullanıcı arayüz penceresi açılır.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:Sekil6"></span>
+<img src="Sekil6.png" alt="R programının kullanıcı arayüzü (konsol)" width="80%"><p class="caption">
+Şekil 2.6: R programının kullanıcı arayüzü (konsol)
+</p>
+</div>
+<p>R konsolunda yer alan açılış mesajının altında &gt; “büyüktür” işareti yer alır. Birçok kısımda, R programı içerisindeki komutlar veya ifadeler R konsol penceresine doğrudan yazılır.</p>
+<p>R programı başlatıldığında, Şekil <a href="r-program%C4%B1n%C4%B1n-kurulumu.html#fig:Sekil6">2.6</a>’da verilene benzer bir şekilde komut satırı belirir.</p>
+<p>R konsolunda <code>&gt;</code> durumunda yapılacak işlemle ilgili komut girildiğinde R programı işlemi gerçekleştirir ve sonucu konsol ekranına yazar.</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fl">1</span> <span class="op">+</span> <span class="fl">2</span> </span>
+<span><span class="va">y</span> </span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<p>Ayrıca, R programında aşağıda verilen grafik türünde bir çıktı oluşturulacak ise bu çıktı, açılan yeni grafik penceresinde görüntülenir.</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span>, ylab<span class="op">=</span><span class="st">""</span>, xlab<span class="op">=</span><span class="st">""</span>, cex<span class="op">=</span><span class="fl">0.7</span>, cex.axis<span class="op">=</span><span class="fl">0.7</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="R-Program_files/figure-html/Sekil8-1.png" width="80%" style="display: block; margin: auto;"></div>
+<p>İşlemler için yazılan komut bir satıra sığmayacak kadar 128 karakterden uzun olduğunda veya tamamlanmadan işlem yapıldığında, komut yazma işleminin devam ettiğini belirtmek için yeni satırın başında ‘+’ işareti görüntülenir. Bu durumda, komutun eksik olan kısmı “+” işaretinden sonra tamamlanarak enter tuşuna basılır ve işlem gerçekleştirilir.</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fl">3</span><span class="op">*</span> </span>
+<span><span class="op">+</span> <span class="fl">2</span> </span>
+<span><span class="va">y</span> </span></code></pre></div>
+<pre><code>## [1] 6</code></pre>
+<p>R konsol veya komut penceresinde <code><a href="https://rdrr.io/r/base/quit.html">q()</a></code> yazarak veya pencereler doğrudan kapatılarak R programından çıkılabilir. R programından çıkış tamamlanmadan önce R oturumunda gerçekleştirilen işlemlerin kaydedilip edilmeyeceğini belirten Şekil … deki gibi bir pencere ortaya çıkar ve bu oturumda işlemler Yes (Evet) tuşuna tıklanarak çalışma klasörü içerisine <code>.Rhistory</code> şeklinde kaydedilir. Böylece, aynı işlemlere gelecek oturumda devam edilmek istendiğinde bu <code>.Rhistory</code> dosyası kullanılarak R programı açılır ve önceki oturumda oluşturulan nesneler (değişkenler) tekrar belleğe yüklenir.</p>
+</div>
+<div id="paket-kurulumu" class="section level3" number="2.1.3">
+<h3>
+<span class="header-section-number">2.1.3</span> Paket Kurulumu<a class="anchor" aria-label="anchor" href="#paket-kurulumu"><i class="fas fa-link"></i></a>
+</h3>
+<p>R programında kullanılacak bütün fonksiyonlar paketler halinde tanımlanmıştır. Gerekli fonksiyonları kullanmak için yapılması gereken fonksiyonla ilgili paketinin <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages()</a></code> komutu kullanılarak R programı içerisinde bilgisayara kurulmasıdır. Bu komut içerisinde her hangi bir paket ismi belirtilmeden <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages()</a></code> şeklinde kullanıldığında CRAN sisteminde mevcut bütün paketler listelenecektir ve paketlerden bir tanesi seçildiğinde bu paket bilgisayara indirilerek kurulacaktır. Buna karşılık, <code>ggplot2</code> gibi bir grafik paketi yüklenmek istendiğinde <code>install.packages(ggplot2)</code> şeklinde tanımlanarak gerçekleştirilebilir.</p>
+<p>Fonksiyonla ilgili gerekli paketin bilgisayara bir kez kurulması yeterlidir. Fakat, paketi oluşturan yazarlar paketler güncellenebilmektedir. Bu yüzden, belirli aralıklarla paketlerin kurulumunun da <code><a href="https://rdrr.io/r/utils/update.packages.html">update.packages()</a></code> komutu kullanılarak güncellenmesi R programının daha etkili kullanımını sağlayacağından önemlidir. Bilgisayarınıza yüklü paketlerin listesi, versiyon numarası, ilişkili olduğu diğer paketler ve özellikleri <code><a href="https://rdrr.io/r/utils/installed.packages.html">installed.packages()</a></code> komutu kullanılarak görülebilir.</p>
+</div>
+<div id="paket-yükleme" class="section level3" number="2.1.4">
+<h3>
+<span class="header-section-number">2.1.4</span> Paket Yükleme<a class="anchor" aria-label="anchor" href="#paket-y%C3%BCkleme"><i class="fas fa-link"></i></a>
+</h3>
+<p>Herhangi bir R programında herhangi bir fonksiyonun paketi, dünyanın farklı yerlerindeki CRAN internet sitelerinden bilgisayardaki R programına ait kütüphaneye indirilebilir. R programında açılan bir oturumda bir fonksiyon kullanılmadan önce <code><a href="https://rdrr.io/r/base/library.html">library()</a></code> komutuyla fonksiyonla ilgili gerekli paket yüklenmelidir. Örneğin ggplot kullanılarak grafik çizdirilmek istendiğinde</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span></code></pre></div>
+<p>şeklinde yüklenmelidir. Gerekli paketin açılan oturumda bir kere yüklenmesi yeterlidir. Fakat, oturum kapatıldığında ve açılan yeni oturumda bu paket tekrar kullanılmak istendiğinde yine <code><a href="https://rdrr.io/r/base/library.html">library()</a></code> komutuyla tekrar yüklenmelidir. Çok sık kullanılan fonksiyonlara ait paketler bilgisayarın başlatma komutlarına eklenerek doğrudan yüklenmeleri de sağlanabilir.</p>
+</div>
+<div id="paketler" class="section level3" number="2.1.5">
+<h3>
+<span class="header-section-number">2.1.5</span> Paketler<a class="anchor" aria-label="anchor" href="#paketler"><i class="fas fa-link"></i></a>
+</h3>
+<p>R programı matematiksel, istatistiksel ve grafiksel işlemlerle ilgili paketleri içermektedir. Bu paketler, konularla ilgili fonksiyonların, verilerin ve derlenmiş kodların bir bütün halinde R programında sunulması olarak düşünülebilir. R programındaki paketlere ait kütüphanenin bilgisayarın neresinde oluşturulduğu <code><a href="https://rdrr.io/r/base/libPaths.html">.libPaths()</a></code> komutuyla öğrenilebilir. Ayrıca <code><a href="https://rdrr.io/r/base/library.html">library()</a></code> komutuyla hangi paketlerin yüklü olduğu da kolayca belirlenebilir.</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/libPaths.html">.libPaths</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## [1] "/Library/Frameworks/R.framework/Versions/4.2/Resources/library"</code></pre>
+<p>R programında bir oturum başlatıldığında <code>base</code>, <code>datasets</code>, <code>utils</code>, <code>grDevices</code>, <code>graphics</code>, <code>stats</code> ve <code>methods</code> paketleri standart olarak doğrudan yüklenmektedir. Ayrıca, ihtiyaç duyulan paketler de yukarı da açıklandığı şekilde yüklenebilir. Buna ek olarak, hangi paketlerin yüklendiği ve kullanım için hazır olup olmadığı <code><a href="https://rdrr.io/r/base/search.html">search()</a></code> komutu kullanılarak belirlenebilir.</p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/search.html">search</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<pre><code>##  [1] ".GlobalEnv"        "package:ggplot2"   "package:stats"    
+##  [4] "package:graphics"  "package:grDevices" "package:utils"    
+##  [7] "package:datasets"  "package:methods"   "Autoloads"        
+## [10] "package:base"</code></pre>
+
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="index.html"><span class="header-section-number">1</span> Prerequisites</a></div>
+<div class="next"><a href="cross.html"><span class="header-section-number">3</span> Cross-references</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#r-program%C4%B1n%C4%B1n-kurulumu"><span class="header-section-number">2</span> R Programının Kurulumu</a></li>
+<li>
+<a class="nav-link" href="#r-program%C4%B1n%C4%B1n-genel-%C3%B6zellikleri"><span class="header-section-number">2.1</span> R programının Genel Özellikleri</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#r-program%C4%B1n%C4%B1n-indirilmesi-ve-kurulmas%C4%B1"><span class="header-section-number">2.1.1</span> R Programının İndirilmesi ve Kurulması</a></li>
+<li><a class="nav-link" href="#r-program%C4%B1n%C4%B1-ba%C5%9Flatmak-ve-kapatmak"><span class="header-section-number">2.1.2</span> R Programını Başlatmak ve Kapatmak</a></li>
+<li><a class="nav-link" href="#paket-kurulumu"><span class="header-section-number">2.1.3</span> Paket Kurulumu</a></li>
+<li><a class="nav-link" href="#paket-y%C3%BCkleme"><span class="header-section-number">2.1.4</span> Paket Yükleme</a></li>
+<li><a class="nav-link" href="#paketler"><span class="header-section-number">2.1.5</span> Paketler</a></li>
+</ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>R Programı</strong>" was written by Prof. Dr. Kadir KIZILKAYA. It was last built on 2023-02-15.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Bölüm 4 Matrisler | R Programı</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.47 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Bölüm 4 Matrisler | R Programı" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Bölüm 4 Matrisler | R Programı" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Prof. Dr. Kadir KIZILKAYA" />
+
+
+<meta name="date" content="2026-09-03" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="veri-yapıları-ve-veri-tipleri.html"/>
+<link rel="next" href="vektör-fonksiyonları.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">R Program</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="r-programının-kurulumu-ve-genel-özellikleri.html"><a href="r-programının-kurulumu-ve-genel-özellikleri.html"><i class="fa fa-check"></i><b>1</b> R Programının Kurulumu ve Genel Özellikleri</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="r-programının-kurulumu-ve-genel-özellikleri.html"><a href="r-programının-kurulumu-ve-genel-özellikleri.html#r-program%C4%B1n%C4%B1n-indirilmesi-ve-kurulmas%C4%B1"><i class="fa fa-check"></i><b>1.1</b> R Programının İndirilmesi ve Kurulması</a></li>
+<li class="chapter" data-level="1.2" data-path="r-programının-kurulumu-ve-genel-özellikleri.html"><a href="r-programının-kurulumu-ve-genel-özellikleri.html#r-program%C4%B1n%C4%B1-ba%C5%9Flatmak-ve-kapatmak"><i class="fa fa-check"></i><b>1.2</b> R Programını Başlatmak ve Kapatmak</a></li>
+<li class="chapter" data-level="1.3" data-path="r-programının-kurulumu-ve-genel-özellikleri.html"><a href="r-programının-kurulumu-ve-genel-özellikleri.html#paket-kurulumu"><i class="fa fa-check"></i><b>1.3</b> Paket Kurulumu</a></li>
+<li class="chapter" data-level="1.4" data-path="r-programının-kurulumu-ve-genel-özellikleri.html"><a href="r-programının-kurulumu-ve-genel-özellikleri.html#paket-y%C3%BCkleme"><i class="fa fa-check"></i><b>1.4</b> Paket Yükleme</a></li>
+<li class="chapter" data-level="1.5" data-path="r-programının-kurulumu-ve-genel-özellikleri.html"><a href="r-programının-kurulumu-ve-genel-özellikleri.html#paketler"><i class="fa fa-check"></i><b>1.5</b> Paketler</a></li>
+<li class="chapter" data-level="1.6" data-path="r-programının-kurulumu-ve-genel-özellikleri.html"><a href="r-programının-kurulumu-ve-genel-özellikleri.html#betik-script-olu%C5%9Fturma"><i class="fa fa-check"></i><b>1.6</b> Betik (Script) Oluşturma</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html"><i class="fa fa-check"></i><b>2</b> Genel Kurallar ve Komutlar</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#r-program%C4%B1nda-ge%C3%A7erli-de%C4%9Fi%C5%9Fken-isimleri"><i class="fa fa-check"></i><b>2.1</b> R Programında Geçerli Değişken İsimleri</a></li>
+<li class="chapter" data-level="2.2" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#bo%C5%9Fluk"><i class="fa fa-check"></i><b>2.2</b> Boşluk</a></li>
+<li class="chapter" data-level="2.3" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#%C3%A7al%C4%B1%C5%9Fma-dizininin-belirlenmesi-getwd"><i class="fa fa-check"></i><b>2.3</b> Çalışma Dizininin Belirlenmesi <code>getwd()</code></a></li>
+<li class="chapter" data-level="2.4" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#%C3%A7al%C4%B1%C5%9Fma-dizininin-de%C4%9Fi%C5%9Ftirilmesi-setwd"><i class="fa fa-check"></i><b>2.4</b> Çalışma Dizininin Değiştirilmesi <code>setwd()</code></a></li>
+<li class="chapter" data-level="2.5" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#%C3%A7al%C4%B1%C5%9Fma-dizininde-dizin-ve-dosyalar%C4%B1n-listelenmesi-dir-veya-list.files"><i class="fa fa-check"></i><b>2.5</b> Çalışma Dizininde Dizin ve Dosyaların Listelenmesi <code>dir()</code> veya <code>list.files()</code></a></li>
+<li class="chapter" data-level="2.6" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#%C3%A7al%C4%B1%C5%9Fma-dizininde-dizin-olu%C5%9Fturma-dir.create"><i class="fa fa-check"></i><b>2.6</b> Çalışma Dizininde Dizin Oluşturma <code>dir.create()</code></a></li>
+<li class="chapter" data-level="2.7" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#%C3%A7al%C4%B1%C5%9Fma-alan%C4%B1nda-olu%C5%9Fturulan-nesnelerin-veya-de%C4%9Fi%C5%9Fkenlerin-listelenmesi-ls-veya-objects"><i class="fa fa-check"></i><b>2.7</b> Çalışma Alanında Oluşturulan Nesnelerin veya Değişkenlerin Listelenmesi <code>ls()</code> veya <code>objects()</code></a></li>
+<li class="chapter" data-level="2.8" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#%C3%A7al%C4%B1%C5%9Fma-alan%C4%B1n%C4%B1n-workspace-kaydedilmesi"><i class="fa fa-check"></i><b>2.8</b> Çalışma Alanının (Workspace) Kaydedilmesi</a></li>
+<li class="chapter" data-level="2.9" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#de%C4%9Fi%C5%9Fkenlerin-silinmesi"><i class="fa fa-check"></i><b>2.9</b> Değişkenlerin Silinmesi</a></li>
+<li class="chapter" data-level="2.10" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#operat%C3%B6rler"><i class="fa fa-check"></i><b>2.10</b> Operatörler</a>
+<ul>
+<li class="chapter" data-level="2.10.1" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#atama-operat%C3%B6rleri"><i class="fa fa-check"></i><b>2.10.1</b> Atama Operatörleri</a></li>
+<li class="chapter" data-level="2.10.2" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#aritmetik-operat%C3%B6rler"><i class="fa fa-check"></i><b>2.10.2</b> Aritmetik Operatörler</a></li>
+<li class="chapter" data-level="2.10.3" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#kar%C5%9F%C4%B1la%C5%9Ft%C4%B1rma-operat%C3%B6rleri"><i class="fa fa-check"></i><b>2.10.3</b> Karşılaştırma Operatörleri</a></li>
+<li class="chapter" data-level="2.10.4" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#mant%C4%B1k-operat%C3%B6rleri"><i class="fa fa-check"></i><b>2.10.4</b> Mantık Operatörleri</a></li>
+</ul></li>
+<li class="chapter" data-level="2.11" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#eksik-g%C3%B6zlem-na"><i class="fa fa-check"></i><b>2.11</b> Eksik Gözlem (<code>NA</code>)</a></li>
+<li class="chapter" data-level="2.12" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#%C3%B6zel-de%C4%9Ferler-inf-nan-null"><i class="fa fa-check"></i><b>2.12</b> Özel Değerler (<code>Inf</code>, <code>NaN</code>, <code>Null</code>)</a></li>
+<li class="chapter" data-level="2.13" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#seq-sequence-komutu"><i class="fa fa-check"></i><b>2.13</b> <code>seq()</code> (<code>Sequence</code>) Komutu</a></li>
+<li class="chapter" data-level="2.14" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#rep-replicate-komutu"><i class="fa fa-check"></i><b>2.14</b> <code>rep()</code> (<code>Replicate</code>) Komutu</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="veri-yapıları-ve-veri-tipleri.html"><a href="veri-yapıları-ve-veri-tipleri.html"><i class="fa fa-check"></i><b>3</b> Veri Yapıları ve Veri Tipleri</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="veri-yapıları-ve-veri-tipleri.html"><a href="veri-yapıları-ve-veri-tipleri.html#veri-tipi"><i class="fa fa-check"></i><b>3.1</b> Veri Tipi</a></li>
+<li class="chapter" data-level="3.2" data-path="veri-yapıları-ve-veri-tipleri.html"><a href="veri-yapıları-ve-veri-tipleri.html#veri-yap%C4%B1lar%C4%B1"><i class="fa fa-check"></i><b>3.2</b> Veri Yapıları</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="veri-yapıları-ve-veri-tipleri.html"><a href="veri-yapıları-ve-veri-tipleri.html#vekt%C3%B6rler"><i class="fa fa-check"></i><b>3.2.1</b> Vektörler</a></li>
+<li class="chapter" data-level="3.2.2" data-path="veri-yapıları-ve-veri-tipleri.html"><a href="veri-yapıları-ve-veri-tipleri.html#matrisler"><i class="fa fa-check"></i><b>3.2.2</b> Matrisler</a></li>
+<li class="chapter" data-level="3.2.3" data-path="veri-yapıları-ve-veri-tipleri.html"><a href="veri-yapıları-ve-veri-tipleri.html#diziler"><i class="fa fa-check"></i><b>3.2.3</b> Diziler</a></li>
+<li class="chapter" data-level="3.2.4" data-path="veri-yapıları-ve-veri-tipleri.html"><a href="veri-yapıları-ve-veri-tipleri.html#listeler"><i class="fa fa-check"></i><b>3.2.4</b> Listeler</a></li>
+<li class="chapter" data-level="3.2.5" data-path="veri-yapıları-ve-veri-tipleri.html"><a href="veri-yapıları-ve-veri-tipleri.html#fakt%C3%B6rler"><i class="fa fa-check"></i><b>3.2.5</b> Faktörler</a></li>
+<li class="chapter" data-level="3.2.6" data-path="veri-yapıları-ve-veri-tipleri.html"><a href="veri-yapıları-ve-veri-tipleri.html#veri-%C3%A7er%C3%A7eveleri"><i class="fa fa-check"></i><b>3.2.6</b> Veri Çerçeveleri</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="veri-yapıları-ve-veri-tipleri.html"><a href="veri-yapıları-ve-veri-tipleri.html#%C3%A7%C4%B1kt%C4%B1lar%C4%B1n-yazd%C4%B1r%C4%B1lmas%C4%B1-print-ve-cat-fonksiyonlar%C4%B1"><i class="fa fa-check"></i><b>3.3</b> Çıktıların Yazdırılması <code>print()</code> ve <code>cat()</code> Fonksiyonları</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="veri-yapıları-ve-veri-tipleri.html"><a href="veri-yapıları-ve-veri-tipleri.html#print-fonksiyonu"><i class="fa fa-check"></i><b>3.3.1</b> print() Fonksiyonu</a></li>
+<li class="chapter" data-level="3.3.2" data-path="veri-yapıları-ve-veri-tipleri.html"><a href="veri-yapıları-ve-veri-tipleri.html#cat-fonksiyonu"><i class="fa fa-check"></i><b>3.3.2</b> cat() Fonksiyonu</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="matrisler-1.html"><a href="matrisler-1.html"><i class="fa fa-check"></i><b>4</b> Matrisler</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="matrisler-1.html"><a href="matrisler-1.html#sat%C4%B1r-ve-s%C3%BCtun-vekt%C3%B6rleri"><i class="fa fa-check"></i><b>4.1</b> Satır ve Sütun Vektörleri</a></li>
+<li class="chapter" data-level="4.2" data-path="matrisler-1.html"><a href="matrisler-1.html#kare-matris"><i class="fa fa-check"></i><b>4.2</b> Kare Matris</a></li>
+<li class="chapter" data-level="4.3" data-path="matrisler-1.html"><a href="matrisler-1.html#k%C3%B6%C5%9Fegen-diyagonal-matris"><i class="fa fa-check"></i><b>4.3</b> Köşegen (Diyagonal) Matris</a></li>
+<li class="chapter" data-level="4.4" data-path="matrisler-1.html"><a href="matrisler-1.html#birim-matris"><i class="fa fa-check"></i><b>4.4</b> Birim Matris</a></li>
+<li class="chapter" data-level="4.5" data-path="matrisler-1.html"><a href="matrisler-1.html#matrislerin-birle%C5%9Ftirilmesi"><i class="fa fa-check"></i><b>4.5</b> Matrislerin Birleştirilmesi</a></li>
+<li class="chapter" data-level="4.6" data-path="matrisler-1.html"><a href="matrisler-1.html#matrisin-transpozesi"><i class="fa fa-check"></i><b>4.6</b> Matrisin Transpozesi</a></li>
+<li class="chapter" data-level="4.7" data-path="matrisler-1.html"><a href="matrisler-1.html#matrislerle-matematiksel-i%C5%9Flemler"><i class="fa fa-check"></i><b>4.7</b> Matrislerle Matematiksel İşlemler</a></li>
+<li class="chapter" data-level="4.8" data-path="matrisler-1.html"><a href="matrisler-1.html#matris-elemanlar%C4%B1n%C4%B1n-sat%C4%B1rlar%C4%B1n%C4%B1n-veya-s%C3%BCtunlar%C4%B1n%C4%B1n-toplam%C4%B1-ve-ortalamas%C4%B1"><i class="fa fa-check"></i><b>4.8</b> Matris Elemanlarının, Satırlarının veya Sütunlarının Toplamı ve Ortalaması</a></li>
+<li class="chapter" data-level="4.9" data-path="matrisler-1.html"><a href="matrisler-1.html#toplama-ve-%C3%A7%C4%B1kartma-i%C5%9Flemi"><i class="fa fa-check"></i><b>4.9</b> Toplama ve Çıkartma İşlemi</a></li>
+<li class="chapter" data-level="4.10" data-path="matrisler-1.html"><a href="matrisler-1.html#%C3%A7arpma-i%C5%9Flemi"><i class="fa fa-check"></i><b>4.10</b> Çarpma İşlemi</a>
+<ul>
+<li class="chapter" data-level="4.10.1" data-path="matrisler-1.html"><a href="matrisler-1.html#matrislerin-veya-vekt%C3%B6rlerin-bir-say%C4%B1-ile-%C3%A7arp%C4%B1lmas%C4%B1"><i class="fa fa-check"></i><b>4.10.1</b> Matrislerin veya Vektörlerin Bir Sayı ile Çarpılması</a></li>
+<li class="chapter" data-level="4.10.2" data-path="matrisler-1.html"><a href="matrisler-1.html#matris-veya-vekt%C3%B6rlerin-kar%C5%9F%C4%B1l%C4%B1kl%C4%B1-elemanlar%C4%B1n%C4%B1n-%C3%A7arp%C4%B1lmas%C4%B1"><i class="fa fa-check"></i><b>4.10.2</b> Matris veya Vektörlerin Karşılıklı Elemanlarının Çarpılması</a></li>
+<li class="chapter" data-level="4.10.3" data-path="matrisler-1.html"><a href="matrisler-1.html#matris-veya-vekt%C3%B6rlerin-%C3%A7arp%C4%B1lmas%C4%B1"><i class="fa fa-check"></i><b>4.10.3</b> Matris veya Vektörlerin Çarpılması</a></li>
+</ul></li>
+<li class="chapter" data-level="4.11" data-path="matrisler-1.html"><a href="matrisler-1.html#determinant"><i class="fa fa-check"></i><b>4.11</b> Determinant</a></li>
+<li class="chapter" data-level="4.12" data-path="matrisler-1.html"><a href="matrisler-1.html#matrisin-tersi"><i class="fa fa-check"></i><b>4.12</b> Matrisin Tersi</a></li>
+<li class="chapter" data-level="4.13" data-path="matrisler-1.html"><a href="matrisler-1.html#matrisin-%C3%B6zde%C4%9Ferleri-eigenvalues-ve-%C3%B6zvekt%C3%B6rleri-eigenvectors"><i class="fa fa-check"></i><b>4.13</b> Matrisin Özdeğerleri (Eigenvalues) ve Özvektörleri (Eigenvectors)</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="vektör-fonksiyonları.html"><a href="vektör-fonksiyonları.html"><i class="fa fa-check"></i><b>5</b> Vektör Fonksiyonları</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="vektör-fonksiyonları.html"><a href="vektör-fonksiyonları.html#matematiksel-fonksiyonlar"><i class="fa fa-check"></i><b>5.1</b> Matematiksel Fonksiyonlar</a></li>
+<li class="chapter" data-level="5.2" data-path="vektör-fonksiyonları.html"><a href="vektör-fonksiyonları.html#trigonometrik-fonksiyonlar"><i class="fa fa-check"></i><b>5.2</b> Trigonometrik Fonksiyonlar</a></li>
+<li class="chapter" data-level="5.3" data-path="vektör-fonksiyonları.html"><a href="vektör-fonksiyonları.html#istatistiksel-fonksiyonlar"><i class="fa fa-check"></i><b>5.3</b> İstatistiksel Fonksiyonlar</a></li>
+<li class="chapter" data-level="5.4" data-path="vektör-fonksiyonları.html"><a href="vektör-fonksiyonları.html#sort-rank-ve-order-fonksiyonlar%C4%B1"><i class="fa fa-check"></i><b>5.4</b> <code>sort()</code>, <code>rank()</code> ve <code>order()</code> Fonksiyonları</a></li>
+<li class="chapter" data-level="5.5" data-path="vektör-fonksiyonları.html"><a href="vektör-fonksiyonları.html#say%C4%B1lar%C4%B1n-yuvarlanmas%C4%B1-ceiling-floor-round-ve-signif-fonksiyonlar%C4%B1"><i class="fa fa-check"></i><b>5.5</b> Sayıların Yuvarlanması <code>ceiling()</code>, <code>floor()</code>, <code>round()</code> ve <code>signif()</code> Fonksiyonları</a></li>
+<li class="chapter" data-level="5.6" data-path="vektör-fonksiyonları.html"><a href="vektör-fonksiyonları.html#apply-fonksiyonlar%C4%B1"><i class="fa fa-check"></i><b>5.6</b> <code>apply</code> Fonksiyonları</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="vektör-fonksiyonları.html"><a href="vektör-fonksiyonları.html#apply-fonksiyonu"><i class="fa fa-check"></i><b>5.6.1</b> <code>apply()</code> Fonksiyonu</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="vektör-fonksiyonları.html"><a href="vektör-fonksiyonları.html#tapply-fonksiyonu"><i class="fa fa-check"></i><b>5.7</b> <code>tapply()</code> Fonksiyonu</a>
+<ul>
+<li class="chapter" data-level="5.7.1" data-path="vektör-fonksiyonları.html"><a href="vektör-fonksiyonları.html#lapply-ve-sapply-fonksiyonlar%C4%B1"><i class="fa fa-check"></i><b>5.7.1</b> <code>lapply()</code> ve <code>sapply()</code> Fonksiyonları</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="vektör-fonksiyonları.html"><a href="vektör-fonksiyonları.html#aggregate-ve-by-fonksiyonlar%C4%B1"><i class="fa fa-check"></i><b>5.8</b> <code>aggregate()</code> ve <code>by()</code> Fonksiyonları</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Programı</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="matrisler-1" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Bölüm 4</span> Matrisler<a href="matrisler-1.html#matrisler-1" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Matrisler, sayıların veya matematiksel ifadelerin satırlar ve sütunlar halinde düzenlenmiş şekli olup <strong>A</strong>, <strong>B</strong>, <strong>I</strong> veya <strong>X</strong> gibi büyük ve koyu harflerle gösterilirlerc</p>
+<p><span class="math display">\[A_{r×c} =
+\begin{pmatrix}
+  a_{1,1} &amp; a_{1,2} &amp; \cdots &amp; a_{1,c} \\
+  a_{2,1} &amp; a_{2,2} &amp; \cdots &amp; a_{2,c} \\
+  \vdots  &amp; \vdots  &amp; \ddots &amp; \vdots  \\
+  a_{r,1} &amp; a_{r,2} &amp; \cdots &amp; a_{r,c}
+\end{pmatrix}_{r × c}\]</span></p>
+<p>Yukarıda verilen <strong>A</strong> matrisi, <em>r satır</em> ve <em>c sütundan</em> oluşmuştur. Matrisin sağ alt köşesinde verilen bu değerler (<em>r × c</em>), matrisin boyutunu belirtir. Aşağıda verilen <strong>M</strong> matrisi, 3 satır ve 3 sütundan oluşan ve sayısal değerler içeren bir matristir.</p>
+<p><span class="math display">\[M_{3×3} =
+  \begin{pmatrix}
+11 &amp; 0.20 &amp; 13 \\
+47 &amp; 35 &amp; 6.7 \\
+0.70 &amp; 18 &amp; 29
+\end{pmatrix}_{3×3}\]</span></p>
+<p>R programında matrisler, <code>matrix(değerler, satır, sütun)</code> fonksiyonuyla oluşturulur. Fonksiyondan da anlaşılacağı gibi matrislerin tanımlanmasında, matrisi oluşturacak değerlerle birlikte, matrisin satır ve sütun sayılarının da belirtilmesi gerekmektedir. Buna göre, <strong>M</strong> matrisi, R programında aşağıdaki şekilde oluşturulup yazdırılabilir.</p>
+<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="matrisler-1.html#cb251-1" tabindex="-1"></a>M <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">11</span>,<span class="dv">47</span>,<span class="dv">7</span>,<span class="dv">20</span>,<span class="dv">35</span>,<span class="dv">18</span>,<span class="dv">13</span>,<span class="dv">67</span>,<span class="dv">29</span>), <span class="dv">3</span>, <span class="dv">3</span>) </span>
+<span id="cb251-2"><a href="matrisler-1.html#cb251-2" tabindex="-1"></a>M </span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]   11   20   13
+## [2,]   47   35   67
+## [3,]    7   18   29</code></pre>
+<p><strong>M</strong> matrisinin oluşturulmasından da anlaşılacağı gibi matrisin elemanları, birinci sütundan başlayarak yerleştirilmiştir. R programında herhangi bir tanımlama yapılmadığı zaman; değerler matrise birinci sütundan itibaren sütun sütun yerleştirilir. Matrisin elemanları satır olarak yerleştirilmek istendiğinde, <code>byrow=TRUE</code> komutu matris fonksiyonu içerisinde kullanılmalıdır. Buna göre oluşturulan <strong>M</strong> matrisi aşağıda verilmiştir.</p>
+<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="matrisler-1.html#cb253-1" tabindex="-1"></a>M <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">11</span>,<span class="dv">47</span>,<span class="dv">7</span>,<span class="dv">20</span>,<span class="dv">35</span>,<span class="dv">18</span>,<span class="dv">13</span>,<span class="dv">67</span>,<span class="dv">29</span>), <span class="dv">3</span>, <span class="dv">3</span>, <span class="at">byrow=</span><span class="cn">TRUE</span>) </span>
+<span id="cb253-2"><a href="matrisler-1.html#cb253-2" tabindex="-1"></a>M </span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]   11   47    7
+## [2,]   20   35   18
+## [3,]   13   67   29</code></pre>
+<p>R programında tanımlanmış bir değişkenin matris olarak tanımlanıp tanımlanmadığını anlamak için aşağıda verilen bu matris mi anlamına gelen <code>is.matrix()</code> komutu kullanılabilir.</p>
+<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="matrisler-1.html#cb255-1" tabindex="-1"></a>M <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">11</span>,<span class="dv">47</span>,<span class="dv">7</span>,<span class="dv">20</span>,<span class="dv">35</span>,<span class="dv">18</span>,<span class="dv">13</span>,<span class="dv">67</span>,<span class="dv">29</span>), <span class="dv">3</span>, <span class="dv">3</span>, <span class="at">byrow=</span><span class="cn">TRUE</span>) </span>
+<span id="cb255-2"><a href="matrisler-1.html#cb255-2" tabindex="-1"></a><span class="fu">is.matrix</span>(M)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>Bu komutun <code>TRUE</code> veya <code>FALSE</code> olarak iki sonucu vardır. <strong>M</strong> değişkeninin matris olduğunu belirten <code>TRUE</code> sonucu yukarıda elde edilmiştir. <strong>M</strong> değişkeni farklı bir değişken olarak tanımlanmış olsaydı sonuç <code>FALSE</code> olacaktı. Ayrıca, her hangi bir matrisin boyutunu öğrenmek için <code>dim()</code> komutu, satır veya sütun sayısını öğrenmek için de <code>nrow()</code> veya <code>ncol()</code> komutu kullanılabilir.</p>
+<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="matrisler-1.html#cb257-1" tabindex="-1"></a>M <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">11</span>,<span class="dv">47</span>,<span class="dv">7</span>,<span class="dv">20</span>,<span class="dv">35</span>,<span class="dv">18</span>,<span class="dv">13</span>,<span class="dv">67</span>,<span class="dv">29</span>), <span class="dv">3</span>, <span class="dv">3</span>, <span class="at">byrow=</span><span class="cn">TRUE</span>) </span>
+<span id="cb257-2"><a href="matrisler-1.html#cb257-2" tabindex="-1"></a>boyut <span class="ot">&lt;-</span> <span class="fu">dim</span>(M)         <span class="co"># M matrisinin boyutu </span></span>
+<span id="cb257-3"><a href="matrisler-1.html#cb257-3" tabindex="-1"></a>boyut </span></code></pre></div>
+<pre><code>## [1] 3 3</code></pre>
+<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="matrisler-1.html#cb259-1" tabindex="-1"></a>satir <span class="ot">&lt;-</span> <span class="fu">nrow</span>(M)        <span class="co"># M matrisinin satır sayısı </span></span>
+<span id="cb259-2"><a href="matrisler-1.html#cb259-2" tabindex="-1"></a>satir </span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="matrisler-1.html#cb261-1" tabindex="-1"></a>sutun <span class="ot">&lt;-</span> <span class="fu">ncol</span>(M)        <span class="co"># M matrisinin sütun sayısı </span></span>
+<span id="cb261-2"><a href="matrisler-1.html#cb261-2" tabindex="-1"></a>sutun </span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<p>R programında matrislerin bütün elemanları yazdırıldığı gibi matrisin herhangi bir elemanı, satırı veya sütunu da yazdırılabilir. Örneğin, <strong>M</strong> matrisinin <span class="math inline">\(`m_{12}`\)</span> elemanı</p>
+<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="matrisler-1.html#cb263-1" tabindex="-1"></a>M <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">11</span>,<span class="dv">47</span>,<span class="dv">7</span>,<span class="dv">20</span>,<span class="dv">35</span>,<span class="dv">18</span>,<span class="dv">13</span>,<span class="dv">67</span>,<span class="dv">29</span>), <span class="dv">3</span>, <span class="dv">3</span>, <span class="at">byrow=</span><span class="cn">TRUE</span>) </span>
+<span id="cb263-2"><a href="matrisler-1.html#cb263-2" tabindex="-1"></a>M[<span class="dv">1</span>,<span class="dv">2</span>]</span></code></pre></div>
+<pre><code>## [1] 47</code></pre>
+<p>M matrisinin üçüncü satırı</p>
+<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="matrisler-1.html#cb265-1" tabindex="-1"></a>M <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">11</span>,<span class="dv">47</span>,<span class="dv">7</span>,<span class="dv">20</span>,<span class="dv">35</span>,<span class="dv">18</span>,<span class="dv">13</span>,<span class="dv">67</span>,<span class="dv">29</span>), <span class="dv">3</span>, <span class="dv">3</span>, <span class="at">byrow=</span><span class="cn">TRUE</span>) </span>
+<span id="cb265-2"><a href="matrisler-1.html#cb265-2" tabindex="-1"></a>M[<span class="dv">3</span>,]</span></code></pre></div>
+<pre><code>## [1] 13 67 29</code></pre>
+<p>veya M matrisinin ikinci sütunu</p>
+<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="matrisler-1.html#cb267-1" tabindex="-1"></a>M <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">11</span>,<span class="dv">47</span>,<span class="dv">7</span>,<span class="dv">20</span>,<span class="dv">35</span>,<span class="dv">18</span>,<span class="dv">13</span>,<span class="dv">67</span>,<span class="dv">29</span>), <span class="dv">3</span>, <span class="dv">3</span>, <span class="at">byrow=</span><span class="cn">TRUE</span>) </span>
+<span id="cb267-2"><a href="matrisler-1.html#cb267-2" tabindex="-1"></a>M[,<span class="dv">2</span>]</span></code></pre></div>
+<pre><code>## [1] 47 35 67</code></pre>
+<p>şeklinde yazdırılabilir. Yukarıdaki ifadelerden de anlaşılacağı gibi her hangi bir matrisin elemanları yazdırılırken veya matris işlemleri yapılırken köşeli parantez “[ ]” kullanılması gerekmektedir.</p>
+<div id="satır-ve-sütun-vektörleri" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Satır ve Sütun Vektörleri<a href="matrisler-1.html#sat%C4%B1r-ve-s%C3%BCtun-vekt%C3%B6rleri" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Herhangi bir matris, sadece bir satırdan oluşuyorsa bu matrislere <code>satır vektörü (x)</code></p>
+<p><span class="math display">\[x_{1×c} =
+\begin{pmatrix}
+x_{1,1} &amp; x_{1,2} &amp; \cdots &amp; x_{1,c}
+\end{pmatrix}_{1 × c}\]</span></p>
+<p>veya sadece bir sütundan oluşuyorsa bu matrislere <code>sütun vektörü (y)</code> denir.</p>
+<p><span class="math display">\[y_{r×1} =
+\begin{pmatrix}
+y_{1,1} \\
+y_{2,1} \\
+\vdots \\
+y_{r,1}
+\end{pmatrix}_{r×1}\]</span></p>
+<p>Satır ve sütun vektörleri <strong>a</strong>, <strong>b</strong>, <strong>x</strong> veya <strong>y</strong> gibi küçük ve koyu harflerle gösterilirler. Satır ve sütun vektörlerinin oluşturulmasında yine <code>matrix()</code> komutu kullanılır. Buna göre, <strong>a</strong> satır vektörü aşağıdaki gibi oluşturulmuş ve boyutu da belirtilmiştir.</p>
+<p><span class="math display">\[a_{1×5} =
+\begin{pmatrix}
+1 &amp; 3 &amp; 5 &amp; 7 &amp; 9
+\end{pmatrix}_{1 × 5}\]</span></p>
+<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="matrisler-1.html#cb269-1" tabindex="-1"></a> a <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">7</span>,<span class="dv">9</span>), <span class="dv">1</span>, <span class="dv">5</span>) </span>
+<span id="cb269-2"><a href="matrisler-1.html#cb269-2" tabindex="-1"></a> a </span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5]
+## [1,]    1    3    5    7    9</code></pre>
+<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="matrisler-1.html#cb271-1" tabindex="-1"></a> boyut <span class="ot">&lt;-</span> <span class="fu">dim</span>(a)</span>
+<span id="cb271-2"><a href="matrisler-1.html#cb271-2" tabindex="-1"></a> boyut</span></code></pre></div>
+<pre><code>## [1] 1 5</code></pre>
+<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="matrisler-1.html#cb273-1" tabindex="-1"></a> satir <span class="ot">&lt;-</span> <span class="fu">nrow</span>(a)</span>
+<span id="cb273-2"><a href="matrisler-1.html#cb273-2" tabindex="-1"></a> satir</span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="matrisler-1.html#cb275-1" tabindex="-1"></a> sutun <span class="ot">&lt;-</span> <span class="fu">ncol</span>(a)</span>
+<span id="cb275-2"><a href="matrisler-1.html#cb275-2" tabindex="-1"></a> sutun</span></code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<p><strong>b</strong> sütun vektörü de aşağıdaki gibi oluşturulmuş ve boyutu da belirtilmiştir.</p>
+<p><span class="math display">\[b_{4×1} =
+\begin{pmatrix}
+2 \\
+4 \\
+6 \\
+8
+\end{pmatrix}_{4×1}\]</span></p>
+<pre><code>##      [,1]
+## [1,]    2
+## [2,]    4
+## [3,]    6
+## [4,]    8</code></pre>
+<pre><code>## [1] 4 1</code></pre>
+<pre><code>## [1] 4</code></pre>
+<pre><code>## [1] 1</code></pre>
+<p>Matrislerin veya satır ve sütun vektörlerin boyutları hem bir değişkene aktarılarak hem de aktarılmadan yazdırılabilir. Hesaplama işlemlerinde matrislerin veya satır ve sütun vektörlerin boyutları kullanılacak ise bunların değişkenlere aktarılması işlemlerde kolaylık sağlayacaktır.</p>
+</div>
+<div id="kare-matris" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Kare Matris<a href="matrisler-1.html#kare-matris" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Satır sayısı sütun sayısına eşit olan matrislere kare matris denir. Aşağıda verilen <strong>A</strong> matrisi <code>4×4</code> boyutunda bir kare matristir.</p>
+<p><span class="math display">\[A_{4×4} =
+\begin{pmatrix}
+a_{1,1} &amp; a_{1,2} &amp; a_{1,3} &amp; a_{1,4} \\
+a_{2,1} &amp; a_{2,2} &amp; a_{2,3} &amp; a_{2,4} \\
+a_{3,1} &amp; a_{3,2} &amp; a_{3,3} &amp; a_{3,4} \\
+a_{4,1} &amp; a_{4,2} &amp; a_{4,3} &amp; a_{4,4}
+\end{pmatrix}_{4×4}\]</span></p>
+<p>Matrisin sol üst köşesinden sağ alt köşesine kadar uzanan eksene, matrisin esas köşegeni veya diyagonali ve bu köşegen üzerinde yer alan <span class="math inline">\(a_{11}\)</span>, <span class="math inline">\(a_{22}\)</span>, <span class="math inline">\(a_{33}\)</span> ve <span class="math inline">\(a_{44}\)</span> matris elemanlarına da esas köşegen (diyagonal) elemanları denir.</p>
+<p>R programında bir matrisin köşegen elemanları <code>diag()</code> komutu kullanılarak elde edilebilir. Buna göre, <strong>A</strong> ve <strong>X</strong> matrislerinin köşegen elemanları aşağıdaki şekilde elde edilir.</p>
+<p><span class="math display">\[A_{2×2} =
+  \begin{pmatrix}
+10 &amp; 30 \\
+20 &amp; 40  
+\end{pmatrix}_{2×2}\]</span>
+ve</p>
+<p><span class="math display">\[X_{3×3} =
+  \begin{pmatrix}
+1 &amp; 2 &amp; 3 \\
+4 &amp; 5 &amp; 6 \\
+7 &amp; 8 &amp; 9 \\
+\end{pmatrix}_{3×3}\]</span></p>
+<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb281-1"><a href="matrisler-1.html#cb281-1" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">40</span>), <span class="dv">2</span>, <span class="dv">2</span>) </span>
+<span id="cb281-2"><a href="matrisler-1.html#cb281-2" tabindex="-1"></a>A </span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]   10   30
+## [2,]   20   40</code></pre>
+<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb283-1"><a href="matrisler-1.html#cb283-1" tabindex="-1"></a><span class="fu">diag</span>(A)</span></code></pre></div>
+<pre><code>## [1] 10 40</code></pre>
+<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb285-1"><a href="matrisler-1.html#cb285-1" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">7</span>,<span class="dv">2</span>,<span class="dv">5</span>,<span class="dv">8</span>,<span class="dv">3</span>,<span class="dv">6</span>,<span class="dv">9</span>), <span class="dv">3</span>, <span class="dv">3</span>) </span>
+<span id="cb285-2"><a href="matrisler-1.html#cb285-2" tabindex="-1"></a>X </span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    2    3
+## [2,]    4    5    6
+## [3,]    7    8    9</code></pre>
+<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb287-1"><a href="matrisler-1.html#cb287-1" tabindex="-1"></a><span class="fu">diag</span>(X)</span></code></pre></div>
+<pre><code>## [1] 1 5 9</code></pre>
+</div>
+<div id="köşegen-diyagonal-matris" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Köşegen (Diyagonal) Matris<a href="matrisler-1.html#k%C3%B6%C5%9Fegen-diyagonal-matris" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Esas köşegen üzerindeki elemanları hariç diğer elemanları 0 (sıfır) olan kare matrislere köşegen matris denir.</p>
+<p><span class="math display">\[A_{3×3} =
+  \begin{pmatrix}
+9 &amp; 0 &amp; 0 \\
+0 &amp; 30 &amp; 0 \\
+0 &amp; 0 &amp; 5 \\
+\end{pmatrix}_{3×3}\]</span>
+ve</p>
+<p><span class="math display">\[B_{2×2} =
+  \begin{pmatrix}
+8 &amp; 0 \\
+0 &amp; 12
+\end{pmatrix}_{2×2}\]</span></p>
+<p>Köşegen matrisler <code>diag()</code> komutuyla oluşturulabilir.</p>
+<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb289-1"><a href="matrisler-1.html#cb289-1" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">diag</span>(<span class="fu">c</span>(<span class="dv">9</span>, <span class="dv">3</span>, <span class="dv">5</span>)) </span>
+<span id="cb289-2"><a href="matrisler-1.html#cb289-2" tabindex="-1"></a>A </span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    9    0    0
+## [2,]    0    3    0
+## [3,]    0    0    5</code></pre>
+<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb291-1"><a href="matrisler-1.html#cb291-1" tabindex="-1"></a>B <span class="ot">&lt;-</span> <span class="fu">diag</span>(<span class="fu">c</span>(<span class="dv">8</span>, <span class="dv">12</span>)) </span>
+<span id="cb291-2"><a href="matrisler-1.html#cb291-2" tabindex="-1"></a>B </span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]    8    0
+## [2,]    0   12</code></pre>
+<p>Kare Matrisler bölümünde tanımlanan <strong>X</strong> matrisinin köşegen elemanları <code>diag()</code> komutuyla belirlenmiş ve <strong>A</strong> köşegen matrisinin oluşturulmasında aşağıdaki şekilde kullanılmıştır.</p>
+<div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb293-1"><a href="matrisler-1.html#cb293-1" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">diag</span>(<span class="fu">diag</span>(X)) </span>
+<span id="cb293-2"><a href="matrisler-1.html#cb293-2" tabindex="-1"></a>A </span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    0    0
+## [2,]    0    5    0
+## [3,]    0    0    9</code></pre>
+</div>
+<div id="birim-matris" class="section level2 hasAnchor" number="4.4">
+<h2><span class="header-section-number">4.4</span> Birim Matris<a href="matrisler-1.html#birim-matris" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Birim matrisler <code>n×n</code> boyutunda esas köşegen elemanları 1 ve diğer elemanları 0 olan ve <strong>I</strong> ile gösterilen matrislerdir. Birim matrisler farklı boyutlarda olabilirler. Aşağıda <span class="math display">\[I_{2×2}\]</span> ve <span class="math display">\[I_{4×4}\]</span> boyutunda olan birim matrislerin oluşturulması örnek olarak verilmiştir.</p>
+<p><span class="math display">\[I_{2×2} =
+  \begin{pmatrix}
+1 &amp; 0 \\
+0 &amp; 1  
+\end{pmatrix}_{2×2}\]</span></p>
+<div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb295-1"><a href="matrisler-1.html#cb295-1" tabindex="-1"></a>I <span class="ot">&lt;-</span> <span class="fu">diag</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>)) </span>
+<span id="cb295-2"><a href="matrisler-1.html#cb295-2" tabindex="-1"></a>I </span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]    1    0
+## [2,]    0    1</code></pre>
+<p><span class="math display">\[I_{4×4} =
+  \begin{pmatrix}
+1 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{pmatrix}_{4×4}\]</span></p>
+<div class="sourceCode" id="cb297"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb297-1"><a href="matrisler-1.html#cb297-1" tabindex="-1"></a>I <span class="ot">&lt;-</span> <span class="fu">diag</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>)) </span>
+<span id="cb297-2"><a href="matrisler-1.html#cb297-2" tabindex="-1"></a>I </span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3] [,4]
+## [1,]    1    0    0    0
+## [2,]    0    1    0    0
+## [3,]    0    0    1    0
+## [4,]    0    0    0    1</code></pre>
+</div>
+<div id="matrislerin-birleştirilmesi" class="section level2 hasAnchor" number="4.5">
+<h2><span class="header-section-number">4.5</span> Matrislerin Birleştirilmesi<a href="matrisler-1.html#matrislerin-birle%C5%9Ftirilmesi" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>R programında matrisler satır veya sütun olarak birleştirilerek yeni bir matris oluşturulabilir. Birleştirme işlemi satır olarak yapılacaksa <code>rbind()</code> komutu, sütun olarak yapılacaksa <code>cbind()</code> komutu kullanılmalıdır.</p>
+<p><span class="math display">\[A_{3×2} =
+\begin{pmatrix}
+1 &amp; 4 \\
+2 &amp; 5 \\
+3 &amp; 6
+\end{pmatrix}_{3×2}\]</span></p>
+<p><span class="math display">\[B_{3×2} =
+\begin{pmatrix}
+10 &amp; 7 \\
+5 &amp; 2 \\
+9 &amp; 11
+\end{pmatrix}_{3×2}\]</span></p>
+<p><span class="math display">\[c_{3×1} =
+\begin{pmatrix}
+3  \\
+8  \\
+12
+\end{pmatrix}_{3×1}\]</span></p>
+<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb299-1"><a href="matrisler-1.html#cb299-1" tabindex="-1"></a> A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>), <span class="dv">3</span>, <span class="dv">2</span>)</span>
+<span id="cb299-2"><a href="matrisler-1.html#cb299-2" tabindex="-1"></a> B <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">5</span>,<span class="dv">9</span>,<span class="dv">7</span>,<span class="dv">2</span>,<span class="dv">11</span>), <span class="dv">3</span>, <span class="dv">2</span>) </span>
+<span id="cb299-3"><a href="matrisler-1.html#cb299-3" tabindex="-1"></a> c <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">8</span>,<span class="dv">12</span>), <span class="dv">3</span>, <span class="dv">1</span>)</span>
+<span id="cb299-4"><a href="matrisler-1.html#cb299-4" tabindex="-1"></a> A </span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]    1    4
+## [2,]    2    5
+## [3,]    3    6</code></pre>
+<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb301-1"><a href="matrisler-1.html#cb301-1" tabindex="-1"></a> B </span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]   10    7
+## [2,]    5    2
+## [3,]    9   11</code></pre>
+<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="matrisler-1.html#cb303-1" tabindex="-1"></a> c </span></code></pre></div>
+<pre><code>##      [,1]
+## [1,]    3
+## [2,]    8
+## [3,]   12</code></pre>
+<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb305-1"><a href="matrisler-1.html#cb305-1" tabindex="-1"></a> D <span class="ot">&lt;-</span> <span class="fu">rbind</span>(A, B) </span>
+<span id="cb305-2"><a href="matrisler-1.html#cb305-2" tabindex="-1"></a> D </span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]    1    4
+## [2,]    2    5
+## [3,]    3    6
+## [4,]   10    7
+## [5,]    5    2
+## [6,]    9   11</code></pre>
+<p><strong>A</strong> ve <strong>B</strong> matrisleri satır olarak birleştirildiği için yeni oluşan <strong>D</strong> matrisinin boyutu <code>6×2</code> ’dir.</p>
+<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="matrisler-1.html#cb307-1" tabindex="-1"></a> A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>), <span class="dv">3</span>, <span class="dv">2</span>)</span>
+<span id="cb307-2"><a href="matrisler-1.html#cb307-2" tabindex="-1"></a> B <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">5</span>,<span class="dv">9</span>,<span class="dv">7</span>,<span class="dv">2</span>,<span class="dv">11</span>), <span class="dv">3</span>, <span class="dv">2</span>) </span>
+<span id="cb307-3"><a href="matrisler-1.html#cb307-3" tabindex="-1"></a> c <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">8</span>,<span class="dv">12</span>), <span class="dv">3</span>, <span class="dv">1</span>)</span>
+<span id="cb307-4"><a href="matrisler-1.html#cb307-4" tabindex="-1"></a> E <span class="ot">&lt;-</span> <span class="fu">cbind</span>(A, c, B) </span>
+<span id="cb307-5"><a href="matrisler-1.html#cb307-5" tabindex="-1"></a> E </span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5]
+## [1,]    1    4    3   10    7
+## [2,]    2    5    8    5    2
+## [3,]    3    6   12    9   11</code></pre>
+<p><strong>A</strong> matrisi, <strong>c</strong> vektörü ve <strong>B</strong> matrisi sütun olarak birleştirilmiş ve <strong>E</strong> matrisi <code>3×5</code> boyutunda elde edilmiştir.</p>
+</div>
+<div id="matrisin-transpozesi" class="section level2 hasAnchor" number="4.6">
+<h2><span class="header-section-number">4.6</span> Matrisin Transpozesi<a href="matrisler-1.html#matrisin-transpozesi" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Boyutu <code>r×c</code> olan herhangi bir <strong>A</strong> matrisinin karşılıklı satır ve sütunlarının yer değiştirmesiyle oluşturulan matrise <strong>A</strong> matrisinin transpozesi denir ve <span class="math display">\[A^{T}\]</span> veya <strong>A</strong>’ şeklinde gösterilir. Aşağıda <strong>A</strong> matrisi ve transpozesi <strong>A</strong>’ verilmiştir.</p>
+<p><span class="math display">\[A_{2×3} =
+\begin{pmatrix}
+1 &amp; 5 &amp; 7 \\
+9 &amp; 2 &amp; 4
+\end{pmatrix}_{2×3}\]</span></p>
+<p><span class="math display">\[A_{3×2}&#39; =
+\begin{pmatrix}
+1 &amp; 9 \\
+5 &amp; 2 \\
+7 &amp; 4
+\end{pmatrix}_{3×2}\]</span></p>
+<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb309-1"><a href="matrisler-1.html#cb309-1" tabindex="-1"></a> A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">9</span>,<span class="dv">5</span>,<span class="dv">2</span>,<span class="dv">7</span>,<span class="dv">4</span>), <span class="dv">2</span>, <span class="dv">3</span>) </span>
+<span id="cb309-2"><a href="matrisler-1.html#cb309-2" tabindex="-1"></a> A </span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    5    7
+## [2,]    9    2    4</code></pre>
+<p><strong>A</strong>’ matrisi, <strong>A</strong> matrisinin satır ve sütunlarının yer değiştirmesiyle oluştuğundan dolayı, boyutu <code>3×2</code> ‘dir. <strong>A</strong>’ matrisinin birinci ve ikinci sütunlarında yer alan değerler, <strong>A</strong> matrisinin birinci ve ikinci satırlarında yer alan değerlerle aynıdır.</p>
+<p>R programında herhangi bir matrisin transpozesi <code>t()</code> komutuyla oluşturulur.</p>
+<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="matrisler-1.html#cb311-1" tabindex="-1"></a> A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">9</span>,<span class="dv">5</span>,<span class="dv">2</span>,<span class="dv">7</span>,<span class="dv">4</span>), <span class="dv">2</span>, <span class="dv">3</span>) </span>
+<span id="cb311-2"><a href="matrisler-1.html#cb311-2" tabindex="-1"></a> A</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    5    7
+## [2,]    9    2    4</code></pre>
+<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb313-1"><a href="matrisler-1.html#cb313-1" tabindex="-1"></a> A.trans <span class="ot">&lt;-</span> <span class="fu">t</span>(A)</span>
+<span id="cb313-2"><a href="matrisler-1.html#cb313-2" tabindex="-1"></a> A.trans</span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]    1    9
+## [2,]    5    2
+## [3,]    7    4</code></pre>
+<p>Benzer şekilde, <strong>a</strong> satır vektörünün</p>
+<p><span class="math display">\[a_{1×3} =
+\begin{pmatrix}
+10 &amp; 20 &amp; 30
+\end{pmatrix}_{1×3}\]</span></p>
+<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb315-1"><a href="matrisler-1.html#cb315-1" tabindex="-1"></a> a <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>), <span class="dv">1</span>, <span class="dv">3</span>) </span>
+<span id="cb315-2"><a href="matrisler-1.html#cb315-2" tabindex="-1"></a> a </span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]   10   20   30</code></pre>
+<p>transpozesi <strong>a</strong>’ sütun vektörüdür</p>
+<p><span class="math display">\[a&#39;_{3×1} =
+\begin{pmatrix}
+10 \\
+20 \\
+30
+\end{pmatrix}_{3×1}\]</span></p>
+<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb317-1"><a href="matrisler-1.html#cb317-1" tabindex="-1"></a> a <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>), <span class="dv">1</span>, <span class="dv">3</span>) </span>
+<span id="cb317-2"><a href="matrisler-1.html#cb317-2" tabindex="-1"></a> a </span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]   10   20   30</code></pre>
+<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb319-1"><a href="matrisler-1.html#cb319-1" tabindex="-1"></a> a.trans <span class="ot">&lt;-</span> <span class="fu">t</span>(a)</span>
+<span id="cb319-2"><a href="matrisler-1.html#cb319-2" tabindex="-1"></a> a.trans</span></code></pre></div>
+<pre><code>##      [,1]
+## [1,]   10
+## [2,]   20
+## [3,]   30</code></pre>
+<p><strong>b</strong> sütun vektörünün
+<span class="math display">\[b_{3×1} =
+\begin{pmatrix}
+5 \\
+15 \\
+25
+\end{pmatrix}_{3×1}\]</span></p>
+<div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb321-1"><a href="matrisler-1.html#cb321-1" tabindex="-1"></a> b <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">15</span>,<span class="dv">25</span>), <span class="dv">3</span>, <span class="dv">1</span>) </span>
+<span id="cb321-2"><a href="matrisler-1.html#cb321-2" tabindex="-1"></a> b </span></code></pre></div>
+<pre><code>##      [,1]
+## [1,]    5
+## [2,]   15
+## [3,]   25</code></pre>
+<p>transpozesi de <strong>b</strong>’ satır vektörüdür</p>
+<p><span class="math display">\[b_{1×3} =
+\begin{pmatrix}
+5 &amp; 15 &amp; 25
+\end{pmatrix}_{1×3}\]</span></p>
+<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb323-1"><a href="matrisler-1.html#cb323-1" tabindex="-1"></a> b <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">15</span>,<span class="dv">25</span>), <span class="dv">3</span>, <span class="dv">1</span>) </span>
+<span id="cb323-2"><a href="matrisler-1.html#cb323-2" tabindex="-1"></a> b </span></code></pre></div>
+<pre><code>##      [,1]
+## [1,]    5
+## [2,]   15
+## [3,]   25</code></pre>
+<div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb325-1"><a href="matrisler-1.html#cb325-1" tabindex="-1"></a> b.trans <span class="ot">&lt;-</span> <span class="fu">t</span>(b)</span>
+<span id="cb325-2"><a href="matrisler-1.html#cb325-2" tabindex="-1"></a> b.trans</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    5   15   25</code></pre>
+</div>
+<div id="matrislerle-matematiksel-işlemler" class="section level2 hasAnchor" number="4.7">
+<h2><span class="header-section-number">4.7</span> Matrislerle Matematiksel İşlemler<a href="matrisler-1.html#matrislerle-matematiksel-i%C5%9Flemler" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>A</strong>, <strong>B</strong>, <strong>C</strong> matrisleri ve <strong>x</strong> vektörü aşağıda tanımlandığı şekilde R programında oluşturulmuş ve bu bölümde anlatılacak olan matrislerle ilgili matematiksel işlemlerde kullanılmıştır.</p>
+<p><span class="math display">\[A_{3×2} =
+\begin{pmatrix}
+1 &amp; 2 \\
+3 &amp; 4 \\
+5 &amp; 6
+\end{pmatrix}_{3×2}\]</span></p>
+<p><span class="math display">\[B_{3×2} =
+\begin{pmatrix}
+13 &amp; 10 \\
+8 &amp; 15 \\
+17 &amp; 12
+\end{pmatrix}_{3×2}\]</span></p>
+<p><span class="math display">\[C_{3×2} =
+\begin{pmatrix}
+7 &amp; 14 \\
+15 &amp; 11 \\
+9 &amp; 18
+\end{pmatrix}_{3×2}\]</span></p>
+<p><span class="math display">\[x_{3×1} =
+\begin{pmatrix}
+10 \\
+20 \\
+30
+\end{pmatrix}_{3×1}\]</span></p>
+<div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb327-1"><a href="matrisler-1.html#cb327-1" tabindex="-1"></a> A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">6</span>), <span class="dv">3</span>, <span class="dv">2</span>) </span>
+<span id="cb327-2"><a href="matrisler-1.html#cb327-2" tabindex="-1"></a> A </span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]    1    2
+## [2,]    3    4
+## [3,]    5    6</code></pre>
+<div class="sourceCode" id="cb329"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb329-1"><a href="matrisler-1.html#cb329-1" tabindex="-1"></a> B <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">13</span>,<span class="dv">8</span>,<span class="dv">17</span>,<span class="dv">10</span>,<span class="dv">15</span>,<span class="dv">12</span>), <span class="dv">3</span>, <span class="dv">2</span>) </span>
+<span id="cb329-2"><a href="matrisler-1.html#cb329-2" tabindex="-1"></a> B </span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]   13   10
+## [2,]    8   15
+## [3,]   17   12</code></pre>
+<div class="sourceCode" id="cb331"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb331-1"><a href="matrisler-1.html#cb331-1" tabindex="-1"></a> C <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">7</span>,<span class="dv">15</span>,<span class="dv">9</span>,<span class="dv">14</span>,<span class="dv">11</span>,<span class="dv">18</span>), <span class="dv">3</span>, <span class="dv">2</span>) </span>
+<span id="cb331-2"><a href="matrisler-1.html#cb331-2" tabindex="-1"></a> C </span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]    7   14
+## [2,]   15   11
+## [3,]    9   18</code></pre>
+<div class="sourceCode" id="cb333"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb333-1"><a href="matrisler-1.html#cb333-1" tabindex="-1"></a> x <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>), <span class="dv">3</span>, <span class="dv">1</span>) </span>
+<span id="cb333-2"><a href="matrisler-1.html#cb333-2" tabindex="-1"></a> x </span></code></pre></div>
+<pre><code>##      [,1]
+## [1,]   10
+## [2,]   20
+## [3,]   30</code></pre>
+</div>
+<div id="matris-elemanlarının-satırlarının-veya-sütunlarının-toplamı-ve-ortalaması" class="section level2 hasAnchor" number="4.8">
+<h2><span class="header-section-number">4.8</span> Matris Elemanlarının, Satırlarının veya Sütunlarının Toplamı ve Ortalaması<a href="matrisler-1.html#matris-elemanlar%C4%B1n%C4%B1n-sat%C4%B1rlar%C4%B1n%C4%B1n-veya-s%C3%BCtunlar%C4%B1n%C4%B1n-toplam%C4%B1-ve-ortalamas%C4%B1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Herhangi bir matrisin, satır veya sütun vektörünün bütün elemanlarının toplamı <code>sum()</code>, satır toplamı <code>rowSums()</code> ve sütun toplamı da <code>colSums()</code> komutu kullanılarak hesaplanabilir. Buna göre, <strong>A</strong> matrisinin elemanlarının toplamı:</p>
+<div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb335-1"><a href="matrisler-1.html#cb335-1" tabindex="-1"></a> A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">6</span>), <span class="dv">3</span>, <span class="dv">2</span>) </span>
+<span id="cb335-2"><a href="matrisler-1.html#cb335-2" tabindex="-1"></a> A </span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]    1    2
+## [2,]    3    4
+## [3,]    5    6</code></pre>
+<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="matrisler-1.html#cb337-1" tabindex="-1"></a> <span class="fu">sum</span>(A)</span></code></pre></div>
+<pre><code>## [1] 21</code></pre>
+<p>satır elemanlarının toplamı</p>
+<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb339-1"><a href="matrisler-1.html#cb339-1" tabindex="-1"></a> A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">6</span>), <span class="dv">3</span>, <span class="dv">2</span>) </span>
+<span id="cb339-2"><a href="matrisler-1.html#cb339-2" tabindex="-1"></a> A </span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]    1    2
+## [2,]    3    4
+## [3,]    5    6</code></pre>
+<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb341-1"><a href="matrisler-1.html#cb341-1" tabindex="-1"></a> <span class="fu">rowSums</span>(A)</span></code></pre></div>
+<pre><code>## [1]  3  7 11</code></pre>
+<p>ve sütun elemanlarının toplamı da</p>
+<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb343-1"><a href="matrisler-1.html#cb343-1" tabindex="-1"></a> A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">6</span>), <span class="dv">3</span>, <span class="dv">2</span>) </span>
+<span id="cb343-2"><a href="matrisler-1.html#cb343-2" tabindex="-1"></a> A </span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]    1    2
+## [2,]    3    4
+## [3,]    5    6</code></pre>
+<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="matrisler-1.html#cb345-1" tabindex="-1"></a> <span class="fu">colSums</span>(A) </span></code></pre></div>
+<pre><code>## [1]  9 12</code></pre>
+<p>Aynı şekilde, matris elemanlarının ortalaması <code>mean()</code>, satır elemanlarının ortalaması <code>rowMeans()</code> ve sütun elemanlarının ortalaması da <code>colMeans()</code> komutuyla hesaplanabilir.</p>
+<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="matrisler-1.html#cb347-1" tabindex="-1"></a> A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">6</span>), <span class="dv">3</span>, <span class="dv">2</span>) </span>
+<span id="cb347-2"><a href="matrisler-1.html#cb347-2" tabindex="-1"></a> A </span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]    1    2
+## [2,]    3    4
+## [3,]    5    6</code></pre>
+<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="matrisler-1.html#cb349-1" tabindex="-1"></a> <span class="fu">mean</span>(A)        <span class="co"># A matrisinin elemanlarının ortalamsı</span></span></code></pre></div>
+<pre><code>## [1] 3.5</code></pre>
+<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="matrisler-1.html#cb351-1" tabindex="-1"></a> <span class="fu">rowMeans</span>(A)    <span class="co"># A matrisinin satırlarının ortalamsı</span></span></code></pre></div>
+<pre><code>## [1] 1.5 3.5 5.5</code></pre>
+<div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb353-1"><a href="matrisler-1.html#cb353-1" tabindex="-1"></a> <span class="fu">colMeans</span>(A)    <span class="co"># A matrisinin sütunlarının ortalamsı</span></span></code></pre></div>
+<pre><code>## [1] 3 4</code></pre>
+</div>
+<div id="toplama-ve-çıkartma-işlemi" class="section level2 hasAnchor" number="4.9">
+<h2><span class="header-section-number">4.9</span> Toplama ve Çıkartma İşlemi<a href="matrisler-1.html#toplama-ve-%C3%A7%C4%B1kartma-i%C5%9Flemi" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Matrislerle toplama ve çıkartma işlemlerini yapabilmek için matrislerin boyutlarının, başka bir ifadeyle, matrislerin satır ve sütun sayılarının aynı olması gerekir. <span class="math inline">\(A_{3×2}\)</span>, <span class="math inline">\(B_{3×2}\)</span> ve <span class="math inline">\(C_{3×2}\)</span> matrislerinin boyutları eşit olduğundan dolayı bu matrisler arasında toplama ve çıkartma işlemleri yapılabilir.</p>
+<p><span class="math display">\[D=A+B=B+A=\begin{pmatrix}
+1+13 &amp; 2+10 \\
+3+8 &amp; 4+15 \\
+5+17 &amp; 6+12
+\end{pmatrix}
+=
+\begin{pmatrix}
+14 &amp; 12 \\
+11 &amp; 19 \\
+22 &amp; 18
+\end{pmatrix} \]</span></p>
+<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb355-1"><a href="matrisler-1.html#cb355-1" tabindex="-1"></a> A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">6</span>), <span class="dv">3</span>, <span class="dv">2</span>) </span>
+<span id="cb355-2"><a href="matrisler-1.html#cb355-2" tabindex="-1"></a> A </span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]    1    2
+## [2,]    3    4
+## [3,]    5    6</code></pre>
+<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb357-1"><a href="matrisler-1.html#cb357-1" tabindex="-1"></a> B <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">13</span>,<span class="dv">8</span>,<span class="dv">17</span>,<span class="dv">10</span>,<span class="dv">15</span>,<span class="dv">12</span>), <span class="dv">3</span>, <span class="dv">2</span>) </span>
+<span id="cb357-2"><a href="matrisler-1.html#cb357-2" tabindex="-1"></a> B </span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]   13   10
+## [2,]    8   15
+## [3,]   17   12</code></pre>
+<div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb359-1"><a href="matrisler-1.html#cb359-1" tabindex="-1"></a> D <span class="ot">&lt;-</span> A <span class="sc">+</span> B </span>
+<span id="cb359-2"><a href="matrisler-1.html#cb359-2" tabindex="-1"></a> D </span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]   14   12
+## [2,]   11   19
+## [3,]   22   18</code></pre>
+<div class="sourceCode" id="cb361"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb361-1"><a href="matrisler-1.html#cb361-1" tabindex="-1"></a> D <span class="ot">&lt;-</span> B <span class="sc">+</span> A </span>
+<span id="cb361-2"><a href="matrisler-1.html#cb361-2" tabindex="-1"></a> D </span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]   14   12
+## [2,]   11   19
+## [3,]   22   18</code></pre>
+<p>Yukarıda elde edilen sonuçlardan anlaşılacağı gibi R programı <span class="math inline">\(A_{3×2}\)</span> ve <span class="math inline">\(B_{3×2}\)</span> matrislerinin toplamına göre doğrudan <span class="math inline">\(D_{3×2}\)</span> matrisinin boyutlarını oluşturmuş ve toplamın değerlerini aktarmıştır. Benzer şekilde, <span class="math inline">\(B_{3×2}\)</span> ve <span class="math inline">\(C_{3×2}\)</span> matrisleri arasında çıkartma işlemi de yapılabilir.</p>
+<p><span class="math display">\[D=B-C=\begin{pmatrix}
+13-7 &amp; 10-14 \\
+8-15 &amp; 15-11 \\
+17-9 &amp; 12-18
+\end{pmatrix}
+=
+\begin{pmatrix}
+6 &amp; -4 \\
+-7 &amp; 4 \\
+8 &amp; -6
+\end{pmatrix} \]</span></p>
+<div class="sourceCode" id="cb363"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb363-1"><a href="matrisler-1.html#cb363-1" tabindex="-1"></a> A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">6</span>), <span class="dv">3</span>, <span class="dv">2</span>) </span>
+<span id="cb363-2"><a href="matrisler-1.html#cb363-2" tabindex="-1"></a> A </span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]    1    2
+## [2,]    3    4
+## [3,]    5    6</code></pre>
+<div class="sourceCode" id="cb365"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb365-1"><a href="matrisler-1.html#cb365-1" tabindex="-1"></a> B <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">13</span>,<span class="dv">8</span>,<span class="dv">17</span>,<span class="dv">10</span>,<span class="dv">15</span>,<span class="dv">12</span>), <span class="dv">3</span>, <span class="dv">2</span>) </span>
+<span id="cb365-2"><a href="matrisler-1.html#cb365-2" tabindex="-1"></a> B </span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]   13   10
+## [2,]    8   15
+## [3,]   17   12</code></pre>
+<div class="sourceCode" id="cb367"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb367-1"><a href="matrisler-1.html#cb367-1" tabindex="-1"></a> C <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">7</span>,<span class="dv">15</span>,<span class="dv">9</span>,<span class="dv">14</span>,<span class="dv">11</span>,<span class="dv">18</span>), <span class="dv">3</span>, <span class="dv">2</span>) </span>
+<span id="cb367-2"><a href="matrisler-1.html#cb367-2" tabindex="-1"></a> C </span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]    7   14
+## [2,]   15   11
+## [3,]    9   18</code></pre>
+<div class="sourceCode" id="cb369"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb369-1"><a href="matrisler-1.html#cb369-1" tabindex="-1"></a> D <span class="ot">&lt;-</span> B <span class="sc">-</span> C </span>
+<span id="cb369-2"><a href="matrisler-1.html#cb369-2" tabindex="-1"></a> D </span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]    6   -4
+## [2,]   -7    4
+## [3,]    8   -6</code></pre>
+<p>Ayrıca, <strong>D</strong> = <strong>C</strong> + <strong>A</strong> - <strong>B</strong> şeklinde bir işlem de yapılabilir.</p>
+<div class="sourceCode" id="cb371"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb371-1"><a href="matrisler-1.html#cb371-1" tabindex="-1"></a> A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">6</span>), <span class="dv">3</span>, <span class="dv">2</span>) </span>
+<span id="cb371-2"><a href="matrisler-1.html#cb371-2" tabindex="-1"></a> A </span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]    1    2
+## [2,]    3    4
+## [3,]    5    6</code></pre>
+<div class="sourceCode" id="cb373"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb373-1"><a href="matrisler-1.html#cb373-1" tabindex="-1"></a> B <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">13</span>,<span class="dv">8</span>,<span class="dv">17</span>,<span class="dv">10</span>,<span class="dv">15</span>,<span class="dv">12</span>), <span class="dv">3</span>, <span class="dv">2</span>) </span>
+<span id="cb373-2"><a href="matrisler-1.html#cb373-2" tabindex="-1"></a> B </span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]   13   10
+## [2,]    8   15
+## [3,]   17   12</code></pre>
+<div class="sourceCode" id="cb375"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb375-1"><a href="matrisler-1.html#cb375-1" tabindex="-1"></a> C <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">7</span>,<span class="dv">15</span>,<span class="dv">9</span>,<span class="dv">14</span>,<span class="dv">11</span>,<span class="dv">18</span>), <span class="dv">3</span>, <span class="dv">2</span>) </span>
+<span id="cb375-2"><a href="matrisler-1.html#cb375-2" tabindex="-1"></a> C </span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]    7   14
+## [2,]   15   11
+## [3,]    9   18</code></pre>
+<div class="sourceCode" id="cb377"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb377-1"><a href="matrisler-1.html#cb377-1" tabindex="-1"></a> D <span class="ot">&lt;-</span> C <span class="sc">+</span> A <span class="sc">-</span> B </span>
+<span id="cb377-2"><a href="matrisler-1.html#cb377-2" tabindex="-1"></a> D </span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]   -5    6
+## [2,]   10    0
+## [3,]   -3   12</code></pre>
+</div>
+<div id="çarpma-işlemi" class="section level2 hasAnchor" number="4.10">
+<h2><span class="header-section-number">4.10</span> Çarpma İşlemi<a href="matrisler-1.html#%C3%A7arpma-i%C5%9Flemi" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="matrislerin-veya-vektörlerin-bir-sayı-ile-çarpılması" class="section level3 hasAnchor" number="4.10.1">
+<h3><span class="header-section-number">4.10.1</span> Matrislerin veya Vektörlerin Bir Sayı ile Çarpılması<a href="matrisler-1.html#matrislerin-veya-vekt%C3%B6rlerin-bir-say%C4%B1-ile-%C3%A7arp%C4%B1lmas%C4%B1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Herhangi bir <strong>A</strong> matrisi veya <strong>x</strong> vektörü y gibi bir sayı ile <strong>yA</strong> ve <strong>yx</strong> şeklinde çarpıldığında matrisin veya vektörün bütün elemanları bu sayı ile çarpılmaktadır. Yukarıda tanımlanan <strong>A</strong> matrisi 3 ile ve <strong>x</strong> vektörü de -5 ile çarpıldığında aşağıdaki sonuç elde edilir.</p>
+<p><span class="math display">\[3A=3
+\begin{pmatrix}
+1 &amp; 2 \\
+3 &amp; 4 \\
+5 &amp; 6
+\end{pmatrix}
+=
+\begin{pmatrix}
+3 &amp; 6 \\
+9 &amp; 12 \\
+15 &amp; 18
+\end{pmatrix} \]</span></p>
+<p>ve</p>
+<p><span class="math display">\[-5x=5
+\begin{pmatrix}
+10 \\
+20 \\
+30
+\end{pmatrix}
+=
+\begin{pmatrix}
+-50 \\
+-100 \\
+-150
+\end{pmatrix} \]</span></p>
+<p>R programında bir matrisin veya vektörün bir sayı ile çarpımı aşağıda verildiği şekilde “*” işareti kullanılarak yapılır.</p>
+<div class="sourceCode" id="cb379"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb379-1"><a href="matrisler-1.html#cb379-1" tabindex="-1"></a> A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">6</span>), <span class="dv">3</span>, <span class="dv">2</span>) </span>
+<span id="cb379-2"><a href="matrisler-1.html#cb379-2" tabindex="-1"></a> A </span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]    1    2
+## [2,]    3    4
+## [3,]    5    6</code></pre>
+<div class="sourceCode" id="cb381"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb381-1"><a href="matrisler-1.html#cb381-1" tabindex="-1"></a> <span class="dv">3</span><span class="sc">*</span>A </span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]    3    6
+## [2,]    9   12
+## [3,]   15   18</code></pre>
+<div class="sourceCode" id="cb383"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb383-1"><a href="matrisler-1.html#cb383-1" tabindex="-1"></a> x </span></code></pre></div>
+<pre><code>##      [,1]
+## [1,]   10
+## [2,]   20
+## [3,]   30</code></pre>
+<div class="sourceCode" id="cb385"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb385-1"><a href="matrisler-1.html#cb385-1" tabindex="-1"></a> <span class="sc">-</span><span class="dv">5</span><span class="sc">*</span>x </span></code></pre></div>
+<pre><code>##      [,1]
+## [1,]  -50
+## [2,] -100
+## [3,] -150</code></pre>
+</div>
+<div id="matris-veya-vektörlerin-karşılıklı-elemanlarının-çarpılması" class="section level3 hasAnchor" number="4.10.2">
+<h3><span class="header-section-number">4.10.2</span> Matris veya Vektörlerin Karşılıklı Elemanlarının Çarpılması<a href="matrisler-1.html#matris-veya-vekt%C3%B6rlerin-kar%C5%9F%C4%B1l%C4%B1kl%C4%B1-elemanlar%C4%B1n%C4%B1n-%C3%A7arp%C4%B1lmas%C4%B1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>R programında matrislerin veya vektörlerin karşılıklı elemanları çarpılmak istendiğinde yine “*” işareti kullanılmalıdır. Yukarıda tanımlanan <strong>A</strong> ve <strong>B</strong> matrislerinin karşılıklı elemanları çarpıldığında aşağıdaki sonuç elde edilir.</p>
+<div class="sourceCode" id="cb387"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb387-1"><a href="matrisler-1.html#cb387-1" tabindex="-1"></a> A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">6</span>), <span class="dv">3</span>, <span class="dv">2</span>) </span>
+<span id="cb387-2"><a href="matrisler-1.html#cb387-2" tabindex="-1"></a> A </span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]    1    2
+## [2,]    3    4
+## [3,]    5    6</code></pre>
+<div class="sourceCode" id="cb389"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb389-1"><a href="matrisler-1.html#cb389-1" tabindex="-1"></a> B <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">13</span>,<span class="dv">8</span>,<span class="dv">17</span>,<span class="dv">10</span>,<span class="dv">15</span>,<span class="dv">12</span>), <span class="dv">3</span>, <span class="dv">2</span>) </span>
+<span id="cb389-2"><a href="matrisler-1.html#cb389-2" tabindex="-1"></a> B </span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]   13   10
+## [2,]    8   15
+## [3,]   17   12</code></pre>
+<div class="sourceCode" id="cb391"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb391-1"><a href="matrisler-1.html#cb391-1" tabindex="-1"></a> A<span class="sc">*</span>B </span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]   13   20
+## [2,]   24   60
+## [3,]   85   72</code></pre>
+</div>
+<div id="matris-veya-vektörlerin-çarpılması" class="section level3 hasAnchor" number="4.10.3">
+<h3><span class="header-section-number">4.10.3</span> Matris veya Vektörlerin Çarpılması<a href="matrisler-1.html#matris-veya-vekt%C3%B6rlerin-%C3%A7arp%C4%B1lmas%C4%B1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Matrislerin veya vektörlerin çarpılması için birinci matrisin veya vektörün sütun sayısının, ikinci matris veya vektörün satır sayısına eşit olması gerekir. Bu şart sağlanamadığı taktirde çarpma işlemi yapılamaz.</p>
+<p>Yukarıda tanımlanan <strong>A</strong>, <strong>B</strong> matrisleri ve x vektörü arasında <strong>AB</strong> veya <strong>Bx</strong> şeklinde bir çarpma işlemi, yukarıda tanımlanan kural sağlanamadığı için yapılamaz. Fakat. <strong>B</strong> matrisinin transpozesi alınarak çarpma işlemi gerçekleştirilebilir. R programında matrisler, vektörler veya matris ve vektör arasında çarpma işlemi yapılırken “%*%” kullanılmalıdır.</p>
+<p><span class="math display">\[B=
+\begin{pmatrix}
+13 &amp; 10 \\
+8 &amp; 15 \\
+17 &amp; 12
+\end{pmatrix}\]</span></p>
+<p><span class="math display">\[tB=
+\begin{pmatrix}
+13 &amp; 8 &amp; 17 \\
+10 &amp; 15 &amp; 12
+\end{pmatrix} \]</span></p>
+<div class="sourceCode" id="cb393"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb393-1"><a href="matrisler-1.html#cb393-1" tabindex="-1"></a> B <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">13</span>,<span class="dv">8</span>,<span class="dv">17</span>,<span class="dv">10</span>,<span class="dv">15</span>,<span class="dv">12</span>), <span class="dv">3</span>, <span class="dv">2</span>) </span>
+<span id="cb393-2"><a href="matrisler-1.html#cb393-2" tabindex="-1"></a> B </span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]   13   10
+## [2,]    8   15
+## [3,]   17   12</code></pre>
+<div class="sourceCode" id="cb395"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb395-1"><a href="matrisler-1.html#cb395-1" tabindex="-1"></a> tB <span class="ot">&lt;-</span> <span class="fu">t</span>(B)</span>
+<span id="cb395-2"><a href="matrisler-1.html#cb395-2" tabindex="-1"></a> tB</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]   13    8   17
+## [2,]   10   15   12</code></pre>
+</div>
+</div>
+<div id="determinant" class="section level2 hasAnchor" number="4.11">
+<h2><span class="header-section-number">4.11</span> Determinant<a href="matrisler-1.html#determinant" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Bir <strong>A</strong> matrisinin determinantı detA veya |A| şeklinde gösterilir. Boyutu <code>2×2</code> olan <strong>A</strong> matrisinin determinantı</p>
+<p><span class="math display">\[detA=
+\begin{vmatrix}
+A
+\end{vmatrix}
+=   
+\begin{vmatrix}
+a_{11} &amp; a_{12} \\
+a_{21} &amp; a_{22}
+\end{vmatrix}
+=
+a_{11}×a_{22}-a_{12}×a_{21}\]</span></p>
+<p>şeklinde hesaplanır. Buna göre,</p>
+<p><span class="math display">\[A=
+\begin{pmatrix}
+1 &amp; 3 \\
+2 &amp; 4
+\end{pmatrix}\]</span></p>
+<p>matrisinin determinantı</p>
+<p><span class="math display">\[detA=
+\begin{vmatrix}
+A
+\end{vmatrix}
+=   
+\begin{vmatrix}
+1 &amp; 3 \\
+2 &amp; 4
+\end{vmatrix}
+=
+1×4-2×3
+=
+-2\]</span></p>
+<p>Aynı işlem R programında yapılmak istendiğinde <code>det()</code> komutu kullanılmalıdır.</p>
+<div class="sourceCode" id="cb397"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb397-1"><a href="matrisler-1.html#cb397-1" tabindex="-1"></a> A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>), <span class="dv">2</span>, <span class="dv">2</span>) </span>
+<span id="cb397-2"><a href="matrisler-1.html#cb397-2" tabindex="-1"></a> A </span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]    1    3
+## [2,]    2    4</code></pre>
+<div class="sourceCode" id="cb399"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb399-1"><a href="matrisler-1.html#cb399-1" tabindex="-1"></a> <span class="fu">det</span>(A)</span></code></pre></div>
+<pre><code>## [1] -2</code></pre>
+<p>Boyutu <code>3×3</code> olan <strong>A</strong> matrisinin <code>detA</code>’tı, birinci satıra kofaktör açılımı uygulanarak aşağıda gösterildiği şekilde hesaplanır.</p>
+<p><span class="math display">\[\begin{aligned}
+detA=
+\begin{vmatrix}
+  A
+\end{vmatrix}
+&amp;=
+\begin{vmatrix}
+a_{11} &amp; a_{12} &amp; a_{13} \\
+a_{21} &amp; a_{22} &amp; a_{23} \\
+a_{31} &amp; a_{23} &amp; a_{33}
+\end{vmatrix} \\
+&amp;=
+a_{11}×
+\begin{vmatrix}
+a_{22} &amp; a_{23} \\
+a_{32} &amp; a_{33}
+\end{vmatrix}
+-
+a_{12}×
+\begin{vmatrix}
+a_{21} &amp; a_{23} \\
+a_{31} &amp; a_{33}
+\end{vmatrix}
++
+a_{13}×
+\begin{vmatrix}
+a_{21} &amp; a_{22} \\
+a_{31} &amp; a_{32}
+\end{vmatrix}
+\end{aligned}\]</span></p>
+<p>Buna göre,</p>
+<p><span class="math display">\[A=
+\begin{pmatrix}
+1 &amp; 0 &amp; 1 \\
+4 &amp; 5 &amp; 6 \\
+7 &amp; 8 &amp; 9
+\end{pmatrix}\]</span></p>
+<p>matrisinin deteminantı</p>
+<p><span class="math display">\[\begin{aligned}
+detA=
+\begin{vmatrix}
+A
+\end{vmatrix}
+&amp;=   
+\begin{vmatrix}
+1 &amp; 0 &amp; 1 \\
+4 &amp; 5 &amp; 6 \\
+7 &amp; 8 &amp; 9
+\end{vmatrix} \\
+&amp;=
+1×
+\begin{vmatrix}
+5 &amp; 6 \\
+8 &amp; 9
+\end{vmatrix}
+-
+0×
+\begin{vmatrix}
+4 &amp; 6 \\
+7 &amp; 9
+\end{vmatrix}
++
+1×
+\begin{vmatrix}
+4 &amp; 5 \\
+7 &amp; 8
+\end{vmatrix} \\
+&amp; =
+1(-3)+1(-3)=-6
+\end{aligned}\]</span></p>
+<p>R programında elde edilen sonuç aşağıda verilmiştir.</p>
+<div class="sourceCode" id="cb401"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb401-1"><a href="matrisler-1.html#cb401-1" tabindex="-1"></a> A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>), <span class="dv">3</span>, <span class="dv">3</span>, <span class="at">byrow=</span><span class="cn">TRUE</span>) </span>
+<span id="cb401-2"><a href="matrisler-1.html#cb401-2" tabindex="-1"></a> A </span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    0    1
+## [2,]    4    5    6
+## [3,]    7    8    9</code></pre>
+<div class="sourceCode" id="cb403"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb403-1"><a href="matrisler-1.html#cb403-1" tabindex="-1"></a> <span class="fu">det</span>(A)</span></code></pre></div>
+<pre><code>## [1] -6</code></pre>
+</div>
+<div id="matrisin-tersi" class="section level2 hasAnchor" number="4.12">
+<h2><span class="header-section-number">4.12</span> Matrisin Tersi<a href="matrisler-1.html#matrisin-tersi" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Boyutu <code>n×n</code> olan bir <strong>A</strong> matrisinin tersi <span class="math inline">\(A^{-1}\)</span> ile gösterilir ve aşağıda verilen formülle hesaplanır.</p>
+<p><span class="math display">\[
+A^{-1}=
+\frac{Adj(A)}{|A|}
+\]</span></p>
+<p>Yukarıdaki ifadeden de anlaşılacağı gibi bir matrisin tersinin alınabilmesi için matrisin kare ve determinantının da sıfırdan farklı olması gerekir. R programında matrisin tersini almak için <code>solve()</code> komutu kullanılır. Buna göre,</p>
+<p><span class="math display">\[A=
+\begin{pmatrix}
+1 &amp; 3 \\
+2 &amp; 4
+\end{pmatrix}\]</span></p>
+<p>matrisinin tersi aşağıdaki şekilde hesaplanır.</p>
+<div class="sourceCode" id="cb405"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb405-1"><a href="matrisler-1.html#cb405-1" tabindex="-1"></a> A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>), <span class="dv">2</span>, <span class="dv">2</span>) </span>
+<span id="cb405-2"><a href="matrisler-1.html#cb405-2" tabindex="-1"></a> A </span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]    1    3
+## [2,]    2    4</code></pre>
+<div class="sourceCode" id="cb407"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb407-1"><a href="matrisler-1.html#cb407-1" tabindex="-1"></a> <span class="fu">det</span>(A)</span></code></pre></div>
+<pre><code>## [1] -2</code></pre>
+<div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb409-1"><a href="matrisler-1.html#cb409-1" tabindex="-1"></a> A.ters <span class="ot">=</span> <span class="fu">solve</span>(A)</span>
+<span id="cb409-2"><a href="matrisler-1.html#cb409-2" tabindex="-1"></a> A.ters</span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]   -2  1.5
+## [2,]    1 -0.5</code></pre>
+<p>Bu şartlar altında hesaplanacak <span class="math inline">\(A^{-1}\)</span> de <span class="math inline">\(A^{-1}A\)</span> = <span class="math inline">\(AA^{-1}\)</span> = <span class="math inline">\(I\)</span> sağlayacaktır.</p>
+<div class="sourceCode" id="cb411"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb411-1"><a href="matrisler-1.html#cb411-1" tabindex="-1"></a> A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>), <span class="dv">2</span>, <span class="dv">2</span>) </span>
+<span id="cb411-2"><a href="matrisler-1.html#cb411-2" tabindex="-1"></a> A </span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]    1    3
+## [2,]    2    4</code></pre>
+<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb413-1"><a href="matrisler-1.html#cb413-1" tabindex="-1"></a> A.ters<span class="sc">%*%</span>A </span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]    1    0
+## [2,]    0    1</code></pre>
+<div class="sourceCode" id="cb415"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb415-1"><a href="matrisler-1.html#cb415-1" tabindex="-1"></a> A<span class="sc">%*%</span>A.ters </span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]    1    0
+## [2,]    0    1</code></pre>
+<p>Matrisin determinantı sıfır olduğunda <code>solve()</code> komutu kullanılarak <span class="math inline">\(A^{-1}\)</span> hesaplanamaz.</p>
+<div class="sourceCode" id="cb417"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb417-1"><a href="matrisler-1.html#cb417-1" tabindex="-1"></a> A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">2</span>), <span class="dv">2</span>, <span class="dv">2</span>) </span>
+<span id="cb417-2"><a href="matrisler-1.html#cb417-2" tabindex="-1"></a> A </span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]    1    1
+## [2,]    2    2</code></pre>
+<div class="sourceCode" id="cb419"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb419-1"><a href="matrisler-1.html#cb419-1" tabindex="-1"></a> <span class="fu">det</span>(A)</span></code></pre></div>
+<pre><code>## [1] 0</code></pre>
+<div class="sourceCode" id="cb421"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb421-1"><a href="matrisler-1.html#cb421-1" tabindex="-1"></a> A.ters <span class="ot">=</span> <span class="fu">solve</span>(A)</span></code></pre></div>
+<pre><code>## Error in `solve.default()`:
+## ! Lapack routine dgesv: system is exactly singular: U[2,2] = 0</code></pre>
+<p>Bunun yerine <span class="math inline">\(A^{-}\)</span> ile gösterilen matrisin genel tersi hesaplanır. R programında <code>MASS</code> paketi <code>library(MASS)</code> şeklinde yüklendikten sonra matrisin tersinin hesaplanması <code>ginv()</code> komutuyla yapılabilir ve hesaplanan <span class="math inline">\(A^{-}\)</span> de <span class="math inline">\(AA^{-}A=A\)</span> kuralını sağlayacaktır.</p>
+<div class="sourceCode" id="cb423"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb423-1"><a href="matrisler-1.html#cb423-1" tabindex="-1"></a> <span class="fu">library</span>(<span class="st">&quot;MASS&quot;</span>)</span>
+<span id="cb423-2"><a href="matrisler-1.html#cb423-2" tabindex="-1"></a> A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">2</span>), <span class="dv">2</span>, <span class="dv">2</span>) </span>
+<span id="cb423-3"><a href="matrisler-1.html#cb423-3" tabindex="-1"></a> A </span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]    1    1
+## [2,]    2    2</code></pre>
+<div class="sourceCode" id="cb425"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb425-1"><a href="matrisler-1.html#cb425-1" tabindex="-1"></a> A.ters <span class="ot">=</span> <span class="fu">ginv</span>(A)</span>
+<span id="cb425-2"><a href="matrisler-1.html#cb425-2" tabindex="-1"></a> A.ters</span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]  0.1  0.2
+## [2,]  0.1  0.2</code></pre>
+<div class="sourceCode" id="cb427"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb427-1"><a href="matrisler-1.html#cb427-1" tabindex="-1"></a> A<span class="sc">%*%</span>A.ters<span class="sc">%*%</span>A</span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]    1    1
+## [2,]    2    2</code></pre>
+<p><code>ginv()</code> komutu aynı zamanda <code>solve()</code> komutuyla elde edilen sonucu da verdiğinden aşağıda görüldüğü şekilde her türlü matrisin tersinin hesaplanmasında kullanılabilir.</p>
+<div class="sourceCode" id="cb429"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb429-1"><a href="matrisler-1.html#cb429-1" tabindex="-1"></a> A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>), <span class="dv">2</span>, <span class="dv">2</span>) </span>
+<span id="cb429-2"><a href="matrisler-1.html#cb429-2" tabindex="-1"></a> A </span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]    1    3
+## [2,]    2    4</code></pre>
+<div class="sourceCode" id="cb431"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb431-1"><a href="matrisler-1.html#cb431-1" tabindex="-1"></a> <span class="fu">solve</span>(A) </span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]   -2  1.5
+## [2,]    1 -0.5</code></pre>
+<div class="sourceCode" id="cb433"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb433-1"><a href="matrisler-1.html#cb433-1" tabindex="-1"></a> <span class="fu">ginv</span>(A) </span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]   -2  1.5
+## [2,]    1 -0.5</code></pre>
+</div>
+<div id="matrisin-özdeğerleri-eigenvalues-ve-özvektörleri-eigenvectors" class="section level2 hasAnchor" number="4.13">
+<h2><span class="header-section-number">4.13</span> Matrisin Özdeğerleri (Eigenvalues) ve Özvektörleri (Eigenvectors)<a href="matrisler-1.html#matrisin-%C3%B6zde%C4%9Ferleri-eigenvalues-ve-%C3%B6zvekt%C3%B6rleri-eigenvectors" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Bir <span class="math inline">\(A_{n×n}\)</span> matrisinin özdeğerleri ve özvektörleri aşağıdaki şekilde hesaplanabilir. Matrisin özdeğerlerini <span class="math inline">\(\lambda_1\)</span>, <span class="math inline">\(\lambda_1\)</span>, <span class="math inline">\(\cdots\)</span>, <span class="math inline">\(\lambda_n\)</span> hesaplamak için</p>
+<p><span class="math display">\[\begin{vmatrix}
+A-\lambda I
+\end{vmatrix}
+= 0\]</span></p>
+<p>sistemi çözülür. Elde edilen her özdeğer λi için</p>
+<p><span class="math display">\[\begin{pmatrix}
+A-\lambda I
+\end{pmatrix}
+x = 0\]</span></p>
+<p>sistemi çözülerek <span class="math inline">\(\lambda_i\)</span>’a ait özvektör elde edilir.</p>
+<p>Buna göre,</p>
+<p><span class="math display">\[A=
+\begin{pmatrix}
+13 &amp; -4 \\
+-4 &amp; 7
+\end{pmatrix}\]</span></p>
+<p>matrisinin özdeğerleri</p>
+<p><span class="math display">\[\begin{vmatrix}
+A-\lambda I
+\end{vmatrix}
+=
+\begin{vmatrix}
+\begin{pmatrix}
+  13 &amp; -4 \\
+  -4 &amp; 7
+\end{pmatrix}
+-\lambda
+\begin{pmatrix}
+1 &amp; 0 \\
+0 &amp; 1
+\end{pmatrix}
+\end{vmatrix}
+= 0\]</span></p>
+<p><span class="math display">\[\begin{vmatrix}
+A-\lambda I
+\end{vmatrix}
+=
+\begin{vmatrix}
+13-\lambda &amp; -4 \\
+-4 &amp; 7-\lambda
+\end{vmatrix}
+= 0\]</span></p>
+<p><span class="math display">\[\begin{vmatrix}
+A-\lambda I
+\end{vmatrix}
+=
+(13-\lambda)(7-\lambda) - (-4)(-4)  
+= 0\]</span></p>
+<p><span class="math display">\[\begin{vmatrix}
+A-\lambda I
+\end{vmatrix}
+=
+\lambda^2-20\lambda+75
+= 0\]</span></p>
+<p><span class="math display">\[\begin{vmatrix}
+A-\lambda I
+\end{vmatrix}
+=
+(5-\lambda)(15-\lambda)
+= 0\]</span>
+şeklinde elde edilen ikinci dereceden bir bilinmeyenli denklemin çözülmesiyle</p>
+<p><span class="math display">\[\lambda_1=5\]</span> ve <span class="math display">\[\lambda_2=15\]</span>
+olarak hesaplanır.</p>
+<p>Bu özdeğerlere karşılık gelen özvektörlerde <span class="math inline">\(\lambda_1=5\)</span> için</p>
+<p><span class="math display">\[\begin{pmatrix}
+A-5 I
+\end{pmatrix}
+=
+\begin{pmatrix}
+13-5 &amp; -4 \\
+-4 &amp; 7-5
+\end{pmatrix}x
+= 0\]</span></p>
+<p><span class="math display">\[\begin{pmatrix}
+A-5 I
+\end{pmatrix}
+=
+\begin{pmatrix}
+8 &amp; -4 \\
+-4 &amp; 2
+\end{pmatrix}x
+=0\]</span></p>
+<p>sistemi çözülerek</p>
+<p><span class="math display">\[x =
+\begin{pmatrix}
+-0.44728 &amp; -0.8994 \\
+\end{pmatrix}\]</span></p>
+<p>olarak, <span class="math inline">\(\lambda_2=15\)</span> için de</p>
+<p><span class="math display">\[\begin{pmatrix}
+A-15 I
+\end{pmatrix}
+=
+\begin{pmatrix}
+13-15 &amp; -4 \\
+-4 &amp; 7-15
+\end{pmatrix}x
+=0\]</span></p>
+<p><span class="math display">\[\begin{pmatrix}
+A-15 I
+\end{pmatrix}
+=
+\begin{pmatrix}
+-2 &amp; -4 \\
+-4 &amp; -8
+\end{pmatrix}x
+=0\]</span></p>
+<p>sistemi çözülerek</p>
+<p><span class="math display">\[x =
+\begin{pmatrix}
+-0.8944 &amp; -0.4472 \\
+\end{pmatrix}\]</span></p>
+<p>olarak elde edilir.</p>
+<p>R programında her hangi bir matrisin özdeğerleri ve özvektörleri <code>eigen()</code> komutu kullanılarak hesaplanabilir.</p>
+<div class="sourceCode" id="cb435"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb435-1"><a href="matrisler-1.html#cb435-1" tabindex="-1"></a> A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">13</span>,<span class="sc">-</span><span class="dv">4</span>,<span class="sc">-</span><span class="dv">4</span>,<span class="dv">7</span>), <span class="dv">2</span>, <span class="dv">2</span>) </span>
+<span id="cb435-2"><a href="matrisler-1.html#cb435-2" tabindex="-1"></a> A </span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]   13   -4
+## [2,]   -4    7</code></pre>
+<div class="sourceCode" id="cb437"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb437-1"><a href="matrisler-1.html#cb437-1" tabindex="-1"></a> <span class="fu">eigen</span>(A) </span></code></pre></div>
+<pre><code>## eigen() decomposition
+## $values
+## [1] 15  5
+## 
+## $vectors
+##            [,1]       [,2]
+## [1,] -0.8944272 -0.4472136
+## [2,]  0.4472136 -0.8944272</code></pre>
+<p>Özdeğerlerin toplamı</p>
+<p><span class="math display">\[\sum_{i=1}^{n}\lambda_i\]</span></p>
+<p>matrisin köşegen elemanlarının toplamına başka bir ifadeyle matrisin izi’ne eşittir.</p>
+<div class="sourceCode" id="cb439"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb439-1"><a href="matrisler-1.html#cb439-1" tabindex="-1"></a> A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">13</span>,<span class="sc">-</span><span class="dv">4</span>,<span class="sc">-</span><span class="dv">4</span>,<span class="dv">7</span>), <span class="dv">2</span>, <span class="dv">2</span>) </span>
+<span id="cb439-2"><a href="matrisler-1.html#cb439-2" tabindex="-1"></a> A </span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]   13   -4
+## [2,]   -4    7</code></pre>
+<div class="sourceCode" id="cb441"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb441-1"><a href="matrisler-1.html#cb441-1" tabindex="-1"></a> <span class="fu">sum</span>(<span class="fu">diag</span>(A))</span></code></pre></div>
+<pre><code>## [1] 20</code></pre>
+<p>Özdeğerlerin çarpımı
+<span class="math display">\[\prod_{i=1}^{n}\lambda_i\]</span></p>
+<p>matrisin determinantına eşittir.</p>
+<div class="sourceCode" id="cb443"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb443-1"><a href="matrisler-1.html#cb443-1" tabindex="-1"></a> A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">13</span>,<span class="sc">-</span><span class="dv">4</span>,<span class="sc">-</span><span class="dv">4</span>,<span class="dv">7</span>), <span class="dv">2</span>, <span class="dv">2</span>) </span>
+<span id="cb443-2"><a href="matrisler-1.html#cb443-2" tabindex="-1"></a> A </span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]   13   -4
+## [2,]   -4    7</code></pre>
+<div class="sourceCode" id="cb445"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb445-1"><a href="matrisler-1.html#cb445-1" tabindex="-1"></a> oz <span class="ot">&lt;-</span> <span class="fu">eigen</span>(A)</span>
+<span id="cb445-2"><a href="matrisler-1.html#cb445-2" tabindex="-1"></a> <span class="fu">prod</span>(oz<span class="sc">$</span>values)</span></code></pre></div>
+<pre><code>## [1] 75</code></pre>
+<div class="sourceCode" id="cb447"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb447-1"><a href="matrisler-1.html#cb447-1" tabindex="-1"></a> <span class="fu">det</span>(A)</span></code></pre></div>
+<pre><code>## [1] 75</code></pre>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="veri-yapıları-ve-veri-tipleri.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="vektör-fonksiyonları.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/rstudio/bookdown-demo/edit/master/04-Matrisler.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["R Program.pdf", "R Program.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

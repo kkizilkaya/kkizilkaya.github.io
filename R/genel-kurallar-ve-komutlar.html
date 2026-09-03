@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Bölüm 2 Genel Kurallar ve Komutlar | R Programı</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.47 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Bölüm 2 Genel Kurallar ve Komutlar | R Programı" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Bölüm 2 Genel Kurallar ve Komutlar | R Programı" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Prof. Dr. Kadir KIZILKAYA" />
+
+
+<meta name="date" content="2026-09-03" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="r-programının-kurulumu-ve-genel-özellikleri.html"/>
+<link rel="next" href="veri-yapıları-ve-veri-tipleri.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">R Program</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="r-programının-kurulumu-ve-genel-özellikleri.html"><a href="r-programının-kurulumu-ve-genel-özellikleri.html"><i class="fa fa-check"></i><b>1</b> R Programının Kurulumu ve Genel Özellikleri</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="r-programının-kurulumu-ve-genel-özellikleri.html"><a href="r-programının-kurulumu-ve-genel-özellikleri.html#r-program%C4%B1n%C4%B1n-indirilmesi-ve-kurulmas%C4%B1"><i class="fa fa-check"></i><b>1.1</b> R Programının İndirilmesi ve Kurulması</a></li>
+<li class="chapter" data-level="1.2" data-path="r-programının-kurulumu-ve-genel-özellikleri.html"><a href="r-programının-kurulumu-ve-genel-özellikleri.html#r-program%C4%B1n%C4%B1-ba%C5%9Flatmak-ve-kapatmak"><i class="fa fa-check"></i><b>1.2</b> R Programını Başlatmak ve Kapatmak</a></li>
+<li class="chapter" data-level="1.3" data-path="r-programının-kurulumu-ve-genel-özellikleri.html"><a href="r-programının-kurulumu-ve-genel-özellikleri.html#paket-kurulumu"><i class="fa fa-check"></i><b>1.3</b> Paket Kurulumu</a></li>
+<li class="chapter" data-level="1.4" data-path="r-programının-kurulumu-ve-genel-özellikleri.html"><a href="r-programının-kurulumu-ve-genel-özellikleri.html#paket-y%C3%BCkleme"><i class="fa fa-check"></i><b>1.4</b> Paket Yükleme</a></li>
+<li class="chapter" data-level="1.5" data-path="r-programının-kurulumu-ve-genel-özellikleri.html"><a href="r-programının-kurulumu-ve-genel-özellikleri.html#paketler"><i class="fa fa-check"></i><b>1.5</b> Paketler</a></li>
+<li class="chapter" data-level="1.6" data-path="r-programının-kurulumu-ve-genel-özellikleri.html"><a href="r-programının-kurulumu-ve-genel-özellikleri.html#betik-script-olu%C5%9Fturma"><i class="fa fa-check"></i><b>1.6</b> Betik (Script) Oluşturma</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html"><i class="fa fa-check"></i><b>2</b> Genel Kurallar ve Komutlar</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#r-program%C4%B1nda-ge%C3%A7erli-de%C4%9Fi%C5%9Fken-isimleri"><i class="fa fa-check"></i><b>2.1</b> R Programında Geçerli Değişken İsimleri</a></li>
+<li class="chapter" data-level="2.2" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#bo%C5%9Fluk"><i class="fa fa-check"></i><b>2.2</b> Boşluk</a></li>
+<li class="chapter" data-level="2.3" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#%C3%A7al%C4%B1%C5%9Fma-dizininin-belirlenmesi-getwd"><i class="fa fa-check"></i><b>2.3</b> Çalışma Dizininin Belirlenmesi <code>getwd()</code></a></li>
+<li class="chapter" data-level="2.4" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#%C3%A7al%C4%B1%C5%9Fma-dizininin-de%C4%9Fi%C5%9Ftirilmesi-setwd"><i class="fa fa-check"></i><b>2.4</b> Çalışma Dizininin Değiştirilmesi <code>setwd()</code></a></li>
+<li class="chapter" data-level="2.5" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#%C3%A7al%C4%B1%C5%9Fma-dizininde-dizin-ve-dosyalar%C4%B1n-listelenmesi-dir-veya-list.files"><i class="fa fa-check"></i><b>2.5</b> Çalışma Dizininde Dizin ve Dosyaların Listelenmesi <code>dir()</code> veya <code>list.files()</code></a></li>
+<li class="chapter" data-level="2.6" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#%C3%A7al%C4%B1%C5%9Fma-dizininde-dizin-olu%C5%9Fturma-dir.create"><i class="fa fa-check"></i><b>2.6</b> Çalışma Dizininde Dizin Oluşturma <code>dir.create()</code></a></li>
+<li class="chapter" data-level="2.7" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#%C3%A7al%C4%B1%C5%9Fma-alan%C4%B1nda-olu%C5%9Fturulan-nesnelerin-veya-de%C4%9Fi%C5%9Fkenlerin-listelenmesi-ls-veya-objects"><i class="fa fa-check"></i><b>2.7</b> Çalışma Alanında Oluşturulan Nesnelerin veya Değişkenlerin Listelenmesi <code>ls()</code> veya <code>objects()</code></a></li>
+<li class="chapter" data-level="2.8" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#%C3%A7al%C4%B1%C5%9Fma-alan%C4%B1n%C4%B1n-workspace-kaydedilmesi"><i class="fa fa-check"></i><b>2.8</b> Çalışma Alanının (Workspace) Kaydedilmesi</a></li>
+<li class="chapter" data-level="2.9" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#de%C4%9Fi%C5%9Fkenlerin-silinmesi"><i class="fa fa-check"></i><b>2.9</b> Değişkenlerin Silinmesi</a></li>
+<li class="chapter" data-level="2.10" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#operat%C3%B6rler"><i class="fa fa-check"></i><b>2.10</b> Operatörler</a>
+<ul>
+<li class="chapter" data-level="2.10.1" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#atama-operat%C3%B6rleri"><i class="fa fa-check"></i><b>2.10.1</b> Atama Operatörleri</a></li>
+<li class="chapter" data-level="2.10.2" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#aritmetik-operat%C3%B6rler"><i class="fa fa-check"></i><b>2.10.2</b> Aritmetik Operatörler</a></li>
+<li class="chapter" data-level="2.10.3" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#kar%C5%9F%C4%B1la%C5%9Ft%C4%B1rma-operat%C3%B6rleri"><i class="fa fa-check"></i><b>2.10.3</b> Karşılaştırma Operatörleri</a></li>
+<li class="chapter" data-level="2.10.4" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#mant%C4%B1k-operat%C3%B6rleri"><i class="fa fa-check"></i><b>2.10.4</b> Mantık Operatörleri</a></li>
+</ul></li>
+<li class="chapter" data-level="2.11" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#eksik-g%C3%B6zlem-na"><i class="fa fa-check"></i><b>2.11</b> Eksik Gözlem (<code>NA</code>)</a></li>
+<li class="chapter" data-level="2.12" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#%C3%B6zel-de%C4%9Ferler-inf-nan-null"><i class="fa fa-check"></i><b>2.12</b> Özel Değerler (<code>Inf</code>, <code>NaN</code>, <code>Null</code>)</a></li>
+<li class="chapter" data-level="2.13" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#seq-sequence-komutu"><i class="fa fa-check"></i><b>2.13</b> <code>seq()</code> (<code>Sequence</code>) Komutu</a></li>
+<li class="chapter" data-level="2.14" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#rep-replicate-komutu"><i class="fa fa-check"></i><b>2.14</b> <code>rep()</code> (<code>Replicate</code>) Komutu</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="veri-yapıları-ve-veri-tipleri.html"><a href="veri-yapıları-ve-veri-tipleri.html"><i class="fa fa-check"></i><b>3</b> Veri Yapıları ve Veri Tipleri</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="veri-yapıları-ve-veri-tipleri.html"><a href="veri-yapıları-ve-veri-tipleri.html#veri-tipi"><i class="fa fa-check"></i><b>3.1</b> Veri Tipi</a></li>
+<li class="chapter" data-level="3.2" data-path="veri-yapıları-ve-veri-tipleri.html"><a href="veri-yapıları-ve-veri-tipleri.html#veri-yap%C4%B1lar%C4%B1"><i class="fa fa-check"></i><b>3.2</b> Veri Yapıları</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="veri-yapıları-ve-veri-tipleri.html"><a href="veri-yapıları-ve-veri-tipleri.html#vekt%C3%B6rler"><i class="fa fa-check"></i><b>3.2.1</b> Vektörler</a></li>
+<li class="chapter" data-level="3.2.2" data-path="veri-yapıları-ve-veri-tipleri.html"><a href="veri-yapıları-ve-veri-tipleri.html#matrisler"><i class="fa fa-check"></i><b>3.2.2</b> Matrisler</a></li>
+<li class="chapter" data-level="3.2.3" data-path="veri-yapıları-ve-veri-tipleri.html"><a href="veri-yapıları-ve-veri-tipleri.html#diziler"><i class="fa fa-check"></i><b>3.2.3</b> Diziler</a></li>
+<li class="chapter" data-level="3.2.4" data-path="veri-yapıları-ve-veri-tipleri.html"><a href="veri-yapıları-ve-veri-tipleri.html#listeler"><i class="fa fa-check"></i><b>3.2.4</b> Listeler</a></li>
+<li class="chapter" data-level="3.2.5" data-path="veri-yapıları-ve-veri-tipleri.html"><a href="veri-yapıları-ve-veri-tipleri.html#fakt%C3%B6rler"><i class="fa fa-check"></i><b>3.2.5</b> Faktörler</a></li>
+<li class="chapter" data-level="3.2.6" data-path="veri-yapıları-ve-veri-tipleri.html"><a href="veri-yapıları-ve-veri-tipleri.html#veri-%C3%A7er%C3%A7eveleri"><i class="fa fa-check"></i><b>3.2.6</b> Veri Çerçeveleri</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="veri-yapıları-ve-veri-tipleri.html"><a href="veri-yapıları-ve-veri-tipleri.html#%C3%A7%C4%B1kt%C4%B1lar%C4%B1n-yazd%C4%B1r%C4%B1lmas%C4%B1-print-ve-cat-fonksiyonlar%C4%B1"><i class="fa fa-check"></i><b>3.3</b> Çıktıların Yazdırılması <code>print()</code> ve <code>cat()</code> Fonksiyonları</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="veri-yapıları-ve-veri-tipleri.html"><a href="veri-yapıları-ve-veri-tipleri.html#print-fonksiyonu"><i class="fa fa-check"></i><b>3.3.1</b> print() Fonksiyonu</a></li>
+<li class="chapter" data-level="3.3.2" data-path="veri-yapıları-ve-veri-tipleri.html"><a href="veri-yapıları-ve-veri-tipleri.html#cat-fonksiyonu"><i class="fa fa-check"></i><b>3.3.2</b> cat() Fonksiyonu</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="matrisler-1.html"><a href="matrisler-1.html"><i class="fa fa-check"></i><b>4</b> Matrisler</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="matrisler-1.html"><a href="matrisler-1.html#sat%C4%B1r-ve-s%C3%BCtun-vekt%C3%B6rleri"><i class="fa fa-check"></i><b>4.1</b> Satır ve Sütun Vektörleri</a></li>
+<li class="chapter" data-level="4.2" data-path="matrisler-1.html"><a href="matrisler-1.html#kare-matris"><i class="fa fa-check"></i><b>4.2</b> Kare Matris</a></li>
+<li class="chapter" data-level="4.3" data-path="matrisler-1.html"><a href="matrisler-1.html#k%C3%B6%C5%9Fegen-diyagonal-matris"><i class="fa fa-check"></i><b>4.3</b> Köşegen (Diyagonal) Matris</a></li>
+<li class="chapter" data-level="4.4" data-path="matrisler-1.html"><a href="matrisler-1.html#birim-matris"><i class="fa fa-check"></i><b>4.4</b> Birim Matris</a></li>
+<li class="chapter" data-level="4.5" data-path="matrisler-1.html"><a href="matrisler-1.html#matrislerin-birle%C5%9Ftirilmesi"><i class="fa fa-check"></i><b>4.5</b> Matrislerin Birleştirilmesi</a></li>
+<li class="chapter" data-level="4.6" data-path="matrisler-1.html"><a href="matrisler-1.html#matrisin-transpozesi"><i class="fa fa-check"></i><b>4.6</b> Matrisin Transpozesi</a></li>
+<li class="chapter" data-level="4.7" data-path="matrisler-1.html"><a href="matrisler-1.html#matrislerle-matematiksel-i%C5%9Flemler"><i class="fa fa-check"></i><b>4.7</b> Matrislerle Matematiksel İşlemler</a></li>
+<li class="chapter" data-level="4.8" data-path="matrisler-1.html"><a href="matrisler-1.html#matris-elemanlar%C4%B1n%C4%B1n-sat%C4%B1rlar%C4%B1n%C4%B1n-veya-s%C3%BCtunlar%C4%B1n%C4%B1n-toplam%C4%B1-ve-ortalamas%C4%B1"><i class="fa fa-check"></i><b>4.8</b> Matris Elemanlarının, Satırlarının veya Sütunlarının Toplamı ve Ortalaması</a></li>
+<li class="chapter" data-level="4.9" data-path="matrisler-1.html"><a href="matrisler-1.html#toplama-ve-%C3%A7%C4%B1kartma-i%C5%9Flemi"><i class="fa fa-check"></i><b>4.9</b> Toplama ve Çıkartma İşlemi</a></li>
+<li class="chapter" data-level="4.10" data-path="matrisler-1.html"><a href="matrisler-1.html#%C3%A7arpma-i%C5%9Flemi"><i class="fa fa-check"></i><b>4.10</b> Çarpma İşlemi</a>
+<ul>
+<li class="chapter" data-level="4.10.1" data-path="matrisler-1.html"><a href="matrisler-1.html#matrislerin-veya-vekt%C3%B6rlerin-bir-say%C4%B1-ile-%C3%A7arp%C4%B1lmas%C4%B1"><i class="fa fa-check"></i><b>4.10.1</b> Matrislerin veya Vektörlerin Bir Sayı ile Çarpılması</a></li>
+<li class="chapter" data-level="4.10.2" data-path="matrisler-1.html"><a href="matrisler-1.html#matris-veya-vekt%C3%B6rlerin-kar%C5%9F%C4%B1l%C4%B1kl%C4%B1-elemanlar%C4%B1n%C4%B1n-%C3%A7arp%C4%B1lmas%C4%B1"><i class="fa fa-check"></i><b>4.10.2</b> Matris veya Vektörlerin Karşılıklı Elemanlarının Çarpılması</a></li>
+<li class="chapter" data-level="4.10.3" data-path="matrisler-1.html"><a href="matrisler-1.html#matris-veya-vekt%C3%B6rlerin-%C3%A7arp%C4%B1lmas%C4%B1"><i class="fa fa-check"></i><b>4.10.3</b> Matris veya Vektörlerin Çarpılması</a></li>
+</ul></li>
+<li class="chapter" data-level="4.11" data-path="matrisler-1.html"><a href="matrisler-1.html#determinant"><i class="fa fa-check"></i><b>4.11</b> Determinant</a></li>
+<li class="chapter" data-level="4.12" data-path="matrisler-1.html"><a href="matrisler-1.html#matrisin-tersi"><i class="fa fa-check"></i><b>4.12</b> Matrisin Tersi</a></li>
+<li class="chapter" data-level="4.13" data-path="matrisler-1.html"><a href="matrisler-1.html#matrisin-%C3%B6zde%C4%9Ferleri-eigenvalues-ve-%C3%B6zvekt%C3%B6rleri-eigenvectors"><i class="fa fa-check"></i><b>4.13</b> Matrisin Özdeğerleri (Eigenvalues) ve Özvektörleri (Eigenvectors)</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="vektör-fonksiyonları.html"><a href="vektör-fonksiyonları.html"><i class="fa fa-check"></i><b>5</b> Vektör Fonksiyonları</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="vektör-fonksiyonları.html"><a href="vektör-fonksiyonları.html#matematiksel-fonksiyonlar"><i class="fa fa-check"></i><b>5.1</b> Matematiksel Fonksiyonlar</a></li>
+<li class="chapter" data-level="5.2" data-path="vektör-fonksiyonları.html"><a href="vektör-fonksiyonları.html#trigonometrik-fonksiyonlar"><i class="fa fa-check"></i><b>5.2</b> Trigonometrik Fonksiyonlar</a></li>
+<li class="chapter" data-level="5.3" data-path="vektör-fonksiyonları.html"><a href="vektör-fonksiyonları.html#istatistiksel-fonksiyonlar"><i class="fa fa-check"></i><b>5.3</b> İstatistiksel Fonksiyonlar</a></li>
+<li class="chapter" data-level="5.4" data-path="vektör-fonksiyonları.html"><a href="vektör-fonksiyonları.html#sort-rank-ve-order-fonksiyonlar%C4%B1"><i class="fa fa-check"></i><b>5.4</b> <code>sort()</code>, <code>rank()</code> ve <code>order()</code> Fonksiyonları</a></li>
+<li class="chapter" data-level="5.5" data-path="vektör-fonksiyonları.html"><a href="vektör-fonksiyonları.html#say%C4%B1lar%C4%B1n-yuvarlanmas%C4%B1-ceiling-floor-round-ve-signif-fonksiyonlar%C4%B1"><i class="fa fa-check"></i><b>5.5</b> Sayıların Yuvarlanması <code>ceiling()</code>, <code>floor()</code>, <code>round()</code> ve <code>signif()</code> Fonksiyonları</a></li>
+<li class="chapter" data-level="5.6" data-path="vektör-fonksiyonları.html"><a href="vektör-fonksiyonları.html#apply-fonksiyonlar%C4%B1"><i class="fa fa-check"></i><b>5.6</b> <code>apply</code> Fonksiyonları</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="vektör-fonksiyonları.html"><a href="vektör-fonksiyonları.html#apply-fonksiyonu"><i class="fa fa-check"></i><b>5.6.1</b> <code>apply()</code> Fonksiyonu</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="vektör-fonksiyonları.html"><a href="vektör-fonksiyonları.html#tapply-fonksiyonu"><i class="fa fa-check"></i><b>5.7</b> <code>tapply()</code> Fonksiyonu</a>
+<ul>
+<li class="chapter" data-level="5.7.1" data-path="vektör-fonksiyonları.html"><a href="vektör-fonksiyonları.html#lapply-ve-sapply-fonksiyonlar%C4%B1"><i class="fa fa-check"></i><b>5.7.1</b> <code>lapply()</code> ve <code>sapply()</code> Fonksiyonları</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="vektör-fonksiyonları.html"><a href="vektör-fonksiyonları.html#aggregate-ve-by-fonksiyonlar%C4%B1"><i class="fa fa-check"></i><b>5.8</b> <code>aggregate()</code> ve <code>by()</code> Fonksiyonları</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Programı</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="genel-kurallar-ve-komutlar" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Bölüm 2</span> Genel Kurallar ve Komutlar<a href="genel-kurallar-ve-komutlar.html#genel-kurallar-ve-komutlar" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="r-programında-geçerli-değişken-isimleri" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> R Programında Geçerli Değişken İsimleri<a href="genel-kurallar-ve-komutlar.html#r-program%C4%B1nda-ge%C3%A7erli-de%C4%9Fi%C5%9Fken-isimleri" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>R programında değişken isimleri harflerin, rakamların ve noktaların ‘.’ birleşimiyle oluşturulabilir. Yalnız,</p>
+<ul>
+<li>değişken isimleri için R programında tanımlı ‘c’ veya ‘mean’ gibi fonksiyon isimlerinin kullanılmamasına,</li>
+<li>değişken isimlerinde Türkçe karakter Ç, Ğ, İ, Ö, Ş, Ü ve ç, ğ, ı, ö, ş, ü kullanılmamasına,</li>
+<li>değişken isimlerinin rakam (0, 1, 2, 3, 4, 5, 6, 7, 8, 9) ile başlamamasına,
+dikkat edilmelidir. Ayrıca, R programında büyük ve küçük harf farklılığı olup, A ve a şeklinde kullanılan değişkenler aşağıda görüldüğü gibi birbirinden farklıdır.</li>
+</ul>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="genel-kurallar-ve-komutlar.html#cb11-1" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">*</span><span class="dv">2</span> </span>
+<span id="cb11-2"><a href="genel-kurallar-ve-komutlar.html#cb11-2" tabindex="-1"></a>A</span></code></pre></div>
+<pre><code>## [1] 20</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="genel-kurallar-ve-komutlar.html#cb13-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">15</span><span class="sc">/</span><span class="dv">3</span> </span>
+<span id="cb13-2"><a href="genel-kurallar-ve-komutlar.html#cb13-2" tabindex="-1"></a>a </span></code></pre></div>
+<pre><code>## [1] 5</code></pre>
+</div>
+<div id="boşluk" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Boşluk<a href="genel-kurallar-ve-komutlar.html#bo%C5%9Fluk" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>R programlama dili, aşağıda görüldüğü gibi işlemleri gerçekleştirirken değişken isimleri ve operatörler (işlet) arasındaki boşlukları dikkate almaz.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="genel-kurallar-ve-komutlar.html#cb15-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">+</span> <span class="dv">3</span> </span>
+<span id="cb15-2"><a href="genel-kurallar-ve-komutlar.html#cb15-2" tabindex="-1"></a>x </span></code></pre></div>
+<pre><code>## [1] 4</code></pre>
+<p>Buna karşılık, değişkene değer atama operatöründe (&lt;-), &lt; ile - arasında boşluk verilmemelidir. Boşluk verildiğinde aşağıdaki gibi farklı bir sonuç elde edilebilir.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="genel-kurallar-ve-komutlar.html#cb17-1" tabindex="-1"></a>x <span class="sc">&lt;</span> <span class="sc">-</span><span class="dv">1</span> <span class="sc">+</span> <span class="dv">3</span></span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<p>Aşağıda verilen örneklerde açıkça görüldüğü gibi yazı karakterleri arasında boşluk kullanıldığında da dikkatli olunmalıdır.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="genel-kurallar-ve-komutlar.html#cb19-1" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="st">&quot;A B C D&quot;</span> </span>
+<span id="cb19-2"><a href="genel-kurallar-ve-komutlar.html#cb19-2" tabindex="-1"></a>y </span></code></pre></div>
+<pre><code>## [1] &quot;A B C D&quot;</code></pre>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="genel-kurallar-ve-komutlar.html#cb21-1" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="st">&quot;A   B   C   D&quot;</span> </span>
+<span id="cb21-2"><a href="genel-kurallar-ve-komutlar.html#cb21-2" tabindex="-1"></a>z </span></code></pre></div>
+<pre><code>## [1] &quot;A   B   C   D&quot;</code></pre>
+</div>
+<div id="çalışma-dizininin-belirlenmesi-getwd" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Çalışma Dizininin Belirlenmesi <code>getwd()</code><a href="genel-kurallar-ve-komutlar.html#%C3%A7al%C4%B1%C5%9Fma-dizininin-belirlenmesi-getwd" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>R programında <code>getwd()</code> fonksiyonunun açılımı get working directory’dir ve çalışma dizini veya içerisinde çalışılan dizin aşağıdaki örnekte olduğu gibi <code>getwd()</code> fonksiyonu yazılarak belirlenebilir. Çalışma dizini aynı zamanda R programı araç çubuğunda Misc menüsü içerisinde Get Working Directory seçilerek de belirlenebilir.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="genel-kurallar-ve-komutlar.html#cb23-1" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;/Users/merve/Documents/R-Kitap&quot;</code></pre>
+</div>
+<div id="çalışma-dizininin-değiştirilmesi-setwd" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Çalışma Dizininin Değiştirilmesi <code>setwd()</code><a href="genel-kurallar-ve-komutlar.html#%C3%A7al%C4%B1%C5%9Fma-dizininin-de%C4%9Fi%C5%9Ftirilmesi-setwd" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>R programında <code>setwd()</code> fonksiyonunun açılımı set working directory’dir.Değiştirilmek istenen dizin aşağıdaki örnekte olduğu gibi <code>setwd()</code> fonksiyonunda “ ” içerisinde yazılarak değiştirilebilir ve tekrar <code>getwd()</code> fonksiyonu kullanılarak içerisinde bulunan dizin belirlenebilir. R programında dizin değişikliği aynı zamanda R programı araç çubuğunda Misc menüsü içerisinde Change Working Directory seçilerek de değiştirilebilir.</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="genel-kurallar-ve-komutlar.html#cb25-1" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;/Users/merve/Documents/R-Kitap&quot;</span>)</span>
+<span id="cb25-2"><a href="genel-kurallar-ve-komutlar.html#cb25-2" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;/Users/merve/Documents/R-Kitap&quot;</code></pre>
+</div>
+<div id="çalışma-dizininde-dizin-ve-dosyaların-listelenmesi-dir-veya-list.files" class="section level2 hasAnchor" number="2.5">
+<h2><span class="header-section-number">2.5</span> Çalışma Dizininde Dizin ve Dosyaların Listelenmesi <code>dir()</code> veya <code>list.files()</code><a href="genel-kurallar-ve-komutlar.html#%C3%A7al%C4%B1%C5%9Fma-dizininde-dizin-ve-dosyalar%C4%B1n-listelenmesi-dir-veya-list.files" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Çalışılan dizinde bulunan dizin ve dosyaların listesi konsol da <code>dir()</code> veya <code>list.files()</code> fonksiyonu yazılarak listelenebilir.</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="genel-kurallar-ve-komutlar.html#cb27-1" tabindex="-1"></a><span class="fu">list.files</span>()</span></code></pre></div>
+<pre><code>##  [1] &quot;_book&quot;                 &quot;_bookdown_files&quot;       &quot;_bookdown.yml&quot;        
+##  [4] &quot;_output.yml&quot;           &quot;01-RKurulum.Rmd&quot;       &quot;02-GenelKural.Rmd&quot;    
+##  [7] &quot;03-VeriYapi.Rmd&quot;       &quot;04-Matrisler.Rmd&quot;      &quot;06-VektorFonk.Rmd&quot;    
+## [10] &quot;B3_Sekil7.png&quot;         &quot;book.bib&quot;              &quot;data_tab.txt&quot;         
+## [13] &quot;data_virgul.csv&quot;       &quot;data.csv&quot;              &quot;data.xlsx&quot;            
+## [16] &quot;index.Rmd&quot;             &quot;ornek&quot;                 &quot;packages.bib&quot;         
+## [19] &quot;preamble.tex&quot;          &quot;R Program.Rmd&quot;         &quot;R-Kitap.Rproj&quot;        
+## [22] &quot;R-Program_files&quot;       &quot;R-Program.Rmd&quot;         &quot;README.md&quot;            
+## [25] &quot;Rlogo.png&quot;             &quot;RRR_bookdown copy.yml&quot; &quot;Script1.png&quot;          
+## [28] &quot;Script2.png&quot;           &quot;Script3.png&quot;           &quot;Script4.png&quot;          
+## [31] &quot;Script5.png&quot;           &quot;Sekil1.png&quot;            &quot;Sekil2.png&quot;           
+## [34] &quot;Sekil3.png&quot;            &quot;Sekil4.png&quot;            &quot;Sekil5.png&quot;           
+## [37] &quot;Sekil6.png&quot;            &quot;style.css&quot;             &quot;Uygulama&quot;             
+## [40] &quot;Uygulama1.R&quot;</code></pre>
+<p>veya</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="genel-kurallar-ve-komutlar.html#cb29-1" tabindex="-1"></a><span class="fu">dir</span>()</span></code></pre></div>
+<pre><code>##  [1] &quot;_book&quot;                 &quot;_bookdown_files&quot;       &quot;_bookdown.yml&quot;        
+##  [4] &quot;_output.yml&quot;           &quot;01-RKurulum.Rmd&quot;       &quot;02-GenelKural.Rmd&quot;    
+##  [7] &quot;03-VeriYapi.Rmd&quot;       &quot;04-Matrisler.Rmd&quot;      &quot;06-VektorFonk.Rmd&quot;    
+## [10] &quot;B3_Sekil7.png&quot;         &quot;book.bib&quot;              &quot;data_tab.txt&quot;         
+## [13] &quot;data_virgul.csv&quot;       &quot;data.csv&quot;              &quot;data.xlsx&quot;            
+## [16] &quot;index.Rmd&quot;             &quot;ornek&quot;                 &quot;packages.bib&quot;         
+## [19] &quot;preamble.tex&quot;          &quot;R Program.Rmd&quot;         &quot;R-Kitap.Rproj&quot;        
+## [22] &quot;R-Program_files&quot;       &quot;R-Program.Rmd&quot;         &quot;README.md&quot;            
+## [25] &quot;Rlogo.png&quot;             &quot;RRR_bookdown copy.yml&quot; &quot;Script1.png&quot;          
+## [28] &quot;Script2.png&quot;           &quot;Script3.png&quot;           &quot;Script4.png&quot;          
+## [31] &quot;Script5.png&quot;           &quot;Sekil1.png&quot;            &quot;Sekil2.png&quot;           
+## [34] &quot;Sekil3.png&quot;            &quot;Sekil4.png&quot;            &quot;Sekil5.png&quot;           
+## [37] &quot;Sekil6.png&quot;            &quot;style.css&quot;             &quot;Uygulama&quot;             
+## [40] &quot;Uygulama1.R&quot;</code></pre>
+</div>
+<div id="çalışma-dizininde-dizin-oluşturma-dir.create" class="section level2 hasAnchor" number="2.6">
+<h2><span class="header-section-number">2.6</span> Çalışma Dizininde Dizin Oluşturma <code>dir.create()</code><a href="genel-kurallar-ve-komutlar.html#%C3%A7al%C4%B1%C5%9Fma-dizininde-dizin-olu%C5%9Fturma-dir.create" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Çalışma dizini içerisinde dizin oluşturmak için <code>dir.create()</code> fonksiyonu kullanılır. Aşağıdaki örnekte olduğu gibi “/kadir/Documents” dizini içerisinde “ornek” dizini <code>dir.create(“ornek”)</code> şeklinde oluşturulabilir.</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="genel-kurallar-ve-komutlar.html#cb31-1" tabindex="-1"></a><span class="fu">list.files</span>()</span></code></pre></div>
+<pre><code>##  [1] &quot;_book&quot;                 &quot;_bookdown_files&quot;       &quot;_bookdown.yml&quot;        
+##  [4] &quot;_output.yml&quot;           &quot;01-RKurulum.Rmd&quot;       &quot;02-GenelKural.Rmd&quot;    
+##  [7] &quot;03-VeriYapi.Rmd&quot;       &quot;04-Matrisler.Rmd&quot;      &quot;06-VektorFonk.Rmd&quot;    
+## [10] &quot;B3_Sekil7.png&quot;         &quot;book.bib&quot;              &quot;data_tab.txt&quot;         
+## [13] &quot;data_virgul.csv&quot;       &quot;data.csv&quot;              &quot;data.xlsx&quot;            
+## [16] &quot;index.Rmd&quot;             &quot;ornek&quot;                 &quot;packages.bib&quot;         
+## [19] &quot;preamble.tex&quot;          &quot;R Program.Rmd&quot;         &quot;R-Kitap.Rproj&quot;        
+## [22] &quot;R-Program_files&quot;       &quot;R-Program.Rmd&quot;         &quot;README.md&quot;            
+## [25] &quot;Rlogo.png&quot;             &quot;RRR_bookdown copy.yml&quot; &quot;Script1.png&quot;          
+## [28] &quot;Script2.png&quot;           &quot;Script3.png&quot;           &quot;Script4.png&quot;          
+## [31] &quot;Script5.png&quot;           &quot;Sekil1.png&quot;            &quot;Sekil2.png&quot;           
+## [34] &quot;Sekil3.png&quot;            &quot;Sekil4.png&quot;            &quot;Sekil5.png&quot;           
+## [37] &quot;Sekil6.png&quot;            &quot;style.css&quot;             &quot;Uygulama&quot;             
+## [40] &quot;Uygulama1.R&quot;</code></pre>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="genel-kurallar-ve-komutlar.html#cb33-1" tabindex="-1"></a><span class="fu">dir.create</span>(<span class="st">&quot;ornek&quot;</span>)</span></code></pre></div>
+<pre><code>## Warning in dir.create(&quot;ornek&quot;): &#39;ornek&#39; already exists</code></pre>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="genel-kurallar-ve-komutlar.html#cb35-1" tabindex="-1"></a><span class="fu">list.files</span>()</span></code></pre></div>
+<pre><code>##  [1] &quot;_book&quot;                 &quot;_bookdown_files&quot;       &quot;_bookdown.yml&quot;        
+##  [4] &quot;_output.yml&quot;           &quot;01-RKurulum.Rmd&quot;       &quot;02-GenelKural.Rmd&quot;    
+##  [7] &quot;03-VeriYapi.Rmd&quot;       &quot;04-Matrisler.Rmd&quot;      &quot;06-VektorFonk.Rmd&quot;    
+## [10] &quot;B3_Sekil7.png&quot;         &quot;book.bib&quot;              &quot;data_tab.txt&quot;         
+## [13] &quot;data_virgul.csv&quot;       &quot;data.csv&quot;              &quot;data.xlsx&quot;            
+## [16] &quot;index.Rmd&quot;             &quot;ornek&quot;                 &quot;packages.bib&quot;         
+## [19] &quot;preamble.tex&quot;          &quot;R Program.Rmd&quot;         &quot;R-Kitap.Rproj&quot;        
+## [22] &quot;R-Program_files&quot;       &quot;R-Program.Rmd&quot;         &quot;README.md&quot;            
+## [25] &quot;Rlogo.png&quot;             &quot;RRR_bookdown copy.yml&quot; &quot;Script1.png&quot;          
+## [28] &quot;Script2.png&quot;           &quot;Script3.png&quot;           &quot;Script4.png&quot;          
+## [31] &quot;Script5.png&quot;           &quot;Sekil1.png&quot;            &quot;Sekil2.png&quot;           
+## [34] &quot;Sekil3.png&quot;            &quot;Sekil4.png&quot;            &quot;Sekil5.png&quot;           
+## [37] &quot;Sekil6.png&quot;            &quot;style.css&quot;             &quot;Uygulama&quot;             
+## [40] &quot;Uygulama1.R&quot;</code></pre>
+</div>
+<div id="çalışma-alanında-oluşturulan-nesnelerin-veya-değişkenlerin-listelenmesi-ls-veya-objects" class="section level2 hasAnchor" number="2.7">
+<h2><span class="header-section-number">2.7</span> Çalışma Alanında Oluşturulan Nesnelerin veya Değişkenlerin Listelenmesi <code>ls()</code> veya <code>objects()</code><a href="genel-kurallar-ve-komutlar.html#%C3%A7al%C4%B1%C5%9Fma-alan%C4%B1nda-olu%C5%9Fturulan-nesnelerin-veya-de%C4%9Fi%C5%9Fkenlerin-listelenmesi-ls-veya-objects" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Çalışma alanında oluşturulan nesneler veya değişkenler R programının hafızasında tutulur. Çalışma alanı içerisinde oluşturulan nesnelerin bir listesi <code>objects()</code> komutu kullanılarak aşağıda verildiği şekilde R programının konsolunda listelenebilir. <code>ls()</code> komutu da kullanılarak nesnelerin listesi elde edilebilir. Oluşturulan bu nesneler sadece hafızada tutulmaktadır. R programından çıkılırken çalışma alanında oluşturulan bu nesneler kaydedilmediği taktirde tekrar yüklenemezler. Bu yüzden R programından çıkış yapıldığında çalışma alanının kaydedilmesini belirten bir pencere açılır. Bu pencerede Evet komutu seçildiğinde, R programının çalıştırıldığı klasörün içerisine o çalışma ortamında oluşturulan bütün nesneler <code>.Rhistory</code> isimli gizli dosya adı altında kaydedilir ve R programı yeniden bu klasörden çalıştırıldığında <code>.Rhistory</code> içerisine kaydedilen nesneler R programın hafızasına yüklenir.</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="genel-kurallar-ve-komutlar.html#cb37-1" tabindex="-1"></a><span class="fu">objects</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;a&quot; &quot;A&quot; &quot;x&quot; &quot;y&quot; &quot;z&quot;</code></pre>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="genel-kurallar-ve-komutlar.html#cb39-1" tabindex="-1"></a><span class="fu">ls</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;a&quot; &quot;A&quot; &quot;x&quot; &quot;y&quot; &quot;z&quot;</code></pre>
+</div>
+<div id="çalışma-alanının-workspace-kaydedilmesi" class="section level2 hasAnchor" number="2.8">
+<h2><span class="header-section-number">2.8</span> Çalışma Alanının (Workspace) Kaydedilmesi<a href="genel-kurallar-ve-komutlar.html#%C3%A7al%C4%B1%C5%9Fma-alan%C4%B1n%C4%B1n-workspace-kaydedilmesi" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Yukarıda açıklandığı şekilde çalışma ortamının kaydedilmesi yerine, çalışma ortamında kullanılan komutların kaydedilmesi daha uygundur. Böylece, daha sonraki çalışmalarda aynı sonuçlar, kaydedilen komutların kolaylıkla çalıştırılmasıyla elde edilebilir. Bunu gerçekleştirmek için PC-Windows da <code>Dosya (File)</code> menüden <code>R betik (script)</code> editörü seçilir ve komutlar oraya yazılarak kaydedilir. Daha sonra, betiğe yazılan komutların çalıştırılması gerektiğinde, gerekli komut veya komutlar seçildikten sonra <code>Ctrl-R</code> tuşlarına birlikte basılır. Çalışmaların sonunda betiğe girilen bütün komutlar kaydedilerek çalışma sonlandırılır.</p>
+</div>
+<div id="değişkenlerin-silinmesi" class="section level2 hasAnchor" number="2.9">
+<h2><span class="header-section-number">2.9</span> Değişkenlerin Silinmesi<a href="genel-kurallar-ve-komutlar.html#de%C4%9Fi%C5%9Fkenlerin-silinmesi" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Çalışma klasöründen değişkenleri silmek için <code>rm()</code> veya <code>remove()</code> fonksiyonları kullanılabilir. Aşağıda görüldüğü gibi a değişkeni silindikten sonra R programı değişkenin bulunamadığı şeklinde hata mesajı vermektedir.</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="genel-kurallar-ve-komutlar.html#cb41-1" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">*</span><span class="dv">2</span> </span>
+<span id="cb41-2"><a href="genel-kurallar-ve-komutlar.html#cb41-2" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">15</span><span class="sc">/</span><span class="dv">3</span> </span>
+<span id="cb41-3"><a href="genel-kurallar-ve-komutlar.html#cb41-3" tabindex="-1"></a><span class="fu">ls</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;a&quot; &quot;A&quot; &quot;x&quot; &quot;y&quot; &quot;z&quot;</code></pre>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="genel-kurallar-ve-komutlar.html#cb43-1" tabindex="-1"></a><span class="fu">rm</span>(a)</span>
+<span id="cb43-2"><a href="genel-kurallar-ve-komutlar.html#cb43-2" tabindex="-1"></a><span class="co"># a nesnesi (değişkeni) silindi</span></span>
+<span id="cb43-3"><a href="genel-kurallar-ve-komutlar.html#cb43-3" tabindex="-1"></a><span class="fu">ls</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;A&quot; &quot;x&quot; &quot;y&quot; &quot;z&quot;</code></pre>
+</div>
+<div id="operatörler" class="section level2 hasAnchor" number="2.10">
+<h2><span class="header-section-number">2.10</span> Operatörler<a href="genel-kurallar-ve-komutlar.html#operat%C3%B6rler" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="atama-operatörleri" class="section level3 hasAnchor" number="2.10.1">
+<h3><span class="header-section-number">2.10.1</span> Atama Operatörleri<a href="genel-kurallar-ve-komutlar.html#atama-operat%C3%B6rleri" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>R programında nesnelere veya değişkenlere değer aktarılırken aşağıda belirtilen sol veya sağ yönlü atama operatörlerinden herhangi biri kullanılabilir.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Operatör</th>
+<th align="left">Tanım</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">&lt;-, = veya &lt;&lt;-</td>
+<td align="left">Sola yönlü atama</td>
+</tr>
+<tr class="even">
+<td align="left">-&gt; veya -&gt;&gt;</td>
+<td align="left">Sağa yönlü atama</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="genel-kurallar-ve-komutlar.html#cb45-1" tabindex="-1"></a><span class="co"># Sola yönlü atama</span></span>
+<span id="cb45-2"><a href="genel-kurallar-ve-komutlar.html#cb45-2" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="dv">6</span></span>
+<span id="cb45-3"><a href="genel-kurallar-ve-komutlar.html#cb45-3" tabindex="-1"></a><span class="fu">print</span>(A)</span></code></pre></div>
+<pre><code>## [1] 6</code></pre>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="genel-kurallar-ve-komutlar.html#cb47-1" tabindex="-1"></a>A <span class="ot">=</span> <span class="dv">7</span></span>
+<span id="cb47-2"><a href="genel-kurallar-ve-komutlar.html#cb47-2" tabindex="-1"></a><span class="fu">print</span>(A)</span></code></pre></div>
+<pre><code>## [1] 7</code></pre>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="genel-kurallar-ve-komutlar.html#cb49-1" tabindex="-1"></a>A <span class="ot">&lt;&lt;-</span> <span class="dv">8</span></span>
+<span id="cb49-2"><a href="genel-kurallar-ve-komutlar.html#cb49-2" tabindex="-1"></a><span class="fu">print</span>(A)</span></code></pre></div>
+<pre><code>## [1] 8</code></pre>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="genel-kurallar-ve-komutlar.html#cb51-1" tabindex="-1"></a><span class="co"># Sağa yönlü atama</span></span>
+<span id="cb51-2"><a href="genel-kurallar-ve-komutlar.html#cb51-2" tabindex="-1"></a><span class="dv">9</span> <span class="ot">-&gt;</span> A</span>
+<span id="cb51-3"><a href="genel-kurallar-ve-komutlar.html#cb51-3" tabindex="-1"></a><span class="fu">print</span>(A)</span></code></pre></div>
+<pre><code>## [1] 9</code></pre>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="genel-kurallar-ve-komutlar.html#cb53-1" tabindex="-1"></a><span class="dv">10</span> <span class="ot">-&gt;&gt;</span> A</span>
+<span id="cb53-2"><a href="genel-kurallar-ve-komutlar.html#cb53-2" tabindex="-1"></a><span class="fu">print</span>(A)</span></code></pre></div>
+<pre><code>## [1] 10</code></pre>
+</div>
+<div id="aritmetik-operatörler" class="section level3 hasAnchor" number="2.10.2">
+<h3><span class="header-section-number">2.10.2</span> Aritmetik Operatörler<a href="genel-kurallar-ve-komutlar.html#aritmetik-operat%C3%B6rler" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>R programında aritmetik operatörler matematiksel işlemlerin yerine getirilmesinde kullanılan operatörlerdir. Aritmetik operatörlerin uygulanmasıyla ilgili örnekler aşağıdaki tabloda bir ve iki değişkenlerine 3 ve 5 değerleri aktarılarak açıklanmıştır.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Operatör</th>
+<th align="left">Tanım</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">+</td>
+<td align="left">Toplama işlemi</td>
+</tr>
+<tr class="even">
+<td align="left">-</td>
+<td align="left">Çıkarma işlemi</td>
+</tr>
+<tr class="odd">
+<td align="left">*</td>
+<td align="left">Çarpma işlemi</td>
+</tr>
+<tr class="even">
+<td align="left">/</td>
+<td align="left">Bölme işlemi</td>
+</tr>
+<tr class="odd">
+<td align="left">%%</td>
+<td align="left">Bölme işleminde kalan değeri verir</td>
+</tr>
+<tr class="even">
+<td align="left">%/%</td>
+<td align="left">Bölme işleminde bölüm değerini verir</td>
+</tr>
+<tr class="odd">
+<td align="left">^</td>
+<td align="left">Sayının üssel değerini verir</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="genel-kurallar-ve-komutlar.html#cb55-1" tabindex="-1"></a>A<span class="ot">=</span><span class="dv">6</span></span>
+<span id="cb55-2"><a href="genel-kurallar-ve-komutlar.html#cb55-2" tabindex="-1"></a>B<span class="ot">=</span><span class="dv">4</span></span>
+<span id="cb55-3"><a href="genel-kurallar-ve-komutlar.html#cb55-3" tabindex="-1"></a><span class="co"># Toplama işlemi</span></span>
+<span id="cb55-4"><a href="genel-kurallar-ve-komutlar.html#cb55-4" tabindex="-1"></a>A <span class="sc">+</span> B</span></code></pre></div>
+<pre><code>## [1] 10</code></pre>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="genel-kurallar-ve-komutlar.html#cb57-1" tabindex="-1"></a><span class="co"># Çıkarma işlemi</span></span>
+<span id="cb57-2"><a href="genel-kurallar-ve-komutlar.html#cb57-2" tabindex="-1"></a>A <span class="sc">-</span> B</span></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="genel-kurallar-ve-komutlar.html#cb59-1" tabindex="-1"></a><span class="co"># Çarpma işlemi</span></span>
+<span id="cb59-2"><a href="genel-kurallar-ve-komutlar.html#cb59-2" tabindex="-1"></a>A <span class="sc">*</span> B</span></code></pre></div>
+<pre><code>## [1] 24</code></pre>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="genel-kurallar-ve-komutlar.html#cb61-1" tabindex="-1"></a><span class="co"># Bölme işlemi</span></span>
+<span id="cb61-2"><a href="genel-kurallar-ve-komutlar.html#cb61-2" tabindex="-1"></a>A <span class="sc">/</span> B</span></code></pre></div>
+<pre><code>## [1] 1.5</code></pre>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="genel-kurallar-ve-komutlar.html#cb63-1" tabindex="-1"></a><span class="co"># Bölme işleminde kalan değeri verir</span></span>
+<span id="cb63-2"><a href="genel-kurallar-ve-komutlar.html#cb63-2" tabindex="-1"></a>A <span class="sc">%%</span> B</span></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="genel-kurallar-ve-komutlar.html#cb65-1" tabindex="-1"></a><span class="co"># Sayının üssel değerini verir</span></span>
+<span id="cb65-2"><a href="genel-kurallar-ve-komutlar.html#cb65-2" tabindex="-1"></a>A <span class="sc">^</span> B</span></code></pre></div>
+<pre><code>## [1] 1296</code></pre>
+</div>
+<div id="karşılaştırma-operatörleri" class="section level3 hasAnchor" number="2.10.3">
+<h3><span class="header-section-number">2.10.3</span> Karşılaştırma Operatörleri<a href="genel-kurallar-ve-komutlar.html#kar%C5%9F%C4%B1la%C5%9Ft%C4%B1rma-operat%C3%B6rleri" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Karşılaştırma operatörleri, verilerin düzenlenmesinde ve program yazılırken çok sık kullanılan operatörlerdir. Döngü kullanılmadan işlemlerin daha kısa sürede gerçekleşmesini sağlamaktadırlar.</p>
+<table>
+<colgroup>
+<col width="11%" />
+<col width="88%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Operatör</th>
+<th align="left">Tanım</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">&gt;</td>
+<td align="left">Birinci sayının diğer sayıdan büyük mü olduğu kontrol edilir</td>
+</tr>
+<tr class="even">
+<td align="left">&lt;</td>
+<td align="left">Birinci sayının diğer sayıdan küçük mü olduğu kontrol edilir</td>
+</tr>
+<tr class="odd">
+<td align="left">==</td>
+<td align="left">Birinci sayının diğer sayıya eşit mi olduğunu kontrol edilir</td>
+</tr>
+<tr class="even">
+<td align="left">&lt;=</td>
+<td align="left">Birinci sayının diğer sayıdan küçük veya eşit mi olduğu kontrol edilir</td>
+</tr>
+<tr class="odd">
+<td align="left">&gt;=</td>
+<td align="left">Birinci sayının diğer sayıdan büyük veya eşit mi olduğu kontrol edilir</td>
+</tr>
+<tr class="even">
+<td align="left">!=</td>
+<td align="left">Birinci sayının diğer sayıya eşit olup olamığı kontrol edilir</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="genel-kurallar-ve-komutlar.html#cb67-1" tabindex="-1"></a>A<span class="ot">=</span><span class="dv">3</span></span>
+<span id="cb67-2"><a href="genel-kurallar-ve-komutlar.html#cb67-2" tabindex="-1"></a>B<span class="ot">=</span><span class="dv">5</span></span>
+<span id="cb67-3"><a href="genel-kurallar-ve-komutlar.html#cb67-3" tabindex="-1"></a><span class="co"># Birinci sayının diğer sayıdan büyük mü olduğu kontrol edilir</span></span>
+<span id="cb67-4"><a href="genel-kurallar-ve-komutlar.html#cb67-4" tabindex="-1"></a>A <span class="sc">&gt;</span> B</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="genel-kurallar-ve-komutlar.html#cb69-1" tabindex="-1"></a><span class="co"># Birinci sayının diğer sayıdan küçük mü olduğu kontrol edilir</span></span>
+<span id="cb69-2"><a href="genel-kurallar-ve-komutlar.html#cb69-2" tabindex="-1"></a>A <span class="sc">&lt;</span> B</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="genel-kurallar-ve-komutlar.html#cb71-1" tabindex="-1"></a><span class="co"># Birinci sayının diğer sayıya eşit mi olduğunu kontrol edilir</span></span>
+<span id="cb71-2"><a href="genel-kurallar-ve-komutlar.html#cb71-2" tabindex="-1"></a>A <span class="sc">==</span> B</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="genel-kurallar-ve-komutlar.html#cb73-1" tabindex="-1"></a><span class="co"># Birinci sayının diğer sayıdan küçük veya eşit mi olduğu kontrol edilir</span></span>
+<span id="cb73-2"><a href="genel-kurallar-ve-komutlar.html#cb73-2" tabindex="-1"></a>A <span class="sc">&lt;=</span> B</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="genel-kurallar-ve-komutlar.html#cb75-1" tabindex="-1"></a><span class="co"># Birinci sayının diğer sayıdan büyük veya eşit mi olduğu kontrol edilir</span></span>
+<span id="cb75-2"><a href="genel-kurallar-ve-komutlar.html#cb75-2" tabindex="-1"></a>A <span class="sc">&gt;=</span> B</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="genel-kurallar-ve-komutlar.html#cb77-1" tabindex="-1"></a><span class="co"># Birinci sayının diğer sayıya eşit olup olamığı kontrol edilir</span></span>
+<span id="cb77-2"><a href="genel-kurallar-ve-komutlar.html#cb77-2" tabindex="-1"></a>A <span class="sc">!=</span> B</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+</div>
+<div id="mantık-operatörleri" class="section level3 hasAnchor" number="2.10.4">
+<h3><span class="header-section-number">2.10.4</span> Mantık Operatörleri<a href="genel-kurallar-ve-komutlar.html#mant%C4%B1k-operat%C3%B6rleri" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Mantık operatörleri de karşılaştırma operatörleri gibi verilerin düzenlenmesinde ve program yazılırken çok sık kullanılan operatörlerdir. Döngü kullanılmadan işlemlerin daha kısa sürede gerçekleşmesini sağlamaktadırlar.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Operatör</th>
+<th align="left">Tanım</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">&amp;</td>
+<td align="left">Mantıksal VE (AND) bağlacı olarak kullanılır</td>
+</tr>
+<tr class="even">
+<td align="left">|</td>
+<td align="left">Mantıksal VEYA (OR) bağlacı olarak kullanılır</td>
+</tr>
+<tr class="odd">
+<td align="left">!=</td>
+<td align="left">Mantıksal DEĞİL (NOT) bağlacı olarak kullanılır</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="genel-kurallar-ve-komutlar.html#cb79-1" tabindex="-1"></a>A<span class="ot">=</span><span class="dv">3</span></span>
+<span id="cb79-2"><a href="genel-kurallar-ve-komutlar.html#cb79-2" tabindex="-1"></a>B<span class="ot">=</span><span class="dv">5</span></span>
+<span id="cb79-3"><a href="genel-kurallar-ve-komutlar.html#cb79-3" tabindex="-1"></a>C<span class="ot">=</span><span class="dv">4</span></span>
+<span id="cb79-4"><a href="genel-kurallar-ve-komutlar.html#cb79-4" tabindex="-1"></a>D<span class="ot">=</span><span class="dv">6</span></span>
+<span id="cb79-5"><a href="genel-kurallar-ve-komutlar.html#cb79-5" tabindex="-1"></a><span class="co"># Mantıksal VE (AND) bağlacı olarak kullanılır</span></span>
+<span id="cb79-6"><a href="genel-kurallar-ve-komutlar.html#cb79-6" tabindex="-1"></a>A <span class="sc">&gt;</span> B <span class="sc">&amp;</span> C <span class="sc">&gt;</span> D</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="genel-kurallar-ve-komutlar.html#cb81-1" tabindex="-1"></a>(A <span class="sc">&gt;</span> B) <span class="sc">&amp;</span> (C <span class="sc">&gt;</span> D)</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="genel-kurallar-ve-komutlar.html#cb83-1" tabindex="-1"></a>A <span class="sc">&lt;</span> B <span class="sc">&amp;</span> C <span class="sc">&gt;</span> D</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="genel-kurallar-ve-komutlar.html#cb85-1" tabindex="-1"></a>A <span class="sc">&gt;</span> B <span class="sc">&amp;</span> C <span class="sc">&lt;</span> D</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="genel-kurallar-ve-komutlar.html#cb87-1" tabindex="-1"></a>A <span class="sc">&lt;</span> B <span class="sc">&amp;</span> C <span class="sc">&lt;</span> D</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="genel-kurallar-ve-komutlar.html#cb89-1" tabindex="-1"></a><span class="co"># Mantıksal VEYA (OR) bağlacı olarak kullanılır</span></span>
+<span id="cb89-2"><a href="genel-kurallar-ve-komutlar.html#cb89-2" tabindex="-1"></a>A <span class="sc">&gt;</span> B <span class="sc">|</span> C <span class="sc">&gt;</span> D</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="genel-kurallar-ve-komutlar.html#cb91-1" tabindex="-1"></a>A <span class="sc">&lt;</span> B <span class="sc">|</span> C <span class="sc">&gt;</span> D</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="genel-kurallar-ve-komutlar.html#cb93-1" tabindex="-1"></a>A <span class="sc">&gt;</span> B <span class="sc">|</span> C <span class="sc">&lt;</span> D</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="genel-kurallar-ve-komutlar.html#cb95-1" tabindex="-1"></a>A <span class="sc">&lt;</span> B <span class="sc">|</span> C <span class="sc">&lt;</span> D</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="genel-kurallar-ve-komutlar.html#cb97-1" tabindex="-1"></a><span class="co"># Mantıksal DEĞİL (NOT) bağlacı olarak kullanılır</span></span>
+<span id="cb97-2"><a href="genel-kurallar-ve-komutlar.html#cb97-2" tabindex="-1"></a>(A <span class="sc">&gt;</span> B) <span class="sc">!=</span> (C <span class="sc">&gt;</span> D)</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="genel-kurallar-ve-komutlar.html#cb99-1" tabindex="-1"></a>(A <span class="sc">&lt;</span> B) <span class="sc">!=</span> (C <span class="sc">&gt;</span> D)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="genel-kurallar-ve-komutlar.html#cb101-1" tabindex="-1"></a>(A <span class="sc">&gt;</span> B) <span class="sc">!=</span> (C <span class="sc">&lt;</span> D)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="genel-kurallar-ve-komutlar.html#cb103-1" tabindex="-1"></a>(A <span class="sc">&lt;</span> B) <span class="sc">!=</span> (C <span class="sc">&lt;</span> D)</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+</div>
+</div>
+<div id="eksik-gözlem-na" class="section level2 hasAnchor" number="2.11">
+<h2><span class="header-section-number">2.11</span> Eksik Gözlem (<code>NA</code>)<a href="genel-kurallar-ve-komutlar.html#eksik-g%C3%B6zlem-na" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Yürütülen çalışmalarda bazen bazı bireylere ait özellikler için veriler elde edilememekte ve eksik gözlem olarak belirtilmektedir. R programında eksik gözlem <code>NA</code> olarak ifade edilir. Bir nesnenin herhangi bir elemanının değerinin <code>NA</code> olması bu elemanın değerinin bilinmediğini, ölçülemediğini veya elde edilemediğini belirtmektir ve bu elemanla ilgili olarak yapılacak her türlü matematiksel veya istatistiksel işlemlerde sonuç <code>NA</code> olarak elde edilecektir. Örneğin beş bireyin cm olarak boylarını belirten boy değişkeni aşağıda verilmiştir. Üçüncü bireyin boyu belirlenemediği için <code>NA</code> (<code>eksik gözlem</code>) olarak girilmiştir.</p>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="genel-kurallar-ve-komutlar.html#cb105-1" tabindex="-1"></a>boy <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">75</span>, <span class="dv">68</span>, <span class="cn">NA</span>, <span class="dv">82</span>, <span class="dv">70</span>)</span>
+<span id="cb105-2"><a href="genel-kurallar-ve-komutlar.html#cb105-2" tabindex="-1"></a>boy</span></code></pre></div>
+<pre><code>## [1] 75 68 NA 82 70</code></pre>
+</div>
+<div id="özel-değerler-inf-nan-null" class="section level2 hasAnchor" number="2.12">
+<h2><span class="header-section-number">2.12</span> Özel Değerler (<code>Inf</code>, <code>NaN</code>, <code>Null</code>)<a href="genel-kurallar-ve-komutlar.html#%C3%B6zel-de%C4%9Ferler-inf-nan-null" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>R programında herhangi bir hesaplamanın sonucu aşırı derecede büyük olduğunda, artı veya eksi <code>sonsuz (Infinity)</code> anlamına gelen <code>Inf</code> veya <code>-Inf</code> sonuçları elde edilecektir.</p>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="genel-kurallar-ve-komutlar.html#cb107-1" tabindex="-1"></a><span class="dv">3</span><span class="sc">^</span><span class="dv">1200</span></span></code></pre></div>
+<pre><code>## [1] Inf</code></pre>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="genel-kurallar-ve-komutlar.html#cb109-1" tabindex="-1"></a><span class="sc">-</span><span class="dv">3</span><span class="sc">^</span><span class="dv">1200</span></span></code></pre></div>
+<pre><code>## [1] -Inf</code></pre>
+<p>Ayrıca, herhangi bir sayı sıfıra (0) bölündüğünde de <code>Inf</code> veya <code>-Inf</code> sonuçları elde edilecektir.</p>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="genel-kurallar-ve-komutlar.html#cb111-1" tabindex="-1"></a><span class="dv">3</span><span class="sc">/</span><span class="dv">0</span></span></code></pre></div>
+<pre><code>## [1] Inf</code></pre>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="genel-kurallar-ve-komutlar.html#cb113-1" tabindex="-1"></a><span class="sc">-</span><span class="dv">3</span><span class="sc">/</span><span class="dv">0</span></span></code></pre></div>
+<pre><code>## [1] -Inf</code></pre>
+<p>Bazı durumlarda da herhangi bir matematiksel işlemin sonucu belirlenememektedir. Bu durumlarda R programı, bir sayı değil (<code>not a number</code>) anlamına gelen <code>NaN</code> şeklinde bir sonuç verecektir.</p>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="genel-kurallar-ve-komutlar.html#cb115-1" tabindex="-1"></a><span class="dv">0</span><span class="sc">/</span><span class="dv">0</span></span></code></pre></div>
+<pre><code>## [1] NaN</code></pre>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="genel-kurallar-ve-komutlar.html#cb117-1" tabindex="-1"></a><span class="cn">Inf</span> <span class="sc">-</span> <span class="cn">Inf</span></span></code></pre></div>
+<pre><code>## [1] NaN</code></pre>
+<p>Bunların dışında, R programında herhangi bir nesne veya değişken tanımlandığında ve bu değişkene bir değer atanmadığında, bu nesnenin herhangi bir değer içermediğini belirtmek amacıyla boş anlamına gelen <code>Null</code> ifadesi sonuç olarak elde edilir.</p>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="genel-kurallar-ve-komutlar.html#cb119-1" tabindex="-1"></a>k <span class="ot">&lt;-</span> <span class="fu">c</span>() </span>
+<span id="cb119-2"><a href="genel-kurallar-ve-komutlar.html#cb119-2" tabindex="-1"></a>k </span></code></pre></div>
+<pre><code>## NULL</code></pre>
+</div>
+<div id="seq-sequence-komutu" class="section level2 hasAnchor" number="2.13">
+<h2><span class="header-section-number">2.13</span> <code>seq()</code> (<code>Sequence</code>) Komutu<a href="genel-kurallar-ve-komutlar.html#seq-sequence-komutu" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><code>seq()</code> komutunun genel ifadesi <code>seq(from=başlangıç, to=bitiş, by=artış)</code> şeklindedir. <code>seq()</code> komutu, sayıları düzenli bir sırada türetmek için kullanılabilecek bir komuttur. Aşağıdaki örnekte sayılar 1’den 10’a kadar 1’er artarak türetilecektir.</p>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="genel-kurallar-ve-komutlar.html#cb121-1" tabindex="-1"></a><span class="fu">seq</span>(<span class="at">from=</span><span class="dv">1</span>, <span class="at">to=</span><span class="dv">10</span>, <span class="at">by=</span><span class="dv">1</span>)</span></code></pre></div>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<p>Aynı şeklide, 0’dan 1’e kadar 0.1 artacak şekilde türetilecektir.</p>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="genel-kurallar-ve-komutlar.html#cb123-1" tabindex="-1"></a><span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.1</span>)</span></code></pre></div>
+<pre><code>##  [1] 0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0</code></pre>
+<p><code>seq()</code> fonksiyonunda tanımlı artış değeri 1 olduğundan dolayı, yukarıda verilen örnek</p>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="genel-kurallar-ve-komutlar.html#cb125-1" tabindex="-1"></a><span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">10</span>)</span></code></pre></div>
+<pre><code>##  [1]  0  1  2  3  4  5  6  7  8  9 10</code></pre>
+<p>veya şeklinde daha basit olarak yazılabilir. Ayrıca, <code>seq()</code> komutunda başlangıç değeri verilmediğinde, tanımlı başlangıç değeri 1 kullanılarak işlem gerçekleştirilir ve yukarıdaki komut daha da sadeleştirilmiş olarak</p>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="genel-kurallar-ve-komutlar.html#cb127-1" tabindex="-1"></a><span class="fu">seq</span>(<span class="dv">10</span>)</span></code></pre></div>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<p>şeklinde yazılabilir. <code>seq()</code> fonksiyonu olarak kullanılabilecek en kısa yol “:” iki nokta üst üste komutunun kullanılmasıdır. Buna göre, 1, 2, …, 10 sayı dizisi</p>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="genel-kurallar-ve-komutlar.html#cb129-1" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span></code></pre></div>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<p>şeklinde kolayca elde edilebilir. Bu örnekte, kullanılan “:” kolon operatörüdür ve ardışık sayıların türetilmesinde kullanılmaktadır. Buna ek olarak, azalarak devam eden sayı dizileri de <code>seq()</code> fonksiyonu ile türetilebilir.</p>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="genel-kurallar-ve-komutlar.html#cb131-1" tabindex="-1"></a><span class="fu">seq</span>(<span class="dv">5</span>, <span class="dv">1</span>, <span class="sc">-</span><span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## [1] 5 4 3 2 1</code></pre>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="genel-kurallar-ve-komutlar.html#cb133-1" tabindex="-1"></a><span class="dv">10</span><span class="sc">:</span><span class="dv">1</span></span></code></pre></div>
+<pre><code>##  [1] 10  9  8  7  6  5  4  3  2  1</code></pre>
+<p>Belirli sayıda eleman içeren bir dizi türetmek amaçlandığında, <code>seq()</code> fonksiyonu length komutu ile birlikte aşağıda verildiği şekilde kullanılmalıdır.</p>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="genel-kurallar-ve-komutlar.html#cb135-1" tabindex="-1"></a><span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">length=</span><span class="dv">15</span>)</span></code></pre></div>
+<pre><code>##  [1] 0.00000000 0.07142857 0.14285714 0.21428571 0.28571429 0.35714286
+##  [7] 0.42857143 0.50000000 0.57142857 0.64285714 0.71428571 0.78571429
+## [13] 0.85714286 0.92857143 1.00000000</code></pre>
+</div>
+<div id="rep-replicate-komutu" class="section level2 hasAnchor" number="2.14">
+<h2><span class="header-section-number">2.14</span> <code>rep()</code> (<code>Replicate</code>) Komutu<a href="genel-kurallar-ve-komutlar.html#rep-replicate-komutu" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><code>rep()</code> fonksiyonu, belirli bir yapıda olan verilerin belirli sayıda tekrarlanarak çoğaltılmasını sağlar. Bu komutun genel ifadesi <code>rep(veriyapısı, tekrarsayısı)</code> şeklindedir. 1 rakamı 5 kere tekrarlanmak istendiğinde</p>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="genel-kurallar-ve-komutlar.html#cb137-1" tabindex="-1"></a><span class="fu">rep</span>(<span class="dv">1</span>, <span class="dv">5</span>)       <span class="co"># 1 veri yapısı, 5 kere tekrarlanacaktır</span></span></code></pre></div>
+<pre><code>## [1] 1 1 1 1 1</code></pre>
+<p>şeklinde yazılır. Buna ek olarak, 0 ve 6 veri yapısı 2 kere, 0 ve “x” veri yapısı 3 kere ve 1, 2, 3 veri yapısı da 4 kere tekrarlanmak istendiğinde <code>rep()</code> komutu aşağıdaki şekilde uygulanabilir.</p>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="genel-kurallar-ve-komutlar.html#cb139-1" tabindex="-1"></a><span class="fu">rep</span>(<span class="dv">1</span>, <span class="dv">5</span>)       <span class="co"># 1 veri yapısı, 5 kere tekrarlanacaktır</span></span></code></pre></div>
+<pre><code>## [1] 1 1 1 1 1</code></pre>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="genel-kurallar-ve-komutlar.html#cb141-1" tabindex="-1"></a><span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">6</span>), <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## [1] 0 6 0 6</code></pre>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="genel-kurallar-ve-komutlar.html#cb143-1" tabindex="-1"></a><span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="st">&quot;x&quot;</span>), <span class="dv">3</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;0&quot; &quot;x&quot; &quot;0&quot; &quot;x&quot; &quot;0&quot; &quot;x&quot;</code></pre>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="genel-kurallar-ve-komutlar.html#cb145-1" tabindex="-1"></a><span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="dv">4</span>)     <span class="co"># 1 2 3 veri yapısı, 4 kere tekrarlanacaktır </span></span></code></pre></div>
+<pre><code>##  [1] 1 2 3 1 2 3 1 2 3 1 2 3</code></pre>
+<p><code>rep()</code> fonksiyonunda veri yapısı ve tekrar sayısı, tek bir sayı olarak tanımlandığı gibi aşağıdaki şekilde vektör olarak da tanımlanabilir.</p>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="genel-kurallar-ve-komutlar.html#cb147-1" tabindex="-1"></a><span class="co"># 1 degeri 1 kere, 2 degeri 4 kere tekrarlanacaktır</span></span>
+<span id="cb147-2"><a href="genel-kurallar-ve-komutlar.html#cb147-2" tabindex="-1"></a><span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>))   </span></code></pre></div>
+<pre><code>## [1] 1 2 2 2 2</code></pre>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="genel-kurallar-ve-komutlar.html#cb149-1" tabindex="-1"></a><span class="co"># a degeri 3, b degeri 2 ve c degeri 1 kere tekrarlanacaktır</span></span>
+<span id="cb149-2"><a href="genel-kurallar-ve-komutlar.html#cb149-2" tabindex="-1"></a><span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>), <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>)) </span></code></pre></div>
+<pre><code>## [1] &quot;a&quot; &quot;a&quot; &quot;a&quot; &quot;b&quot; &quot;b&quot; &quot;c&quot;</code></pre>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="genel-kurallar-ve-komutlar.html#cb151-1" tabindex="-1"></a><span class="co"># 10, 20 ve 30 veri yapisi, 10 rakam olana kadar tekrarlanacaktır</span></span>
+<span id="cb151-2"><a href="genel-kurallar-ve-komutlar.html#cb151-2" tabindex="-1"></a><span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>), <span class="at">length=</span><span class="dv">10</span>)    </span></code></pre></div>
+<pre><code>##  [1] 10 20 30 10 20 30 10 20 30 10</code></pre>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="r-programının-kurulumu-ve-genel-özellikleri.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="veri-yapıları-ve-veri-tipleri.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/rstudio/bookdown-demo/edit/master/02-GenelKural.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["R Program.pdf", "R Program.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

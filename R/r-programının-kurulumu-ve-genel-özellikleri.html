@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>R Programı</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.47 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="R Programı" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="R Programı" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Prof. Dr. Kadir KIZILKAYA" />
+
+
+<meta name="date" content="2026-09-03" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+<link rel="next" href="genel-kurallar-ve-komutlar.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">R Program</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="r-programının-kurulumu-ve-genel-özellikleri.html"><a href="r-programının-kurulumu-ve-genel-özellikleri.html"><i class="fa fa-check"></i><b>1</b> R Programının Kurulumu ve Genel Özellikleri</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="r-programının-kurulumu-ve-genel-özellikleri.html"><a href="r-programının-kurulumu-ve-genel-özellikleri.html#r-program%C4%B1n%C4%B1n-indirilmesi-ve-kurulmas%C4%B1"><i class="fa fa-check"></i><b>1.1</b> R Programının İndirilmesi ve Kurulması</a></li>
+<li class="chapter" data-level="1.2" data-path="r-programının-kurulumu-ve-genel-özellikleri.html"><a href="r-programının-kurulumu-ve-genel-özellikleri.html#r-program%C4%B1n%C4%B1-ba%C5%9Flatmak-ve-kapatmak"><i class="fa fa-check"></i><b>1.2</b> R Programını Başlatmak ve Kapatmak</a></li>
+<li class="chapter" data-level="1.3" data-path="r-programının-kurulumu-ve-genel-özellikleri.html"><a href="r-programının-kurulumu-ve-genel-özellikleri.html#paket-kurulumu"><i class="fa fa-check"></i><b>1.3</b> Paket Kurulumu</a></li>
+<li class="chapter" data-level="1.4" data-path="r-programının-kurulumu-ve-genel-özellikleri.html"><a href="r-programının-kurulumu-ve-genel-özellikleri.html#paket-y%C3%BCkleme"><i class="fa fa-check"></i><b>1.4</b> Paket Yükleme</a></li>
+<li class="chapter" data-level="1.5" data-path="r-programının-kurulumu-ve-genel-özellikleri.html"><a href="r-programının-kurulumu-ve-genel-özellikleri.html#paketler"><i class="fa fa-check"></i><b>1.5</b> Paketler</a></li>
+<li class="chapter" data-level="1.6" data-path="r-programının-kurulumu-ve-genel-özellikleri.html"><a href="r-programının-kurulumu-ve-genel-özellikleri.html#betik-script-olu%C5%9Fturma"><i class="fa fa-check"></i><b>1.6</b> Betik (Script) Oluşturma</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html"><i class="fa fa-check"></i><b>2</b> Genel Kurallar ve Komutlar</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#r-program%C4%B1nda-ge%C3%A7erli-de%C4%9Fi%C5%9Fken-isimleri"><i class="fa fa-check"></i><b>2.1</b> R Programında Geçerli Değişken İsimleri</a></li>
+<li class="chapter" data-level="2.2" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#bo%C5%9Fluk"><i class="fa fa-check"></i><b>2.2</b> Boşluk</a></li>
+<li class="chapter" data-level="2.3" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#%C3%A7al%C4%B1%C5%9Fma-dizininin-belirlenmesi-getwd"><i class="fa fa-check"></i><b>2.3</b> Çalışma Dizininin Belirlenmesi <code>getwd()</code></a></li>
+<li class="chapter" data-level="2.4" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#%C3%A7al%C4%B1%C5%9Fma-dizininin-de%C4%9Fi%C5%9Ftirilmesi-setwd"><i class="fa fa-check"></i><b>2.4</b> Çalışma Dizininin Değiştirilmesi <code>setwd()</code></a></li>
+<li class="chapter" data-level="2.5" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#%C3%A7al%C4%B1%C5%9Fma-dizininde-dizin-ve-dosyalar%C4%B1n-listelenmesi-dir-veya-list.files"><i class="fa fa-check"></i><b>2.5</b> Çalışma Dizininde Dizin ve Dosyaların Listelenmesi <code>dir()</code> veya <code>list.files()</code></a></li>
+<li class="chapter" data-level="2.6" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#%C3%A7al%C4%B1%C5%9Fma-dizininde-dizin-olu%C5%9Fturma-dir.create"><i class="fa fa-check"></i><b>2.6</b> Çalışma Dizininde Dizin Oluşturma <code>dir.create()</code></a></li>
+<li class="chapter" data-level="2.7" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#%C3%A7al%C4%B1%C5%9Fma-alan%C4%B1nda-olu%C5%9Fturulan-nesnelerin-veya-de%C4%9Fi%C5%9Fkenlerin-listelenmesi-ls-veya-objects"><i class="fa fa-check"></i><b>2.7</b> Çalışma Alanında Oluşturulan Nesnelerin veya Değişkenlerin Listelenmesi <code>ls()</code> veya <code>objects()</code></a></li>
+<li class="chapter" data-level="2.8" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#%C3%A7al%C4%B1%C5%9Fma-alan%C4%B1n%C4%B1n-workspace-kaydedilmesi"><i class="fa fa-check"></i><b>2.8</b> Çalışma Alanının (Workspace) Kaydedilmesi</a></li>
+<li class="chapter" data-level="2.9" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#de%C4%9Fi%C5%9Fkenlerin-silinmesi"><i class="fa fa-check"></i><b>2.9</b> Değişkenlerin Silinmesi</a></li>
+<li class="chapter" data-level="2.10" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#operat%C3%B6rler"><i class="fa fa-check"></i><b>2.10</b> Operatörler</a>
+<ul>
+<li class="chapter" data-level="2.10.1" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#atama-operat%C3%B6rleri"><i class="fa fa-check"></i><b>2.10.1</b> Atama Operatörleri</a></li>
+<li class="chapter" data-level="2.10.2" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#aritmetik-operat%C3%B6rler"><i class="fa fa-check"></i><b>2.10.2</b> Aritmetik Operatörler</a></li>
+<li class="chapter" data-level="2.10.3" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#kar%C5%9F%C4%B1la%C5%9Ft%C4%B1rma-operat%C3%B6rleri"><i class="fa fa-check"></i><b>2.10.3</b> Karşılaştırma Operatörleri</a></li>
+<li class="chapter" data-level="2.10.4" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#mant%C4%B1k-operat%C3%B6rleri"><i class="fa fa-check"></i><b>2.10.4</b> Mantık Operatörleri</a></li>
+</ul></li>
+<li class="chapter" data-level="2.11" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#eksik-g%C3%B6zlem-na"><i class="fa fa-check"></i><b>2.11</b> Eksik Gözlem (<code>NA</code>)</a></li>
+<li class="chapter" data-level="2.12" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#%C3%B6zel-de%C4%9Ferler-inf-nan-null"><i class="fa fa-check"></i><b>2.12</b> Özel Değerler (<code>Inf</code>, <code>NaN</code>, <code>Null</code>)</a></li>
+<li class="chapter" data-level="2.13" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#seq-sequence-komutu"><i class="fa fa-check"></i><b>2.13</b> <code>seq()</code> (<code>Sequence</code>) Komutu</a></li>
+<li class="chapter" data-level="2.14" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#rep-replicate-komutu"><i class="fa fa-check"></i><b>2.14</b> <code>rep()</code> (<code>Replicate</code>) Komutu</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="veri-yapıları-ve-veri-tipleri.html"><a href="veri-yapıları-ve-veri-tipleri.html"><i class="fa fa-check"></i><b>3</b> Veri Yapıları ve Veri Tipleri</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="veri-yapıları-ve-veri-tipleri.html"><a href="veri-yapıları-ve-veri-tipleri.html#veri-tipi"><i class="fa fa-check"></i><b>3.1</b> Veri Tipi</a></li>
+<li class="chapter" data-level="3.2" data-path="veri-yapıları-ve-veri-tipleri.html"><a href="veri-yapıları-ve-veri-tipleri.html#veri-yap%C4%B1lar%C4%B1"><i class="fa fa-check"></i><b>3.2</b> Veri Yapıları</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="veri-yapıları-ve-veri-tipleri.html"><a href="veri-yapıları-ve-veri-tipleri.html#vekt%C3%B6rler"><i class="fa fa-check"></i><b>3.2.1</b> Vektörler</a></li>
+<li class="chapter" data-level="3.2.2" data-path="veri-yapıları-ve-veri-tipleri.html"><a href="veri-yapıları-ve-veri-tipleri.html#matrisler"><i class="fa fa-check"></i><b>3.2.2</b> Matrisler</a></li>
+<li class="chapter" data-level="3.2.3" data-path="veri-yapıları-ve-veri-tipleri.html"><a href="veri-yapıları-ve-veri-tipleri.html#diziler"><i class="fa fa-check"></i><b>3.2.3</b> Diziler</a></li>
+<li class="chapter" data-level="3.2.4" data-path="veri-yapıları-ve-veri-tipleri.html"><a href="veri-yapıları-ve-veri-tipleri.html#listeler"><i class="fa fa-check"></i><b>3.2.4</b> Listeler</a></li>
+<li class="chapter" data-level="3.2.5" data-path="veri-yapıları-ve-veri-tipleri.html"><a href="veri-yapıları-ve-veri-tipleri.html#fakt%C3%B6rler"><i class="fa fa-check"></i><b>3.2.5</b> Faktörler</a></li>
+<li class="chapter" data-level="3.2.6" data-path="veri-yapıları-ve-veri-tipleri.html"><a href="veri-yapıları-ve-veri-tipleri.html#veri-%C3%A7er%C3%A7eveleri"><i class="fa fa-check"></i><b>3.2.6</b> Veri Çerçeveleri</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="veri-yapıları-ve-veri-tipleri.html"><a href="veri-yapıları-ve-veri-tipleri.html#%C3%A7%C4%B1kt%C4%B1lar%C4%B1n-yazd%C4%B1r%C4%B1lmas%C4%B1-print-ve-cat-fonksiyonlar%C4%B1"><i class="fa fa-check"></i><b>3.3</b> Çıktıların Yazdırılması <code>print()</code> ve <code>cat()</code> Fonksiyonları</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="veri-yapıları-ve-veri-tipleri.html"><a href="veri-yapıları-ve-veri-tipleri.html#print-fonksiyonu"><i class="fa fa-check"></i><b>3.3.1</b> print() Fonksiyonu</a></li>
+<li class="chapter" data-level="3.3.2" data-path="veri-yapıları-ve-veri-tipleri.html"><a href="veri-yapıları-ve-veri-tipleri.html#cat-fonksiyonu"><i class="fa fa-check"></i><b>3.3.2</b> cat() Fonksiyonu</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="matrisler-1.html"><a href="matrisler-1.html"><i class="fa fa-check"></i><b>4</b> Matrisler</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="matrisler-1.html"><a href="matrisler-1.html#sat%C4%B1r-ve-s%C3%BCtun-vekt%C3%B6rleri"><i class="fa fa-check"></i><b>4.1</b> Satır ve Sütun Vektörleri</a></li>
+<li class="chapter" data-level="4.2" data-path="matrisler-1.html"><a href="matrisler-1.html#kare-matris"><i class="fa fa-check"></i><b>4.2</b> Kare Matris</a></li>
+<li class="chapter" data-level="4.3" data-path="matrisler-1.html"><a href="matrisler-1.html#k%C3%B6%C5%9Fegen-diyagonal-matris"><i class="fa fa-check"></i><b>4.3</b> Köşegen (Diyagonal) Matris</a></li>
+<li class="chapter" data-level="4.4" data-path="matrisler-1.html"><a href="matrisler-1.html#birim-matris"><i class="fa fa-check"></i><b>4.4</b> Birim Matris</a></li>
+<li class="chapter" data-level="4.5" data-path="matrisler-1.html"><a href="matrisler-1.html#matrislerin-birle%C5%9Ftirilmesi"><i class="fa fa-check"></i><b>4.5</b> Matrislerin Birleştirilmesi</a></li>
+<li class="chapter" data-level="4.6" data-path="matrisler-1.html"><a href="matrisler-1.html#matrisin-transpozesi"><i class="fa fa-check"></i><b>4.6</b> Matrisin Transpozesi</a></li>
+<li class="chapter" data-level="4.7" data-path="matrisler-1.html"><a href="matrisler-1.html#matrislerle-matematiksel-i%C5%9Flemler"><i class="fa fa-check"></i><b>4.7</b> Matrislerle Matematiksel İşlemler</a></li>
+<li class="chapter" data-level="4.8" data-path="matrisler-1.html"><a href="matrisler-1.html#matris-elemanlar%C4%B1n%C4%B1n-sat%C4%B1rlar%C4%B1n%C4%B1n-veya-s%C3%BCtunlar%C4%B1n%C4%B1n-toplam%C4%B1-ve-ortalamas%C4%B1"><i class="fa fa-check"></i><b>4.8</b> Matris Elemanlarının, Satırlarının veya Sütunlarının Toplamı ve Ortalaması</a></li>
+<li class="chapter" data-level="4.9" data-path="matrisler-1.html"><a href="matrisler-1.html#toplama-ve-%C3%A7%C4%B1kartma-i%C5%9Flemi"><i class="fa fa-check"></i><b>4.9</b> Toplama ve Çıkartma İşlemi</a></li>
+<li class="chapter" data-level="4.10" data-path="matrisler-1.html"><a href="matrisler-1.html#%C3%A7arpma-i%C5%9Flemi"><i class="fa fa-check"></i><b>4.10</b> Çarpma İşlemi</a>
+<ul>
+<li class="chapter" data-level="4.10.1" data-path="matrisler-1.html"><a href="matrisler-1.html#matrislerin-veya-vekt%C3%B6rlerin-bir-say%C4%B1-ile-%C3%A7arp%C4%B1lmas%C4%B1"><i class="fa fa-check"></i><b>4.10.1</b> Matrislerin veya Vektörlerin Bir Sayı ile Çarpılması</a></li>
+<li class="chapter" data-level="4.10.2" data-path="matrisler-1.html"><a href="matrisler-1.html#matris-veya-vekt%C3%B6rlerin-kar%C5%9F%C4%B1l%C4%B1kl%C4%B1-elemanlar%C4%B1n%C4%B1n-%C3%A7arp%C4%B1lmas%C4%B1"><i class="fa fa-check"></i><b>4.10.2</b> Matris veya Vektörlerin Karşılıklı Elemanlarının Çarpılması</a></li>
+<li class="chapter" data-level="4.10.3" data-path="matrisler-1.html"><a href="matrisler-1.html#matris-veya-vekt%C3%B6rlerin-%C3%A7arp%C4%B1lmas%C4%B1"><i class="fa fa-check"></i><b>4.10.3</b> Matris veya Vektörlerin Çarpılması</a></li>
+</ul></li>
+<li class="chapter" data-level="4.11" data-path="matrisler-1.html"><a href="matrisler-1.html#determinant"><i class="fa fa-check"></i><b>4.11</b> Determinant</a></li>
+<li class="chapter" data-level="4.12" data-path="matrisler-1.html"><a href="matrisler-1.html#matrisin-tersi"><i class="fa fa-check"></i><b>4.12</b> Matrisin Tersi</a></li>
+<li class="chapter" data-level="4.13" data-path="matrisler-1.html"><a href="matrisler-1.html#matrisin-%C3%B6zde%C4%9Ferleri-eigenvalues-ve-%C3%B6zvekt%C3%B6rleri-eigenvectors"><i class="fa fa-check"></i><b>4.13</b> Matrisin Özdeğerleri (Eigenvalues) ve Özvektörleri (Eigenvectors)</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="vektör-fonksiyonları.html"><a href="vektör-fonksiyonları.html"><i class="fa fa-check"></i><b>5</b> Vektör Fonksiyonları</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="vektör-fonksiyonları.html"><a href="vektör-fonksiyonları.html#matematiksel-fonksiyonlar"><i class="fa fa-check"></i><b>5.1</b> Matematiksel Fonksiyonlar</a></li>
+<li class="chapter" data-level="5.2" data-path="vektör-fonksiyonları.html"><a href="vektör-fonksiyonları.html#trigonometrik-fonksiyonlar"><i class="fa fa-check"></i><b>5.2</b> Trigonometrik Fonksiyonlar</a></li>
+<li class="chapter" data-level="5.3" data-path="vektör-fonksiyonları.html"><a href="vektör-fonksiyonları.html#istatistiksel-fonksiyonlar"><i class="fa fa-check"></i><b>5.3</b> İstatistiksel Fonksiyonlar</a></li>
+<li class="chapter" data-level="5.4" data-path="vektör-fonksiyonları.html"><a href="vektör-fonksiyonları.html#sort-rank-ve-order-fonksiyonlar%C4%B1"><i class="fa fa-check"></i><b>5.4</b> <code>sort()</code>, <code>rank()</code> ve <code>order()</code> Fonksiyonları</a></li>
+<li class="chapter" data-level="5.5" data-path="vektör-fonksiyonları.html"><a href="vektör-fonksiyonları.html#say%C4%B1lar%C4%B1n-yuvarlanmas%C4%B1-ceiling-floor-round-ve-signif-fonksiyonlar%C4%B1"><i class="fa fa-check"></i><b>5.5</b> Sayıların Yuvarlanması <code>ceiling()</code>, <code>floor()</code>, <code>round()</code> ve <code>signif()</code> Fonksiyonları</a></li>
+<li class="chapter" data-level="5.6" data-path="vektör-fonksiyonları.html"><a href="vektör-fonksiyonları.html#apply-fonksiyonlar%C4%B1"><i class="fa fa-check"></i><b>5.6</b> <code>apply</code> Fonksiyonları</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="vektör-fonksiyonları.html"><a href="vektör-fonksiyonları.html#apply-fonksiyonu"><i class="fa fa-check"></i><b>5.6.1</b> <code>apply()</code> Fonksiyonu</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="vektör-fonksiyonları.html"><a href="vektör-fonksiyonları.html#tapply-fonksiyonu"><i class="fa fa-check"></i><b>5.7</b> <code>tapply()</code> Fonksiyonu</a>
+<ul>
+<li class="chapter" data-level="5.7.1" data-path="vektör-fonksiyonları.html"><a href="vektör-fonksiyonları.html#lapply-ve-sapply-fonksiyonlar%C4%B1"><i class="fa fa-check"></i><b>5.7.1</b> <code>lapply()</code> ve <code>sapply()</code> Fonksiyonları</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="vektör-fonksiyonları.html"><a href="vektör-fonksiyonları.html#aggregate-ve-by-fonksiyonlar%C4%B1"><i class="fa fa-check"></i><b>5.8</b> <code>aggregate()</code> ve <code>by()</code> Fonksiyonları</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Programı</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">R Programı</h1>
+<p class="author"><em>Prof. Dr. Kadir KIZILKAYA</em></p>
+<p class="date"><em>2026-09-03</em></p>
+</div>
+<div id="r-programının-kurulumu-ve-genel-özellikleri" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">Bölüm 1</span> R Programının Kurulumu ve Genel Özellikleri<a href="r-programının-kurulumu-ve-genel-özellikleri.html#r-program%C4%B1n%C4%B1n-kurulumu-ve-genel-%C3%B6zellikleri" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p><code>R</code> programı, PC-Windows, Apple Mac-OS ve Linux işletim sistemli bilgisayarlara kolayca kurulabilir. PC-Windows işletim sistemi için <strong>R.exe</strong>, Apple Mac için <strong>R.dmg</strong> ve Linux için de <strong>R</strong> kurulum dosyaları kullanılmaktadır. Gerekli kurulum dosyalarının en son versiyonu R programla dilinin resmi internet sitesi <a href="http://lib.stat.cmu.edu/R/CRAN/">CRAN (Comprehensive R Archive Network)</a>’den indirilebilir. İndirilen kurulum dosyası, tıklanarak çalıştırılır ve ileri (next) tuşuna tıklayarak programın kurulumu gerçekleştirilir. Kurulum tamamlandıktan sonra bilgisayarın Masaüstü’ne R programının ikonu olan <strong>R</strong> simgesi yüklenecektir.</p>
+<div id="r-programının-indirilmesi-ve-kurulması" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> R Programının İndirilmesi ve Kurulması<a href="r-programının-kurulumu-ve-genel-özellikleri.html#r-program%C4%B1n%C4%B1n-indirilmesi-ve-kurulmas%C4%B1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>R programıyla ilgili resmi internet sitesi Şekil <a href="r-programının-kurulumu-ve-genel-özellikleri.html#fig:Sekil1">1.1</a>’de görüldüğü gibi Comprehensive R Archive Network (CRAN)’dir ve <a href="www.cran.r-project.org">www.cran.r-project.org</a> veya <a href="www.r-project.org">www.r-project.org</a> adresleriyle ulaşılabilir. R programıyla ilgili gelişmeler internet sitesinden izlenebileceği gibi gerekli programlara ve bilgilere bu internet sitesi aracılığıyla da ulaşılabilir.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:Sekil1"></span>
+<img src="Sekil1.png" alt="R programının resmi internet sites" width="80%" />
+<p class="caption">
+Şekil 1.1: R programının resmi internet sites
+</p>
+</div>
+<p>R programıyla ilgili gerekli programlara ve paketlere kolayca ulaşabilmek için dünyanın farklı yerlerinde tanımlanmış internet adresleri bulunmaktadır. İhtiyaç duyulan R programına ait paketler indirilmek istendiğinde en yakın internet adresi seçilerek dosya indirme işlemi gerçekleştirilebilir. Türkiye için Şekil <a href="r-programının-kurulumu-ve-genel-özellikleri.html#fig:Sekil2">1.2</a>’de görüldüğü gibi Pamukkale Üniversitesi için tanımlanan <a href="http://cran.pau.edu.tr" class="uri">http://cran.pau.edu.tr</a> adresinden indirilebilir. Bu alan seçildiğinde artık R programıyla ilgili bütün program ve paket indirme işlemleri bu alandan gerçekleştirilebilmektedir.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:Sekil2"></span>
+<img src="Sekil2.png" alt="R programı için mevcut internet siteler" width="80%" />
+<p class="caption">
+Şekil 1.2: R programı için mevcut internet siteler
+</p>
+</div>
+<p>Daha önce de belirtildiği gibi R programı PC-Windows, Apple Mac-OS ve Linux işletim sistemlerinde çalıştıralabilmektedir. Bu amaçla, Şekil <a href="r-programının-kurulumu-ve-genel-özellikleri.html#fig:Sekil3">1.3</a>’de görüldüğü gibi kullandığınız işletim sistemiyle uyumlu olan R programı kolayca seçilebilmektedir. Burada PC-Windows işletim sistemi kullanıldığı kabul edilerek Download R for Windows’a tıklandığında Şekil <a href="r-programının-kurulumu-ve-genel-özellikleri.html#fig:Sekil4">1.4</a>’de verilen internet sayfasına yönlendirilerek Windows işletim sistemiyle uyumlu farklı şekilde derlenmiş R programları indirilebilir.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:Sekil3"></span>
+<img src="Sekil3.png" alt="PC-Windows, Apple Mac-OS ve Linux işletim sistemleri için R programı" width="80%" />
+<p class="caption">
+Şekil 1.3: PC-Windows, Apple Mac-OS ve Linux işletim sistemleri için R programı
+</p>
+</div>
+<p>Şekil <a href="r-programının-kurulumu-ve-genel-özellikleri.html#fig:Sekil4">1.4</a>’de verilen base seçeneğine tıklandığında Şekil <a href="r-programının-kurulumu-ve-genel-özellikleri.html#fig:Sekil5">1.5</a>’de görülen sayfaya yönlendirilerek önceden derlenmiş <strong>Download R for Windows</strong> dosyası indirilerek kurulum gerçekleştirilebilir (R programının Download R3.1.1 for Windows gibi en son versiyonunu belirtmektedir).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:Sekil4"></span>
+<img src="Sekil4.png" alt="R programının farklı şekilde derlenmiş türleri" width="80%" />
+<p class="caption">
+Şekil 1.4: R programının farklı şekilde derlenmiş türleri
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:Sekil5"></span>
+<img src="Sekil5.png" alt=" R programının PC-Windows işletim sistemi için kurulum dosya" width="80%" />
+<p class="caption">
+Şekil 1.5:  R programının PC-Windows işletim sistemi için kurulum dosya
+</p>
+</div>
+</div>
+<div id="r-programını-başlatmak-ve-kapatmak" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> R Programını Başlatmak ve Kapatmak<a href="r-programının-kurulumu-ve-genel-özellikleri.html#r-program%C4%B1n%C4%B1-ba%C5%9Flatmak-ve-kapatmak" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>R programını kullanmanın en kolay yolu, komut yazma ve sonuç alma şeklinde interaktif olarak kullanmaktır. R programı <strong>PC-Windows</strong> veya <strong>Mac OS X</strong> işletim sistemli bilgisayara kurulduktan sonra, R ikonuna tıklayarak başlatılabilir ve Şekil <a href="r-programının-kurulumu-ve-genel-özellikleri.html#fig:Sekil6">1.6</a>’da verilen programın grafiksel kullanıcı arayüz penceresi açılır.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:Sekil6"></span>
+<img src="Sekil6.png" alt="R programının kullanıcı arayüzü (konsol)" width="80%" />
+<p class="caption">
+Şekil 1.6: R programının kullanıcı arayüzü (konsol)
+</p>
+</div>
+<p>R konsolunda yer alan açılış mesajının altında &gt; “büyüktür” işareti yer alır. Birçok kısımda, R programı içerisindeki komutlar veya ifadeler R konsol penceresine doğrudan yazılır.</p>
+<p>R programı başlatıldığında, Şekil <a href="r-programının-kurulumu-ve-genel-özellikleri.html#fig:Sekil6">1.6</a>’da verilene benzer bir şekilde komut satırı belirir.</p>
+<p>R konsolunda <code>&gt;</code> durumunda yapılacak işlemle ilgili komut girildiğinde R programı işlemi gerçekleştirir ve sonucu konsol ekranına yazar.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="r-programının-kurulumu-ve-genel-özellikleri.html#cb1-1" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">+</span> <span class="dv">2</span> </span>
+<span id="cb1-2"><a href="r-programının-kurulumu-ve-genel-özellikleri.html#cb1-2" tabindex="-1"></a>y </span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<p>Ayrıca, R programında aşağıda verilen grafik türünde bir çıktı oluşturulacak ise bu çıktı, açılan yeni grafik penceresinde görüntülenir.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="r-programının-kurulumu-ve-genel-özellikleri.html#cb3-1" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">rnorm</span>(<span class="dv">10</span>), <span class="at">ylab=</span><span class="st">&quot;&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;&quot;</span>, <span class="at">cex=</span><span class="fl">0.7</span>, <span class="at">cex.axis=</span><span class="fl">0.7</span>)</span></code></pre></div>
+<p><img src="R-Program_files/figure-html/Sekil8-1.png" alt="" width="80%" style="display: block; margin: auto;" /></p>
+<p>İşlemler için yazılan komut bir satıra sığmayacak kadar 128 karakterden uzun olduğunda veya tamamlanmadan işlem yapıldığında, komut yazma işleminin devam ettiğini belirtmek için yeni satırın başında ‘+’ işareti görüntülenir. Bu durumda, komutun eksik olan kısmı “+” işaretinden sonra tamamlanarak enter tuşuna basılır ve işlem gerçekleştirilir.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="r-programının-kurulumu-ve-genel-özellikleri.html#cb4-1" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">3</span><span class="sc">*</span> </span>
+<span id="cb4-2"><a href="r-programının-kurulumu-ve-genel-özellikleri.html#cb4-2" tabindex="-1"></a><span class="sc">+</span> <span class="dv">2</span> </span>
+<span id="cb4-3"><a href="r-programının-kurulumu-ve-genel-özellikleri.html#cb4-3" tabindex="-1"></a>y </span></code></pre></div>
+<pre><code>## [1] 6</code></pre>
+<p>R konsol veya komut penceresinde <code>q()</code> yazarak veya pencereler doğrudan kapatılarak R programından çıkılabilir. R programından çıkış tamamlanmadan önce R oturumunda gerçekleştirilen işlemlerin kaydedilip edilmeyeceğini belirten Şekil … deki gibi bir pencere ortaya çıkar ve bu oturumda işlemler Yes (Evet) tuşuna tıklanarak çalışma klasörü içerisine <code>.Rhistory</code> şeklinde kaydedilir. Böylece, aynı işlemlere gelecek oturumda devam edilmek istendiğinde bu <code>.Rhistory</code> dosyası kullanılarak R programı açılır ve önceki oturumda oluşturulan nesneler (değişkenler) tekrar belleğe yüklenir.</p>
+</div>
+<div id="paket-kurulumu" class="section level2 hasAnchor" number="1.3">
+<h2><span class="header-section-number">1.3</span> Paket Kurulumu<a href="r-programının-kurulumu-ve-genel-özellikleri.html#paket-kurulumu" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>R programında kullanılacak bütün fonksiyonlar paketler halinde tanımlanmıştır. Gerekli fonksiyonları kullanmak için yapılması gereken fonksiyonla ilgili paketinin <code>install.packages()</code> komutu kullanılarak R programı içerisinde bilgisayara kurulmasıdır. Bu komut içerisinde her hangi bir paket ismi belirtilmeden <code>install.packages()</code> şeklinde kullanıldığında CRAN sisteminde mevcut bütün paketler listelenecektir ve paketlerden bir tanesi seçildiğinde bu paket bilgisayara indirilerek kurulacaktır. Buna karşılık, <code>ggplot2</code> gibi bir grafik paketi yüklenmek istendiğinde <code>install.packages(ggplot2)</code> şeklinde tanımlanarak gerçekleştirilebilir.</p>
+<p>Fonksiyonla ilgili gerekli paketin bilgisayara bir kez kurulması yeterlidir. Fakat, paketi oluşturan yazarlar paketler güncellenebilmektedir. Bu yüzden, belirli aralıklarla paketlerin kurulumunun da <code>update.packages()</code> komutu kullanılarak güncellenmesi R programının daha etkili kullanımını sağlayacağından önemlidir. Bilgisayarınıza yüklü paketlerin listesi, versiyon numarası, ilişkili olduğu diğer paketler ve özellikleri <code>installed.packages()</code> komutu kullanılarak görülebilir.</p>
+</div>
+<div id="paket-yükleme" class="section level2 hasAnchor" number="1.4">
+<h2><span class="header-section-number">1.4</span> Paket Yükleme<a href="r-programının-kurulumu-ve-genel-özellikleri.html#paket-y%C3%BCkleme" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Herhangi bir R programında herhangi bir fonksiyonun paketi, dünyanın farklı yerlerindeki CRAN internet sitelerinden bilgisayardaki R programına ait kütüphaneye indirilebilir. R programında açılan bir oturumda bir fonksiyon kullanılmadan önce <code>library()</code> komutuyla fonksiyonla ilgili gerekli paket yüklenmelidir. Örneğin ggplot kullanılarak grafik çizdirilmek istendiğinde</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="r-programının-kurulumu-ve-genel-özellikleri.html#cb6-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div>
+<p>şeklinde yüklenmelidir. Gerekli paketin açılan oturumda bir kere yüklenmesi yeterlidir. Fakat, oturum kapatıldığında ve açılan yeni oturumda bu paket tekrar kullanılmak istendiğinde yine <code>library()</code> komutuyla tekrar yüklenmelidir. Çok sık kullanılan fonksiyonlara ait paketler bilgisayarın başlatma komutlarına eklenerek doğrudan yüklenmeleri de sağlanabilir.</p>
+</div>
+<div id="paketler" class="section level2 hasAnchor" number="1.5">
+<h2><span class="header-section-number">1.5</span> Paketler<a href="r-programının-kurulumu-ve-genel-özellikleri.html#paketler" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>R programı matematiksel, istatistiksel ve grafiksel işlemlerle ilgili paketleri içermektedir. Bu paketler, konularla ilgili fonksiyonların, verilerin ve derlenmiş kodların bir bütün halinde R programında sunulması olarak düşünülebilir. R programındaki paketlere ait kütüphanenin bilgisayarın neresinde oluşturulduğu <code>.libPaths()</code> komutuyla öğrenilebilir. Ayrıca <code>library()</code> komutuyla hangi paketlerin yüklü olduğu da kolayca belirlenebilir.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="r-programının-kurulumu-ve-genel-özellikleri.html#cb7-1" tabindex="-1"></a><span class="fu">.libPaths</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;/Library/Frameworks/R.framework/Versions/4.5-x86_64/Resources/library&quot;</code></pre>
+<p>R programında bir oturum başlatıldığında <code>base</code>, <code>datasets</code>, <code>utils</code>, <code>grDevices</code>, <code>graphics</code>, <code>stats</code> ve <code>methods</code> paketleri standart olarak doğrudan yüklenmektedir. Ayrıca, ihtiyaç duyulan paketler de yukarı da açıklandığı şekilde yüklenebilir. Buna ek olarak, hangi paketlerin yüklendiği ve kullanım için hazır olup olmadığı <code>search()</code> komutu kullanılarak belirlenebilir.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="r-programının-kurulumu-ve-genel-özellikleri.html#cb9-1" tabindex="-1"></a><span class="fu">search</span>()</span></code></pre></div>
+<pre><code>##  [1] &quot;.GlobalEnv&quot;        &quot;package:ggplot2&quot;   &quot;package:stats&quot;    
+##  [4] &quot;package:graphics&quot;  &quot;package:grDevices&quot; &quot;package:utils&quot;    
+##  [7] &quot;package:datasets&quot;  &quot;package:methods&quot;   &quot;Autoloads&quot;        
+## [10] &quot;package:base&quot;</code></pre>
+</div>
+<div id="betik-script-oluşturma" class="section level2 hasAnchor" number="1.6">
+<h2><span class="header-section-number">1.6</span> Betik (Script) Oluşturma<a href="r-programının-kurulumu-ve-genel-özellikleri.html#betik-script-olu%C5%9Fturma" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Betik (Script), bilgisayar programlama (yazılım) alanında kullanıldığı anlamıyla; herhangi bir programlama (yazılım) dilinde oluşturulmuş kodları (kod bloğunu) içeren dosyayı ifade eder. Genel anlamda, programlama (yazılım) dilinde oluşturulmuş kodları çalıştırmak gerektiğinde tekrar tekrar yazmak yerine; bu kodları içeren betik (script) dosyası yüklenerek kodlar kolayca çalıştırılabilir.</p>
+<p>Betik dosyası Şekil <a href="r-programının-kurulumu-ve-genel-özellikleri.html#fig:Sekil13">1.7</a>’de <code>File</code> (Dosya)’dan <code>New Document</code> seçilir.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:Sekil13"></span>
+<img src="Script1.png" alt="Betik dosyası oluşturma" width="80%" />
+<p class="caption">
+Şekil 1.7: Betik dosyası oluşturma
+</p>
+</div>
+<p>Şekil <a href="r-programının-kurulumu-ve-genel-özellikleri.html#fig:Sekil14">1.8</a> görüldüğü gibi boş yeni bir betik dosyası açılır.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:Sekil14"></span>
+<img src="Script2.png" alt="Yeni Betik dosyası açıldı" width="80%" />
+<p class="caption">
+Şekil 1.8: Yeni Betik dosyası açıldı
+</p>
+</div>
+<p>Açılan betik dosyası Şekil <a href="r-programının-kurulumu-ve-genel-özellikleri.html#fig:Sekil15">1.9</a> görüldüğü gibi dosyanın uzantısı <code>.R</code> olacak şekilde herhangi bir isimle kaydedilir.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:Sekil15"></span>
+<img src="Script3.png" alt="Betik dosyası uznatısı .R olacak şekilde herhangi bir isimle kaydedilir" width="80%" />
+<p class="caption">
+Şekil 1.9: Betik dosyası uznatısı .R olacak şekilde herhangi bir isimle kaydedilir
+</p>
+</div>
+<p>Açılan betik dosyasına Şekil <a href="r-programının-kurulumu-ve-genel-özellikleri.html#fig:Sekil16">1.10</a> görüldüğü gibi kodlar yazılır ve <code>Edit</code> içerisinde yer alan <code>Execute</code> seçilerek kodlar çalıştırılır.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:Sekil16"></span>
+<img src="Script4.png" alt="Betik dosyasına kodların yazılması ve çalıştırılması" width="80%" />
+<p class="caption">
+Şekil 1.10: Betik dosyasına kodların yazılması ve çalıştırılması
+</p>
+</div>
+<p>Betik dosyasındaki kodların çalıştırılmasına ait sonuçlar Şekil <a href="r-programının-kurulumu-ve-genel-özellikleri.html#fig:Sekil17">1.11</a> görüldüğü <code>Console</code> penceresinde görüntülenir.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:Sekil17"></span>
+<img src="Script5.png" alt="Betik dosyasının çalıştırılması sonucu elde edilen sonuçlar" width="80%" />
+<p class="caption">
+Şekil 1.11: Betik dosyasının çalıştırılması sonucu elde edilen sonuçlar
+</p>
+</div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="genel-kurallar-ve-komutlar.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/rstudio/bookdown-demo/edit/master/01-RKurulum.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["R Program.pdf", "R Program.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

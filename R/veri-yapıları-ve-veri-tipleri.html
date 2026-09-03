@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Bölüm 3 Veri Yapıları ve Veri Tipleri | R Programı</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.47 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Bölüm 3 Veri Yapıları ve Veri Tipleri | R Programı" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Bölüm 3 Veri Yapıları ve Veri Tipleri | R Programı" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Prof. Dr. Kadir KIZILKAYA" />
+
+
+<meta name="date" content="2026-09-03" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="genel-kurallar-ve-komutlar.html"/>
+<link rel="next" href="matrisler-1.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">R Program</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="r-programının-kurulumu-ve-genel-özellikleri.html"><a href="r-programının-kurulumu-ve-genel-özellikleri.html"><i class="fa fa-check"></i><b>1</b> R Programının Kurulumu ve Genel Özellikleri</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="r-programının-kurulumu-ve-genel-özellikleri.html"><a href="r-programının-kurulumu-ve-genel-özellikleri.html#r-program%C4%B1n%C4%B1n-indirilmesi-ve-kurulmas%C4%B1"><i class="fa fa-check"></i><b>1.1</b> R Programının İndirilmesi ve Kurulması</a></li>
+<li class="chapter" data-level="1.2" data-path="r-programının-kurulumu-ve-genel-özellikleri.html"><a href="r-programının-kurulumu-ve-genel-özellikleri.html#r-program%C4%B1n%C4%B1-ba%C5%9Flatmak-ve-kapatmak"><i class="fa fa-check"></i><b>1.2</b> R Programını Başlatmak ve Kapatmak</a></li>
+<li class="chapter" data-level="1.3" data-path="r-programının-kurulumu-ve-genel-özellikleri.html"><a href="r-programının-kurulumu-ve-genel-özellikleri.html#paket-kurulumu"><i class="fa fa-check"></i><b>1.3</b> Paket Kurulumu</a></li>
+<li class="chapter" data-level="1.4" data-path="r-programının-kurulumu-ve-genel-özellikleri.html"><a href="r-programının-kurulumu-ve-genel-özellikleri.html#paket-y%C3%BCkleme"><i class="fa fa-check"></i><b>1.4</b> Paket Yükleme</a></li>
+<li class="chapter" data-level="1.5" data-path="r-programının-kurulumu-ve-genel-özellikleri.html"><a href="r-programının-kurulumu-ve-genel-özellikleri.html#paketler"><i class="fa fa-check"></i><b>1.5</b> Paketler</a></li>
+<li class="chapter" data-level="1.6" data-path="r-programının-kurulumu-ve-genel-özellikleri.html"><a href="r-programının-kurulumu-ve-genel-özellikleri.html#betik-script-olu%C5%9Fturma"><i class="fa fa-check"></i><b>1.6</b> Betik (Script) Oluşturma</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html"><i class="fa fa-check"></i><b>2</b> Genel Kurallar ve Komutlar</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#r-program%C4%B1nda-ge%C3%A7erli-de%C4%9Fi%C5%9Fken-isimleri"><i class="fa fa-check"></i><b>2.1</b> R Programında Geçerli Değişken İsimleri</a></li>
+<li class="chapter" data-level="2.2" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#bo%C5%9Fluk"><i class="fa fa-check"></i><b>2.2</b> Boşluk</a></li>
+<li class="chapter" data-level="2.3" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#%C3%A7al%C4%B1%C5%9Fma-dizininin-belirlenmesi-getwd"><i class="fa fa-check"></i><b>2.3</b> Çalışma Dizininin Belirlenmesi <code>getwd()</code></a></li>
+<li class="chapter" data-level="2.4" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#%C3%A7al%C4%B1%C5%9Fma-dizininin-de%C4%9Fi%C5%9Ftirilmesi-setwd"><i class="fa fa-check"></i><b>2.4</b> Çalışma Dizininin Değiştirilmesi <code>setwd()</code></a></li>
+<li class="chapter" data-level="2.5" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#%C3%A7al%C4%B1%C5%9Fma-dizininde-dizin-ve-dosyalar%C4%B1n-listelenmesi-dir-veya-list.files"><i class="fa fa-check"></i><b>2.5</b> Çalışma Dizininde Dizin ve Dosyaların Listelenmesi <code>dir()</code> veya <code>list.files()</code></a></li>
+<li class="chapter" data-level="2.6" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#%C3%A7al%C4%B1%C5%9Fma-dizininde-dizin-olu%C5%9Fturma-dir.create"><i class="fa fa-check"></i><b>2.6</b> Çalışma Dizininde Dizin Oluşturma <code>dir.create()</code></a></li>
+<li class="chapter" data-level="2.7" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#%C3%A7al%C4%B1%C5%9Fma-alan%C4%B1nda-olu%C5%9Fturulan-nesnelerin-veya-de%C4%9Fi%C5%9Fkenlerin-listelenmesi-ls-veya-objects"><i class="fa fa-check"></i><b>2.7</b> Çalışma Alanında Oluşturulan Nesnelerin veya Değişkenlerin Listelenmesi <code>ls()</code> veya <code>objects()</code></a></li>
+<li class="chapter" data-level="2.8" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#%C3%A7al%C4%B1%C5%9Fma-alan%C4%B1n%C4%B1n-workspace-kaydedilmesi"><i class="fa fa-check"></i><b>2.8</b> Çalışma Alanının (Workspace) Kaydedilmesi</a></li>
+<li class="chapter" data-level="2.9" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#de%C4%9Fi%C5%9Fkenlerin-silinmesi"><i class="fa fa-check"></i><b>2.9</b> Değişkenlerin Silinmesi</a></li>
+<li class="chapter" data-level="2.10" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#operat%C3%B6rler"><i class="fa fa-check"></i><b>2.10</b> Operatörler</a>
+<ul>
+<li class="chapter" data-level="2.10.1" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#atama-operat%C3%B6rleri"><i class="fa fa-check"></i><b>2.10.1</b> Atama Operatörleri</a></li>
+<li class="chapter" data-level="2.10.2" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#aritmetik-operat%C3%B6rler"><i class="fa fa-check"></i><b>2.10.2</b> Aritmetik Operatörler</a></li>
+<li class="chapter" data-level="2.10.3" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#kar%C5%9F%C4%B1la%C5%9Ft%C4%B1rma-operat%C3%B6rleri"><i class="fa fa-check"></i><b>2.10.3</b> Karşılaştırma Operatörleri</a></li>
+<li class="chapter" data-level="2.10.4" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#mant%C4%B1k-operat%C3%B6rleri"><i class="fa fa-check"></i><b>2.10.4</b> Mantık Operatörleri</a></li>
+</ul></li>
+<li class="chapter" data-level="2.11" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#eksik-g%C3%B6zlem-na"><i class="fa fa-check"></i><b>2.11</b> Eksik Gözlem (<code>NA</code>)</a></li>
+<li class="chapter" data-level="2.12" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#%C3%B6zel-de%C4%9Ferler-inf-nan-null"><i class="fa fa-check"></i><b>2.12</b> Özel Değerler (<code>Inf</code>, <code>NaN</code>, <code>Null</code>)</a></li>
+<li class="chapter" data-level="2.13" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#seq-sequence-komutu"><i class="fa fa-check"></i><b>2.13</b> <code>seq()</code> (<code>Sequence</code>) Komutu</a></li>
+<li class="chapter" data-level="2.14" data-path="genel-kurallar-ve-komutlar.html"><a href="genel-kurallar-ve-komutlar.html#rep-replicate-komutu"><i class="fa fa-check"></i><b>2.14</b> <code>rep()</code> (<code>Replicate</code>) Komutu</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="veri-yapıları-ve-veri-tipleri.html"><a href="veri-yapıları-ve-veri-tipleri.html"><i class="fa fa-check"></i><b>3</b> Veri Yapıları ve Veri Tipleri</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="veri-yapıları-ve-veri-tipleri.html"><a href="veri-yapıları-ve-veri-tipleri.html#veri-tipi"><i class="fa fa-check"></i><b>3.1</b> Veri Tipi</a></li>
+<li class="chapter" data-level="3.2" data-path="veri-yapıları-ve-veri-tipleri.html"><a href="veri-yapıları-ve-veri-tipleri.html#veri-yap%C4%B1lar%C4%B1"><i class="fa fa-check"></i><b>3.2</b> Veri Yapıları</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="veri-yapıları-ve-veri-tipleri.html"><a href="veri-yapıları-ve-veri-tipleri.html#vekt%C3%B6rler"><i class="fa fa-check"></i><b>3.2.1</b> Vektörler</a></li>
+<li class="chapter" data-level="3.2.2" data-path="veri-yapıları-ve-veri-tipleri.html"><a href="veri-yapıları-ve-veri-tipleri.html#matrisler"><i class="fa fa-check"></i><b>3.2.2</b> Matrisler</a></li>
+<li class="chapter" data-level="3.2.3" data-path="veri-yapıları-ve-veri-tipleri.html"><a href="veri-yapıları-ve-veri-tipleri.html#diziler"><i class="fa fa-check"></i><b>3.2.3</b> Diziler</a></li>
+<li class="chapter" data-level="3.2.4" data-path="veri-yapıları-ve-veri-tipleri.html"><a href="veri-yapıları-ve-veri-tipleri.html#listeler"><i class="fa fa-check"></i><b>3.2.4</b> Listeler</a></li>
+<li class="chapter" data-level="3.2.5" data-path="veri-yapıları-ve-veri-tipleri.html"><a href="veri-yapıları-ve-veri-tipleri.html#fakt%C3%B6rler"><i class="fa fa-check"></i><b>3.2.5</b> Faktörler</a></li>
+<li class="chapter" data-level="3.2.6" data-path="veri-yapıları-ve-veri-tipleri.html"><a href="veri-yapıları-ve-veri-tipleri.html#veri-%C3%A7er%C3%A7eveleri"><i class="fa fa-check"></i><b>3.2.6</b> Veri Çerçeveleri</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="veri-yapıları-ve-veri-tipleri.html"><a href="veri-yapıları-ve-veri-tipleri.html#%C3%A7%C4%B1kt%C4%B1lar%C4%B1n-yazd%C4%B1r%C4%B1lmas%C4%B1-print-ve-cat-fonksiyonlar%C4%B1"><i class="fa fa-check"></i><b>3.3</b> Çıktıların Yazdırılması <code>print()</code> ve <code>cat()</code> Fonksiyonları</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="veri-yapıları-ve-veri-tipleri.html"><a href="veri-yapıları-ve-veri-tipleri.html#print-fonksiyonu"><i class="fa fa-check"></i><b>3.3.1</b> print() Fonksiyonu</a></li>
+<li class="chapter" data-level="3.3.2" data-path="veri-yapıları-ve-veri-tipleri.html"><a href="veri-yapıları-ve-veri-tipleri.html#cat-fonksiyonu"><i class="fa fa-check"></i><b>3.3.2</b> cat() Fonksiyonu</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="matrisler-1.html"><a href="matrisler-1.html"><i class="fa fa-check"></i><b>4</b> Matrisler</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="matrisler-1.html"><a href="matrisler-1.html#sat%C4%B1r-ve-s%C3%BCtun-vekt%C3%B6rleri"><i class="fa fa-check"></i><b>4.1</b> Satır ve Sütun Vektörleri</a></li>
+<li class="chapter" data-level="4.2" data-path="matrisler-1.html"><a href="matrisler-1.html#kare-matris"><i class="fa fa-check"></i><b>4.2</b> Kare Matris</a></li>
+<li class="chapter" data-level="4.3" data-path="matrisler-1.html"><a href="matrisler-1.html#k%C3%B6%C5%9Fegen-diyagonal-matris"><i class="fa fa-check"></i><b>4.3</b> Köşegen (Diyagonal) Matris</a></li>
+<li class="chapter" data-level="4.4" data-path="matrisler-1.html"><a href="matrisler-1.html#birim-matris"><i class="fa fa-check"></i><b>4.4</b> Birim Matris</a></li>
+<li class="chapter" data-level="4.5" data-path="matrisler-1.html"><a href="matrisler-1.html#matrislerin-birle%C5%9Ftirilmesi"><i class="fa fa-check"></i><b>4.5</b> Matrislerin Birleştirilmesi</a></li>
+<li class="chapter" data-level="4.6" data-path="matrisler-1.html"><a href="matrisler-1.html#matrisin-transpozesi"><i class="fa fa-check"></i><b>4.6</b> Matrisin Transpozesi</a></li>
+<li class="chapter" data-level="4.7" data-path="matrisler-1.html"><a href="matrisler-1.html#matrislerle-matematiksel-i%C5%9Flemler"><i class="fa fa-check"></i><b>4.7</b> Matrislerle Matematiksel İşlemler</a></li>
+<li class="chapter" data-level="4.8" data-path="matrisler-1.html"><a href="matrisler-1.html#matris-elemanlar%C4%B1n%C4%B1n-sat%C4%B1rlar%C4%B1n%C4%B1n-veya-s%C3%BCtunlar%C4%B1n%C4%B1n-toplam%C4%B1-ve-ortalamas%C4%B1"><i class="fa fa-check"></i><b>4.8</b> Matris Elemanlarının, Satırlarının veya Sütunlarının Toplamı ve Ortalaması</a></li>
+<li class="chapter" data-level="4.9" data-path="matrisler-1.html"><a href="matrisler-1.html#toplama-ve-%C3%A7%C4%B1kartma-i%C5%9Flemi"><i class="fa fa-check"></i><b>4.9</b> Toplama ve Çıkartma İşlemi</a></li>
+<li class="chapter" data-level="4.10" data-path="matrisler-1.html"><a href="matrisler-1.html#%C3%A7arpma-i%C5%9Flemi"><i class="fa fa-check"></i><b>4.10</b> Çarpma İşlemi</a>
+<ul>
+<li class="chapter" data-level="4.10.1" data-path="matrisler-1.html"><a href="matrisler-1.html#matrislerin-veya-vekt%C3%B6rlerin-bir-say%C4%B1-ile-%C3%A7arp%C4%B1lmas%C4%B1"><i class="fa fa-check"></i><b>4.10.1</b> Matrislerin veya Vektörlerin Bir Sayı ile Çarpılması</a></li>
+<li class="chapter" data-level="4.10.2" data-path="matrisler-1.html"><a href="matrisler-1.html#matris-veya-vekt%C3%B6rlerin-kar%C5%9F%C4%B1l%C4%B1kl%C4%B1-elemanlar%C4%B1n%C4%B1n-%C3%A7arp%C4%B1lmas%C4%B1"><i class="fa fa-check"></i><b>4.10.2</b> Matris veya Vektörlerin Karşılıklı Elemanlarının Çarpılması</a></li>
+<li class="chapter" data-level="4.10.3" data-path="matrisler-1.html"><a href="matrisler-1.html#matris-veya-vekt%C3%B6rlerin-%C3%A7arp%C4%B1lmas%C4%B1"><i class="fa fa-check"></i><b>4.10.3</b> Matris veya Vektörlerin Çarpılması</a></li>
+</ul></li>
+<li class="chapter" data-level="4.11" data-path="matrisler-1.html"><a href="matrisler-1.html#determinant"><i class="fa fa-check"></i><b>4.11</b> Determinant</a></li>
+<li class="chapter" data-level="4.12" data-path="matrisler-1.html"><a href="matrisler-1.html#matrisin-tersi"><i class="fa fa-check"></i><b>4.12</b> Matrisin Tersi</a></li>
+<li class="chapter" data-level="4.13" data-path="matrisler-1.html"><a href="matrisler-1.html#matrisin-%C3%B6zde%C4%9Ferleri-eigenvalues-ve-%C3%B6zvekt%C3%B6rleri-eigenvectors"><i class="fa fa-check"></i><b>4.13</b> Matrisin Özdeğerleri (Eigenvalues) ve Özvektörleri (Eigenvectors)</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="vektör-fonksiyonları.html"><a href="vektör-fonksiyonları.html"><i class="fa fa-check"></i><b>5</b> Vektör Fonksiyonları</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="vektör-fonksiyonları.html"><a href="vektör-fonksiyonları.html#matematiksel-fonksiyonlar"><i class="fa fa-check"></i><b>5.1</b> Matematiksel Fonksiyonlar</a></li>
+<li class="chapter" data-level="5.2" data-path="vektör-fonksiyonları.html"><a href="vektör-fonksiyonları.html#trigonometrik-fonksiyonlar"><i class="fa fa-check"></i><b>5.2</b> Trigonometrik Fonksiyonlar</a></li>
+<li class="chapter" data-level="5.3" data-path="vektör-fonksiyonları.html"><a href="vektör-fonksiyonları.html#istatistiksel-fonksiyonlar"><i class="fa fa-check"></i><b>5.3</b> İstatistiksel Fonksiyonlar</a></li>
+<li class="chapter" data-level="5.4" data-path="vektör-fonksiyonları.html"><a href="vektör-fonksiyonları.html#sort-rank-ve-order-fonksiyonlar%C4%B1"><i class="fa fa-check"></i><b>5.4</b> <code>sort()</code>, <code>rank()</code> ve <code>order()</code> Fonksiyonları</a></li>
+<li class="chapter" data-level="5.5" data-path="vektör-fonksiyonları.html"><a href="vektör-fonksiyonları.html#say%C4%B1lar%C4%B1n-yuvarlanmas%C4%B1-ceiling-floor-round-ve-signif-fonksiyonlar%C4%B1"><i class="fa fa-check"></i><b>5.5</b> Sayıların Yuvarlanması <code>ceiling()</code>, <code>floor()</code>, <code>round()</code> ve <code>signif()</code> Fonksiyonları</a></li>
+<li class="chapter" data-level="5.6" data-path="vektör-fonksiyonları.html"><a href="vektör-fonksiyonları.html#apply-fonksiyonlar%C4%B1"><i class="fa fa-check"></i><b>5.6</b> <code>apply</code> Fonksiyonları</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="vektör-fonksiyonları.html"><a href="vektör-fonksiyonları.html#apply-fonksiyonu"><i class="fa fa-check"></i><b>5.6.1</b> <code>apply()</code> Fonksiyonu</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="vektör-fonksiyonları.html"><a href="vektör-fonksiyonları.html#tapply-fonksiyonu"><i class="fa fa-check"></i><b>5.7</b> <code>tapply()</code> Fonksiyonu</a>
+<ul>
+<li class="chapter" data-level="5.7.1" data-path="vektör-fonksiyonları.html"><a href="vektör-fonksiyonları.html#lapply-ve-sapply-fonksiyonlar%C4%B1"><i class="fa fa-check"></i><b>5.7.1</b> <code>lapply()</code> ve <code>sapply()</code> Fonksiyonları</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="vektör-fonksiyonları.html"><a href="vektör-fonksiyonları.html#aggregate-ve-by-fonksiyonlar%C4%B1"><i class="fa fa-check"></i><b>5.8</b> <code>aggregate()</code> ve <code>by()</code> Fonksiyonları</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Programı</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="veri-yapıları-ve-veri-tipleri" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Bölüm 3</span> Veri Yapıları ve Veri Tipleri<a href="veri-yapıları-ve-veri-tipleri.html#veri-yap%C4%B1lar%C4%B1-ve-veri-tipleri" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Her programla dilinde olduğu gibi R programında da veri setlerini oluşturan elemanlar, farklı veri tiplerinde tanımlanabilmekte ve farklı veri yapıları içerisinde tutulabilmektedir. R programında <code>vektör</code>, <code>matris</code>, <code>dizi</code>, <code>liste</code>, <code>faktör</code> ve <code>veri çerçevesi</code> olarak adlandırılan veri yapıları ve mantıksal (<code>logical</code>), karakter (<code>character</code>), tam sayı (<code>integer</code>), sayısal (<code>numeric</code>), komplex sayı (<code>complex</code>) olarak adlandırılan veri tipleri mevcuttur. Bu veri yapıları, mantıksal, karakter, tam sayı, sayısal, komplex sayı tipinde verileri (veri setlerini) içermektedir. Aşağıdaki bölümlerde detaylı şekilde açıklandığı gibi veri setlerinin oluşturulmasında, düzenlenmesinde ve işlem yapılmasında bu veri yapıları ve veri tipleri kullanılmaktadır.</p>
+<div id="veri-tipi" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Veri Tipi<a href="veri-yapıları-ve-veri-tipleri.html#veri-tipi" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Veri Tipi</th>
+<th align="left">Örnek</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Mantıksal (Logical)</td>
+<td align="left">TRUE, FALSE</td>
+</tr>
+<tr class="even">
+<td align="left">Karakter (Character)</td>
+<td align="left">a</td>
+</tr>
+<tr class="odd">
+<td align="left">Tam sayı (Integer)</td>
+<td align="left">5</td>
+</tr>
+<tr class="even">
+<td align="left">Sayısal (Numeric)</td>
+<td align="left">1.23</td>
+</tr>
+<tr class="odd">
+<td align="left">Kompleks sayı (Complex)</td>
+<td align="left">5+i</td>
+</tr>
+</tbody>
+</table>
+<p><strong>NOT:</strong> as.integer() fonksiyonu verilen değişkenin veya değerin <code>tam sayı (integer)</code> olarak kaydedilmesini sağlamaktadır. Eğer sadece <code>var_int = 5</code> olarak kod bloğu oluşturulsaydı sayı, tam sayı yerine <code>nümerik sayı (double)</code> olarak kaydedilecekti.</p>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="veri-yapıları-ve-veri-tipleri.html#cb153-1" tabindex="-1"></a>var_num <span class="ot">=</span> <span class="dv">5</span></span>
+<span id="cb153-2"><a href="veri-yapıları-ve-veri-tipleri.html#cb153-2" tabindex="-1"></a><span class="fu">typeof</span>(var_num) </span></code></pre></div>
+<pre><code>## [1] &quot;double&quot;</code></pre>
+<p><strong>NOT:</strong> <code>typeof()</code> fonksiyonu, değişkenin hangi veri tipinde tanımlandığını göstermektedir. Aynı zamanda <code>class()</code> fonksiyonu aynı işlevi yerine getirmektedir.</p>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="veri-yapıları-ve-veri-tipleri.html#cb155-1" tabindex="-1"></a><span class="fu">class</span>(var_num)</span></code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="veri-yapıları-ve-veri-tipleri.html#cb157-1" tabindex="-1"></a><span class="co"># Mantıksal (Logical)</span></span>
+<span id="cb157-2"><a href="veri-yapıları-ve-veri-tipleri.html#cb157-2" tabindex="-1"></a>var.log<span class="ot">=</span><span class="cn">TRUE</span></span>
+<span id="cb157-3"><a href="veri-yapıları-ve-veri-tipleri.html#cb157-3" tabindex="-1"></a><span class="fu">typeof</span>(var.log)</span></code></pre></div>
+<pre><code>## [1] &quot;logical&quot;</code></pre>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="veri-yapıları-ve-veri-tipleri.html#cb159-1" tabindex="-1"></a><span class="co"># Karakter (Character)</span></span>
+<span id="cb159-2"><a href="veri-yapıları-ve-veri-tipleri.html#cb159-2" tabindex="-1"></a>var.char<span class="ot">=</span><span class="st">&quot;R&quot;</span></span>
+<span id="cb159-3"><a href="veri-yapıları-ve-veri-tipleri.html#cb159-3" tabindex="-1"></a><span class="fu">typeof</span>(var.log)</span></code></pre></div>
+<pre><code>## [1] &quot;logical&quot;</code></pre>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="veri-yapıları-ve-veri-tipleri.html#cb161-1" tabindex="-1"></a><span class="co"># Tam sayı (Integer)</span></span>
+<span id="cb161-2"><a href="veri-yapıları-ve-veri-tipleri.html#cb161-2" tabindex="-1"></a>var.int<span class="ot">=</span><span class="fu">as.integer</span>(<span class="dv">5</span>)</span>
+<span id="cb161-3"><a href="veri-yapıları-ve-veri-tipleri.html#cb161-3" tabindex="-1"></a><span class="fu">typeof</span>(var.int)</span></code></pre></div>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="veri-yapıları-ve-veri-tipleri.html#cb163-1" tabindex="-1"></a><span class="co"># Sayısal (Numeric)</span></span>
+<span id="cb163-2"><a href="veri-yapıları-ve-veri-tipleri.html#cb163-2" tabindex="-1"></a>var.num<span class="ot">=</span><span class="fl">5.2</span></span>
+<span id="cb163-3"><a href="veri-yapıları-ve-veri-tipleri.html#cb163-3" tabindex="-1"></a><span class="fu">typeof</span>(var.num)</span></code></pre></div>
+<pre><code>## [1] &quot;double&quot;</code></pre>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="veri-yapıları-ve-veri-tipleri.html#cb165-1" tabindex="-1"></a><span class="co"># Kompleks sayı (Complex)</span></span>
+<span id="cb165-2"><a href="veri-yapıları-ve-veri-tipleri.html#cb165-2" tabindex="-1"></a>var.comp<span class="ot">=</span><span class="dv">2</span> <span class="sc">+</span> <span class="dv">3</span><span class="dt">i</span></span>
+<span id="cb165-3"><a href="veri-yapıları-ve-veri-tipleri.html#cb165-3" tabindex="-1"></a><span class="fu">typeof</span>(var.comp)</span></code></pre></div>
+<pre><code>## [1] &quot;complex&quot;</code></pre>
+</div>
+<div id="veri-yapıları" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Veri Yapıları<a href="veri-yapıları-ve-veri-tipleri.html#veri-yap%C4%B1lar%C4%B1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>R programında verilerin aktarılabileceği; vektörler, matrisler, veri çerçeveleri, diziler ve listeler gibi değişik veri yapıları mevcuttur. Şekil <a href="veri-yapıları-ve-veri-tipleri.html#fig:B3Sekil7">3.1</a>’de görüldüğü gibi bu farklı veri yapıları (vektörler, matrisler ve diziler ) aynı türde ve aynı boyutta verileri içerdiği gibi veri çerçevesi ve listeler gibi veri yapıları da farklı türden ve farklı boyutta verileri de içerebilmektedir.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:B3Sekil7"></span>
+&lt;img src=“B3_Sekil7.png” alt=“R programında yer alan veri yapıları (Kabacoff, 2011.”R in Action”)” width=“80%” /&gt;
+<p class="caption">
+Şekil 3.1: R programında yer alan veri yapıları (Kabacoff, 2011. “R in Action”)
+</p>
+</div>
+<div id="vektörler" class="section level3 hasAnchor" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> Vektörler<a href="veri-yapıları-ve-veri-tipleri.html#vekt%C3%B6rler" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>R programında vektörler bir dizi veri içeren tek boyutlu veri yapılarıdır. Vektörlerde bir araya getirilen veriler sayısal (tamsayı veya double), mantıksal, karakter veya kompleks olabilir. Aşağıda görüldüğü gibi R programında konsoldan girilen herhangi bir sayı bir vektör olarak yorumlanmaktadır. “[1]” değeri bu satırda görüntülenen ilk değerin indeksini belirtmektedir ve bu durumda vektörde sadece bir değer olduğunu göstermektedir.</p>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="veri-yapıları-ve-veri-tipleri.html#cb167-1" tabindex="-1"></a><span class="dv">2</span></span></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<p>Birden fazla eleman içeren bir vektör oluşturmak istendiğinde <code>c()</code> (combine – birleştir) fonksiyonu kullanılmaktadır. Vektörde yer alacak her eleman <code>c()</code> fonksiyonunda (,) virgül kullanılarak ayrılmaktadır.</p>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="veri-yapıları-ve-veri-tipleri.html#cb169-1" tabindex="-1"></a>vec <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">20</span>,<span class="dv">1</span>,<span class="dv">23</span>,<span class="dv">8</span>,<span class="dv">6</span>,<span class="dv">25</span>,<span class="dv">4</span>,<span class="dv">19</span>,<span class="dv">22</span>,<span class="dv">16</span>,<span class="dv">11</span>,<span class="dv">17</span>,<span class="dv">3</span>,<span class="dv">18</span>,<span class="dv">5</span>,<span class="dv">24</span>,<span class="dv">7</span>,<span class="dv">15</span>,<span class="dv">21</span>,<span class="dv">12</span>, <span class="dv">2</span>,<span class="dv">10</span>, <span class="dv">9</span>,<span class="dv">13</span>,<span class="dv">14</span>)</span>
+<span id="cb169-2"><a href="veri-yapıları-ve-veri-tipleri.html#cb169-2" tabindex="-1"></a>vec</span></code></pre></div>
+<pre><code>##  [1] 20  1 23  8  6 25  4 19 22 16 11 17  3 18  5 24  7 15 21 12  2 10  9 13 14</code></pre>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="veri-yapıları-ve-veri-tipleri.html#cb171-1" tabindex="-1"></a><span class="fu">typeof</span>(vec)</span></code></pre></div>
+<pre><code>## [1] &quot;double&quot;</code></pre>
+<p>Vektör yapısında tanımlanan vec isimli değişken 25 eleman içermektedir. Listelenen değerlerin sol tarafında [ ] içerisinde verilen değerler ([1] ve [14]) her bir satırda sıralanan 20 ve 18 değerlerinin indeksini belirtmektedir. R programında indeksler her zaman 1’den başlar. R programında <code>vec</code> vektörünün 12. elemanını veya 10. elemandan 12. elemana kadarki değerleri elde etmek için aşağıdaki şekilde işlem yapılmalıdır.</p>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="veri-yapıları-ve-veri-tipleri.html#cb173-1" tabindex="-1"></a>vec <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">20</span>,<span class="dv">1</span>,<span class="dv">23</span>,<span class="dv">8</span>,<span class="dv">6</span>,<span class="dv">25</span>,<span class="dv">4</span>,<span class="dv">19</span>,<span class="dv">22</span>,<span class="dv">16</span>,<span class="dv">11</span>,<span class="dv">17</span>,<span class="dv">3</span>,<span class="dv">18</span>,<span class="dv">5</span>,<span class="dv">24</span>,<span class="dv">7</span>,<span class="dv">15</span>,<span class="dv">21</span>,<span class="dv">12</span>, <span class="dv">2</span>,<span class="dv">10</span>, <span class="dv">9</span>,<span class="dv">13</span>,<span class="dv">14</span>)</span>
+<span id="cb173-2"><a href="veri-yapıları-ve-veri-tipleri.html#cb173-2" tabindex="-1"></a>vec</span></code></pre></div>
+<pre><code>##  [1] 20  1 23  8  6 25  4 19 22 16 11 17  3 18  5 24  7 15 21 12  2 10  9 13 14</code></pre>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="veri-yapıları-ve-veri-tipleri.html#cb175-1" tabindex="-1"></a>vec[<span class="dv">12</span>]</span></code></pre></div>
+<pre><code>## [1] 17</code></pre>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="veri-yapıları-ve-veri-tipleri.html#cb177-1" tabindex="-1"></a>vec[<span class="dv">10</span><span class="sc">:</span><span class="dv">12</span>]</span></code></pre></div>
+<pre><code>## [1] 16 11 17</code></pre>
+<p>NOT: Vektör oluştururken, vektörde yer alan tüm verilerin aynı tipte olmasına dikkat edilmelidir. Eğer vektörde yer alan veriler içerisinde karakter olarak tanımlanan herhangi bir değer yer alırsa, R programı bu vektörü aşağıda verilen <code>x vektörü</code> gibi karakter veri türünde tanımlayacaktır.</p>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="veri-yapıları-ve-veri-tipleri.html#cb179-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="st">&quot;a&quot;</span>)</span>
+<span id="cb179-2"><a href="veri-yapıları-ve-veri-tipleri.html#cb179-2" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>## [1] &quot;1&quot; &quot;2&quot; &quot;a&quot;</code></pre>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="veri-yapıları-ve-veri-tipleri.html#cb181-1" tabindex="-1"></a><span class="fu">typeof</span>(x)</span></code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+</div>
+<div id="matrisler" class="section level3 hasAnchor" number="3.2.2">
+<h3><span class="header-section-number">3.2.2</span> Matrisler<a href="veri-yapıları-ve-veri-tipleri.html#matrisler" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>R programında matrisler bir dizi veri içeren iki (satır ve sütun) boyutlu veri yapılarıdır. Matrislerde bir araya getirilen veriler sayısal (tamsayı veya double), mantıksal, karakter veya kompleks olabilir. R programında matrisler, <code>matrix(değerler, satır sayısı, sütun sayısı)</code> fonksiyonuyla oluşturulur. Matrisler tek boyutlu vektörlerden oluşturulduğundan matrisin satır ve sütun bilgilerinin belirtilmesi gerekir. Ayrıca, matrisin değerleri satır satır yerleştirilecek ise <code>byrow = TRUE</code> komutu da kullanılmalıdır. Komut <code>byrow = FALSE</code> olduğunda matrisin alacağı değerler sütun sütun yerleştirilecektir. R programında matrisler ve matris işlemleriyle ilgili detaylı bilgiler Bölüm IV‘de verilmiştir.</p>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="veri-yapıları-ve-veri-tipleri.html#cb183-1" tabindex="-1"></a>matris <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>), <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb183-2"><a href="veri-yapıları-ve-veri-tipleri.html#cb183-2" tabindex="-1"></a>matris</span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]    1    2
+## [2,]    3    4
+## [3,]    5    6</code></pre>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="veri-yapıları-ve-veri-tipleri.html#cb185-1" tabindex="-1"></a><span class="fu">typeof</span>(matris)</span></code></pre></div>
+<pre><code>## [1] &quot;double&quot;</code></pre>
+</div>
+<div id="diziler" class="section level3 hasAnchor" number="3.2.3">
+<h3><span class="header-section-number">3.2.3</span> Diziler<a href="veri-yapıları-ve-veri-tipleri.html#diziler" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>R programında diziler bir veya birden fazla aynı boyutta matris içeren çok boyutlu veri yapılarıdır. Matris ve vektörlerde olduğu gibi dizilerin elemanları aynı tipten (sayısal, mantıksal, karakter veya kompleks) olmalıdır. R programında diziler, <code>array(veri, dim=c(satır sayısı, sütun sayısı, matris sayısı), dimnames=NULL)</code> fonksiyonuyla oluşturulur. Fonksiyonda, <code>veri</code>: dizi değerlerini oluşturacak vektörü, <code>dim</code>: dizide yer alacak matrislerin boyutunu ve matris sayısını ve <code>dimnames</code>: boyutların isimlerini belirtir.</p>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="veri-yapıları-ve-veri-tipleri.html#cb187-1" tabindex="-1"></a><span class="co"># 2x3 boyutunda 2 matris (N ve M) içeren w dizi değişkeni</span></span>
+<span id="cb187-2"><a href="veri-yapıları-ve-veri-tipleri.html#cb187-2" tabindex="-1"></a>w <span class="ot">&lt;-</span> <span class="fu">array</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">dim=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">2</span>), </span>
+<span id="cb187-3"><a href="veri-yapıları-ve-veri-tipleri.html#cb187-3" tabindex="-1"></a>           <span class="at">dimnames=</span><span class="fu">list</span>(<span class="fu">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>), <span class="fu">c</span>(<span class="st">&quot;X&quot;</span>,<span class="st">&quot;Y&quot;</span>,<span class="st">&quot;Z&quot;</span>), <span class="fu">c</span>(<span class="st">&quot;N&quot;</span>,<span class="st">&quot;M&quot;</span>))) </span>
+<span id="cb187-4"><a href="veri-yapıları-ve-veri-tipleri.html#cb187-4" tabindex="-1"></a>w</span></code></pre></div>
+<pre><code>## , , N
+## 
+##   X Y Z
+## A 1 3 5
+## B 2 4 6
+## 
+## , , M
+## 
+##   X  Y  Z
+## A 7  9 11
+## B 8 10 12</code></pre>
+<p>Matematiksel ifadelerde diziler kullanıldığında, vektör ve matrislerde olduğu gibi işlemler element element gerçekleştirilir.</p>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="veri-yapıları-ve-veri-tipleri.html#cb189-1" tabindex="-1"></a>w <span class="ot">&lt;-</span> <span class="fu">array</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">dim=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">2</span>), </span>
+<span id="cb189-2"><a href="veri-yapıları-ve-veri-tipleri.html#cb189-2" tabindex="-1"></a>           <span class="at">dimnames=</span><span class="fu">list</span>(<span class="fu">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>), <span class="fu">c</span>(<span class="st">&quot;X&quot;</span>,<span class="st">&quot;Y&quot;</span>,<span class="st">&quot;Z&quot;</span>), <span class="fu">c</span>(<span class="st">&quot;N&quot;</span>,<span class="st">&quot;M&quot;</span>))) </span>
+<span id="cb189-3"><a href="veri-yapıları-ve-veri-tipleri.html#cb189-3" tabindex="-1"></a><span class="co"># w dizisinde yer alan 1. matrisin 2. satır ve 3. sütununda bulunan değer</span></span>
+<span id="cb189-4"><a href="veri-yapıları-ve-veri-tipleri.html#cb189-4" tabindex="-1"></a>w[<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>]</span></code></pre></div>
+<pre><code>## [1] 6</code></pre>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="veri-yapıları-ve-veri-tipleri.html#cb191-1" tabindex="-1"></a><span class="co"># w dizisindeki N ve M matrislerindeki Y sütunda bulunan değerler</span></span>
+<span id="cb191-2"><a href="veri-yapıları-ve-veri-tipleri.html#cb191-2" tabindex="-1"></a>w[ , <span class="st">&quot;Y&quot;</span>, ]</span></code></pre></div>
+<pre><code>##   N  M
+## A 3  9
+## B 4 10</code></pre>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="veri-yapıları-ve-veri-tipleri.html#cb193-1" tabindex="-1"></a><span class="co"># w dizisindeki M matrisindeki 1. ve 2. satırında bulunan değerler</span></span>
+<span id="cb193-2"><a href="veri-yapıları-ve-veri-tipleri.html#cb193-2" tabindex="-1"></a>w[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, ,<span class="st">&quot;M&quot;</span>] </span></code></pre></div>
+<pre><code>##   X  Y  Z
+## A 7  9 11
+## B 8 10 12</code></pre>
+</div>
+<div id="listeler" class="section level3 hasAnchor" number="3.2.4">
+<h3><span class="header-section-number">3.2.4</span> Listeler<a href="veri-yapıları-ve-veri-tipleri.html#listeler" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>R programında listeler dizilerin daha genel bir formu olup, farklı veri tipinde ve boyutta elemanlara (vektör, matris vb.) sahip olan veri yapılarıdır. <code>list()</code> fonksiyonu kullanılarak istenilen tüm aynı veya farklı türde ve boyutta olan veri yapıları liste veri yapısı bünyesinde bir araya getirilebilir. Aşağıda verilen örnekte <code>num</code> sayısal vektörü, “<code>Ali</code>” karakter değişkeni ve 2x2 boyutundaki identity matrisi <code>x</code> listesi içerisinde bir araya getirilmiştir.</p>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="veri-yapıları-ve-veri-tipleri.html#cb195-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">num=</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), <span class="st">&quot;Ali&quot;</span>, <span class="at">identity=</span><span class="fu">diag</span>(<span class="dv">2</span>)) </span>
+<span id="cb195-2"><a href="veri-yapıları-ve-veri-tipleri.html#cb195-2" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>## $num
+## [1] 1 2 3
+## 
+## [[2]]
+## [1] &quot;Ali&quot;
+## 
+## $identity
+##      [,1] [,2]
+## [1,]    1    0
+## [2,]    0    1</code></pre>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="veri-yapıları-ve-veri-tipleri.html#cb197-1" tabindex="-1"></a><span class="fu">typeof</span>(x)</span></code></pre></div>
+<pre><code>## [1] &quot;list&quot;</code></pre>
+<p>Listenin elemanlarına ulaşabilmek için [ ], [[ ]] ve $ işareti kullanılabilir</p>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="veri-yapıları-ve-veri-tipleri.html#cb199-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">num=</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), <span class="st">&quot;Ali&quot;</span>, <span class="at">identity=</span><span class="fu">diag</span>(<span class="dv">2</span>)) </span>
+<span id="cb199-2"><a href="veri-yapıları-ve-veri-tipleri.html#cb199-2" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>## $num
+## [1] 1 2 3
+## 
+## [[2]]
+## [1] &quot;Ali&quot;
+## 
+## $identity
+##      [,1] [,2]
+## [1,]    1    0
+## [2,]    0    1</code></pre>
+<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="veri-yapıları-ve-veri-tipleri.html#cb201-1" tabindex="-1"></a><span class="co"># x listesinin ikinci elemanı</span></span>
+<span id="cb201-2"><a href="veri-yapıları-ve-veri-tipleri.html#cb201-2" tabindex="-1"></a>x[[<span class="dv">2</span>]]</span></code></pre></div>
+<pre><code>## [1] &quot;Ali&quot;</code></pre>
+<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="veri-yapıları-ve-veri-tipleri.html#cb203-1" tabindex="-1"></a><span class="co"># x listesinin “num” isimli elemanı</span></span>
+<span id="cb203-2"><a href="veri-yapıları-ve-veri-tipleri.html#cb203-2" tabindex="-1"></a>x[[<span class="st">&quot;num&quot;</span>]]             </span></code></pre></div>
+<pre><code>## [1] 1 2 3</code></pre>
+<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="veri-yapıları-ve-veri-tipleri.html#cb205-1" tabindex="-1"></a><span class="co"># x listesinin “identity” isimli elemanı</span></span>
+<span id="cb205-2"><a href="veri-yapıları-ve-veri-tipleri.html#cb205-2" tabindex="-1"></a>x<span class="sc">$</span>identity             </span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]    1    0
+## [2,]    0    1</code></pre>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="veri-yapıları-ve-veri-tipleri.html#cb207-1" tabindex="-1"></a><span class="co"># x listesinin 3. elemanının 1. satırı</span></span>
+<span id="cb207-2"><a href="veri-yapıları-ve-veri-tipleri.html#cb207-2" tabindex="-1"></a>x[[<span class="dv">3</span>]][<span class="dv">1</span>,]</span></code></pre></div>
+<pre><code>## [1] 1 0</code></pre>
+<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="veri-yapıları-ve-veri-tipleri.html#cb209-1" tabindex="-1"></a><span class="co"># x listesinin ilk iki elemanından oluşan bir alt liste</span></span>
+<span id="cb209-2"><a href="veri-yapıları-ve-veri-tipleri.html#cb209-2" tabindex="-1"></a>x[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]</span></code></pre></div>
+<pre><code>## $num
+## [1] 1 2 3
+## 
+## [[2]]
+## [1] &quot;Ali&quot;</code></pre>
+</div>
+<div id="faktörler" class="section level3 hasAnchor" number="3.2.5">
+<h3><span class="header-section-number">3.2.5</span> Faktörler<a href="veri-yapıları-ve-veri-tipleri.html#fakt%C3%B6rler" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>R programında faktörler, bir dizi karakter veya tamsayı veri tipinde kategorik veri içeren tek boyutlu veri yapılarıdır. <code>factor()</code> fonksiyonu kullanılarak mevcut veriler, faktör veri yapısına dönüştürülebilir ve birbirinden farklı eleman sayısı <code>nlevels()</code> fonksiyonu kullanılarak belirlenebilir. Faktör veri yapısı istatistiksel analizlerde değişken tanımlamada çok kullanılan yapılardır.</p>
+<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="veri-yapıları-ve-veri-tipleri.html#cb211-1" tabindex="-1"></a>degisken <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;ahmet&quot;</span>,<span class="st">&quot;mehmet&quot;</span>,<span class="st">&quot;ali&quot;</span>,<span class="st">&quot;ahmet&quot;</span>,<span class="st">&quot;ahmet&quot;</span>,<span class="st">&quot;ali&quot;</span>,<span class="st">&quot;veli&quot;</span>,<span class="st">&quot;mehmet&quot;</span>)</span>
+<span id="cb211-2"><a href="veri-yapıları-ve-veri-tipleri.html#cb211-2" tabindex="-1"></a>factor_degisken <span class="ot">&lt;-</span> <span class="fu">factor</span>(degisken)</span>
+<span id="cb211-3"><a href="veri-yapıları-ve-veri-tipleri.html#cb211-3" tabindex="-1"></a>factor_degisken</span></code></pre></div>
+<pre><code>## [1] ahmet  mehmet ali    ahmet  ahmet  ali    veli   mehmet
+## Levels: ahmet ali mehmet veli</code></pre>
+<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="veri-yapıları-ve-veri-tipleri.html#cb213-1" tabindex="-1"></a><span class="fu">nlevels</span>(factor_degisken)</span></code></pre></div>
+<pre><code>## [1] 4</code></pre>
+<p>R programda <code>gl(n, k, labels)</code> fonksiyonu kullanılarak faktör veri yapısında değişkenler oluşturulabilir. Bu fonksiyonda <code>n</code>: tam sayı olmalıdır ve faktör değişkenindeki seviye sayısını, <code>k</code>: tam sayı olmalıdır ve faktör değişkenindeki seviyelerin tekrar sayısını ve <code>labels</code>: faktör değişkeninde yer alan seviyelerin etiketlerinin içeren bir vektörü belirtmektedir.</p>
+<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="veri-yapıları-ve-veri-tipleri.html#cb215-1" tabindex="-1"></a>grup <span class="ot">=</span> <span class="fu">gl</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>))</span>
+<span id="cb215-2"><a href="veri-yapıları-ve-veri-tipleri.html#cb215-2" tabindex="-1"></a>grup</span></code></pre></div>
+<pre><code>##  [1] A A A A A B B B B B
+## Levels: A B</code></pre>
+</div>
+<div id="veri-çerçeveleri" class="section level3 hasAnchor" number="3.2.6">
+<h3><span class="header-section-number">3.2.6</span> Veri Çerçeveleri<a href="veri-yapıları-ve-veri-tipleri.html#veri-%C3%A7er%C3%A7eveleri" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>R programında veri çerçeveleri matrisler gibi iki boyutlu olup farklı veri tiplerini (sayısal, mantıksal, karakter veya kompleks) aynı boyutta vektörler (sütunlar) halinde bünyesinde bulunduran veri yapılarıdır. Veri çerçeveleri aynı zamanda aşağıda verilen örnekte de olduğu gibi aynı veya farklı veri tiplerinin (değişkenlerin) tablo halinde bir araya getirilmesi olarak da düşünülebilir. <code>data.frame()</code> fonksiyonu kullanılarak, veri tiplerine bakılmaksızın boyutları aynı olan vektörler tablo formatında veri çerçevesi olarak bir araya getirilebilir.</p>
+<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="veri-yapıları-ve-veri-tipleri.html#cb217-1" tabindex="-1"></a>isim <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;Ahmet&quot;</span>,<span class="st">&quot;Mehmet&quot;</span>,<span class="st">&quot;Veli&quot;</span>)</span>
+<span id="cb217-2"><a href="veri-yapıları-ve-veri-tipleri.html#cb217-2" tabindex="-1"></a>satislari <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">120000</span>,<span class="dv">140000</span>,<span class="dv">100000</span>)</span>
+<span id="cb217-3"><a href="veri-yapıları-ve-veri-tipleri.html#cb217-3" tabindex="-1"></a>karoranlari <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">25.5</span>,<span class="dv">22</span>,<span class="fl">38.75</span>)</span>
+<span id="cb217-4"><a href="veri-yapıları-ve-veri-tipleri.html#cb217-4" tabindex="-1"></a>aktifdurumlari <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;Evet&quot;</span>,<span class="st">&quot;Hayir&quot;</span>,<span class="st">&quot;Evet&quot;</span>)</span>
+<span id="cb217-5"><a href="veri-yapıları-ve-veri-tipleri.html#cb217-5" tabindex="-1"></a></span>
+<span id="cb217-6"><a href="veri-yapıları-ve-veri-tipleri.html#cb217-6" tabindex="-1"></a>FinansVerileri <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(isim, satislari, karoranlari, aktifdurumlari)</span>
+<span id="cb217-7"><a href="veri-yapıları-ve-veri-tipleri.html#cb217-7" tabindex="-1"></a>FinansVerileri</span></code></pre></div>
+<pre><code>##     isim satislari karoranlari aktifdurumlari
+## 1  Ahmet    120000       25.50           Evet
+## 2 Mehmet    140000       22.00          Hayir
+## 3   Veli    100000       38.75           Evet</code></pre>
+<p>Yukarıda oluşturulan <code>FinansVerileri</code> veri çerçevesinde olduğu gibi R programında veri çerçevelerinde:</p>
+<ul>
+<li>Sütun isimleri R programında değişken isimleri için geçerli olan kurallar dikkate alınarak oluşturulmalı ve boş bırakılmamalıdır</li>
+<li>Satır isimleri de farklı olmalıdır</li>
+<li>Veri çerçevesinde oluşturulan veri seti sayısal, mantıksal, karakter veya kompleks veri tiplerini sütunlar halinde karışı olarak içerebilir</li>
+<li>Veri çerçevelerinde her sütun aynı boyutta veri içermelidir
+Veri çerçevelerindeki sütun değerlerine veya bireysel değerlere ulaşabilmek için [ ] veya $ işareti kullanılabilir.</li>
+</ul>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="veri-yapıları-ve-veri-tipleri.html#cb219-1" tabindex="-1"></a>isim <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;Ahmet&quot;</span>,<span class="st">&quot;Mehmet&quot;</span>,<span class="st">&quot;Veli&quot;</span>)</span>
+<span id="cb219-2"><a href="veri-yapıları-ve-veri-tipleri.html#cb219-2" tabindex="-1"></a>satislari <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">120000</span>,<span class="dv">140000</span>,<span class="dv">100000</span>)</span>
+<span id="cb219-3"><a href="veri-yapıları-ve-veri-tipleri.html#cb219-3" tabindex="-1"></a>karoranlari <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">25.5</span>,<span class="dv">22</span>,<span class="fl">38.75</span>)</span>
+<span id="cb219-4"><a href="veri-yapıları-ve-veri-tipleri.html#cb219-4" tabindex="-1"></a>aktifdurumlari <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;Evet&quot;</span>,<span class="st">&quot;Hayir&quot;</span>,<span class="st">&quot;Evet&quot;</span>)</span>
+<span id="cb219-5"><a href="veri-yapıları-ve-veri-tipleri.html#cb219-5" tabindex="-1"></a></span>
+<span id="cb219-6"><a href="veri-yapıları-ve-veri-tipleri.html#cb219-6" tabindex="-1"></a>FinansVerileri <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(isim, satislari, karoranlari, aktifdurumlari)</span>
+<span id="cb219-7"><a href="veri-yapıları-ve-veri-tipleri.html#cb219-7" tabindex="-1"></a>FinansVerileri</span></code></pre></div>
+<pre><code>##     isim satislari karoranlari aktifdurumlari
+## 1  Ahmet    120000       25.50           Evet
+## 2 Mehmet    140000       22.00          Hayir
+## 3   Veli    100000       38.75           Evet</code></pre>
+<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="veri-yapıları-ve-veri-tipleri.html#cb221-1" tabindex="-1"></a><span class="co"># FinansVerileri veri çerçevesinde sütunun değerleri aşağıda verilen farklı şekillerde elde edilebilir </span></span>
+<span id="cb221-2"><a href="veri-yapıları-ve-veri-tipleri.html#cb221-2" tabindex="-1"></a>FinansVerileri[<span class="dv">1</span>]</span></code></pre></div>
+<pre><code>##     isim
+## 1  Ahmet
+## 2 Mehmet
+## 3   Veli</code></pre>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="veri-yapıları-ve-veri-tipleri.html#cb223-1" tabindex="-1"></a>FinansVerileri[,<span class="dv">1</span>]</span></code></pre></div>
+<pre><code>## [1] &quot;Ahmet&quot;  &quot;Mehmet&quot; &quot;Veli&quot;</code></pre>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="veri-yapıları-ve-veri-tipleri.html#cb225-1" tabindex="-1"></a>FinansVerileri<span class="sc">$</span>isim</span></code></pre></div>
+<pre><code>## [1] &quot;Ahmet&quot;  &quot;Mehmet&quot; &quot;Veli&quot;</code></pre>
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="veri-yapıları-ve-veri-tipleri.html#cb227-1" tabindex="-1"></a><span class="co"># FinansVerileri veri çerçevesinde gözlem değerleri aşağıda verilen farklı şekillerde elde edilebilir </span></span>
+<span id="cb227-2"><a href="veri-yapıları-ve-veri-tipleri.html#cb227-2" tabindex="-1"></a>FinansVerileri[<span class="dv">1</span>,<span class="dv">2</span>]</span></code></pre></div>
+<pre><code>## [1] 120000</code></pre>
+<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="veri-yapıları-ve-veri-tipleri.html#cb229-1" tabindex="-1"></a>FinansVerileri<span class="sc">$</span>satislari[<span class="dv">1</span>]</span></code></pre></div>
+<pre><code>## [1] 120000</code></pre>
+</div>
+</div>
+<div id="çıktıların-yazdırılması-print-ve-cat-fonksiyonları" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Çıktıların Yazdırılması <code>print()</code> ve <code>cat()</code> Fonksiyonları<a href="veri-yapıları-ve-veri-tipleri.html#%C3%A7%C4%B1kt%C4%B1lar%C4%B1n-yazd%C4%B1r%C4%B1lmas%C4%B1-print-ve-cat-fonksiyonlar%C4%B1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>R programında çıktıların veya nesnelerin ekrana veya dosyaya yazdırılmasında <code>print()</code> veya <code>cat()</code> fonksiyonları kullanılır.</p>
+<div id="print-fonksiyonu" class="section level3 hasAnchor" number="3.3.1">
+<h3><span class="header-section-number">3.3.1</span> print() Fonksiyonu<a href="veri-yapıları-ve-veri-tipleri.html#print-fonksiyonu" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>R programında oluşturulan farklı veya aynı veri tiplerini (sayısal, mantıksal, karakter veya kompleks) içeren veri yapıları veya analiz çıktıları <code>print()</code> fonksiyonu ile yazdırılabilir.</p>
+<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="veri-yapıları-ve-veri-tipleri.html#cb231-1" tabindex="-1"></a><span class="co"># &quot;Merhaba dünya&quot; ifadesi &quot; &quot; içerisinde ekrana yazdırılmaktadır</span></span>
+<span id="cb231-2"><a href="veri-yapıları-ve-veri-tipleri.html#cb231-2" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;Merhaba dünya&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;Merhaba dünya&quot;</code></pre>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="veri-yapıları-ve-veri-tipleri.html#cb233-1" tabindex="-1"></a><span class="co"># B numerik nesnesinin ekrana yazdırılması</span></span>
+<span id="cb233-2"><a href="veri-yapıları-ve-veri-tipleri.html#cb233-2" tabindex="-1"></a>B <span class="ot">&lt;-</span> <span class="dv">3</span> <span class="sc">+</span> <span class="dv">5</span></span>
+<span id="cb233-3"><a href="veri-yapıları-ve-veri-tipleri.html#cb233-3" tabindex="-1"></a><span class="fu">print</span>(B)</span></code></pre></div>
+<pre><code>## [1] 8</code></pre>
+<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="veri-yapıları-ve-veri-tipleri.html#cb235-1" tabindex="-1"></a><span class="co"># B numerik nesnesinin paste() fonksiyonu ile ekrana yazdırılması</span></span>
+<span id="cb235-2"><a href="veri-yapıları-ve-veri-tipleri.html#cb235-2" tabindex="-1"></a>B <span class="ot">&lt;-</span> <span class="dv">3</span> <span class="sc">+</span> <span class="dv">5</span></span>
+<span id="cb235-3"><a href="veri-yapıları-ve-veri-tipleri.html#cb235-3" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;B değişkeninin değeri: &quot;</span>, B))</span></code></pre></div>
+<pre><code>## [1] &quot;B değişkeninin değeri:  8&quot;</code></pre>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="veri-yapıları-ve-veri-tipleri.html#cb237-1" tabindex="-1"></a><span class="co"># A matrisi de matris formatında ekrana yazdırılmaktadır</span></span>
+<span id="cb237-2"><a href="veri-yapıları-ve-veri-tipleri.html#cb237-2" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="dv">3</span>, <span class="dv">3</span>)</span>
+<span id="cb237-3"><a href="veri-yapıları-ve-veri-tipleri.html#cb237-3" tabindex="-1"></a><span class="fu">print</span>(A)</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    4    7
+## [2,]    2    5    8
+## [3,]    3    6    9</code></pre>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="veri-yapıları-ve-veri-tipleri.html#cb239-1" tabindex="-1"></a><span class="co"># insan veri seti de ekrana data.frame formatında yazdırılmaktadır</span></span>
+<span id="cb239-2"><a href="veri-yapıları-ve-veri-tipleri.html#cb239-2" tabindex="-1"></a>insan <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">No=</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>), </span>
+<span id="cb239-3"><a href="veri-yapıları-ve-veri-tipleri.html#cb239-3" tabindex="-1"></a>                    <span class="at">Cinsiyet=</span><span class="fu">c</span>(<span class="st">&quot;Erkek&quot;</span>,<span class="st">&quot;Dişi&quot;</span>,<span class="st">&quot;Erkek&quot;</span>,<span class="st">&quot;Dişi&quot;</span>,<span class="st">&quot;Dişi&quot;</span>),</span>
+<span id="cb239-4"><a href="veri-yapıları-ve-veri-tipleri.html#cb239-4" tabindex="-1"></a>                    <span class="at">Boy=</span><span class="fu">c</span>(<span class="dv">190</span>, <span class="dv">170</span>, <span class="dv">175</span>, <span class="dv">180</span>, <span class="dv">173</span>))</span>
+<span id="cb239-5"><a href="veri-yapıları-ve-veri-tipleri.html#cb239-5" tabindex="-1"></a><span class="fu">print</span>(insan)</span></code></pre></div>
+<pre><code>##   No Cinsiyet Boy
+## 1  1    Erkek 190
+## 2  2     Dişi 170
+## 3  3    Erkek 175
+## 4  4     Dişi 180
+## 5  5     Dişi 173</code></pre>
+</div>
+<div id="cat-fonksiyonu" class="section level3 hasAnchor" number="3.3.2">
+<h3><span class="header-section-number">3.3.2</span> cat() Fonksiyonu<a href="veri-yapıları-ve-veri-tipleri.html#cat-fonksiyonu" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>R programında, sayısal, mantıksal, karakter veya kompleks veri tipinde oluşturulan değişkenler <code>cat()</code> fonksiyonu ile yazdırılabilir. <code>cat()</code> fonksiyonu ile arka arkaya iki satırda yazdırılmak istenen ifadeler olduğunda, birleştirerek yazdırılmaktadır. Bunu önlemek ve yeni satıra yazdırmak için <code>cat()</code> içerisindeki ifadenin sonuna “<code>\n</code>” eklenmelidir. <code>cat()</code> fonksiyonu içerisinde <code>paste()</code> fonksiyonu kullanılarak da ifadeler birleştirilerek yazdırılabilir.</p>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="veri-yapıları-ve-veri-tipleri.html#cb241-1" tabindex="-1"></a><span class="co"># &quot;Merhaba dünya&quot; ifadesi &quot; &quot; olmadan ekrana yazdırılmaktadır</span></span>
+<span id="cb241-2"><a href="veri-yapıları-ve-veri-tipleri.html#cb241-2" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Merhaba dünya </span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<pre><code>## Merhaba dünya</code></pre>
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="veri-yapıları-ve-veri-tipleri.html#cb243-1" tabindex="-1"></a><span class="co"># B numerik nesnesinin ekrana yazdırılması</span></span>
+<span id="cb243-2"><a href="veri-yapıları-ve-veri-tipleri.html#cb243-2" tabindex="-1"></a>B <span class="ot">&lt;-</span> <span class="dv">3</span> <span class="sc">+</span> <span class="dv">5</span></span>
+<span id="cb243-3"><a href="veri-yapıları-ve-veri-tipleri.html#cb243-3" tabindex="-1"></a><span class="fu">cat</span>(B, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<pre><code>## 8</code></pre>
+<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="veri-yapıları-ve-veri-tipleri.html#cb245-1" tabindex="-1"></a><span class="co"># B numerik nesnesinin paste() fonksiyonu ile ekrana yazdırılması</span></span>
+<span id="cb245-2"><a href="veri-yapıları-ve-veri-tipleri.html#cb245-2" tabindex="-1"></a>B <span class="ot">&lt;-</span> <span class="dv">3</span> <span class="sc">+</span> <span class="dv">5</span></span>
+<span id="cb245-3"><a href="veri-yapıları-ve-veri-tipleri.html#cb245-3" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">paste</span>(<span class="st">&quot;B değişkeninin değeri: &quot;</span>, B, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>))</span></code></pre></div>
+<pre><code>## B değişkeninin değeri:  8</code></pre>
+<p><code>cat()</code> fonksiyonu ile matris veya veri çerçevesi gibi veri yapısında oluşturulan nesneler istenilen formatta yazdırılamamakta veya hata oluşmaktadır. Veri yapılarının yazdırılabilmesi için <code>print()</code> fonksiyonu kullanılmalıdır.</p>
+<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="veri-yapıları-ve-veri-tipleri.html#cb247-1" tabindex="-1"></a><span class="co"># A matrisi de matris formatında ekrana yazdırılmaktadır</span></span>
+<span id="cb247-2"><a href="veri-yapıları-ve-veri-tipleri.html#cb247-2" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="dv">3</span>, <span class="dv">3</span>)</span>
+<span id="cb247-3"><a href="veri-yapıları-ve-veri-tipleri.html#cb247-3" tabindex="-1"></a><span class="fu">cat</span>(A, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<pre><code>## 1 2 3 4 5 6 7 8 9</code></pre>
+<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="veri-yapıları-ve-veri-tipleri.html#cb249-1" tabindex="-1"></a><span class="co"># insan veri seti de ekrana data.frame formatında yazdırılmaktadır</span></span>
+<span id="cb249-2"><a href="veri-yapıları-ve-veri-tipleri.html#cb249-2" tabindex="-1"></a>insan <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">No=</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>), </span>
+<span id="cb249-3"><a href="veri-yapıları-ve-veri-tipleri.html#cb249-3" tabindex="-1"></a>                    <span class="at">Cinsiyet=</span><span class="fu">c</span>(<span class="st">&quot;Erkek&quot;</span>,<span class="st">&quot;Dişi&quot;</span>,<span class="st">&quot;Erkek&quot;</span>,<span class="st">&quot;Dişi&quot;</span>,<span class="st">&quot;Dişi&quot;</span>),</span>
+<span id="cb249-4"><a href="veri-yapıları-ve-veri-tipleri.html#cb249-4" tabindex="-1"></a>                    <span class="at">Boy=</span><span class="fu">c</span>(<span class="dv">190</span>, <span class="dv">170</span>, <span class="dv">175</span>, <span class="dv">180</span>, <span class="dv">173</span>))</span>
+<span id="cb249-5"><a href="veri-yapıları-ve-veri-tipleri.html#cb249-5" tabindex="-1"></a><span class="fu">cat</span>(insan, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<pre><code>## Error in `cat()`:
+## ! argument 1 (type &#39;list&#39;) cannot be handled by &#39;cat&#39;</code></pre>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="genel-kurallar-ve-komutlar.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="matrisler-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/rstudio/bookdown-demo/edit/master/03-VeriYapi.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["R Program.pdf", "R Program.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
